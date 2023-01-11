@@ -2,21 +2,21 @@ import React from "react";
 
 const Membership = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mx-10">
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row gap-10">
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/559d2af4e4b0480839fa03d6/7a1a616d-ff74-4056-ae0e-e9d19aeac3a7/GIF-FOR-PEAK-WILDLIFE-PARK-2.gif"
+              src="https://finwave.co/images/gif/Why_Us-1.gif"
               className="rounded-lg"
               alt=""
             />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <h1 className="text-5xl font-bold">
               Interested to be our member???
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-justify">
               As a member, you will be able to take an active role in our events
               and campaigns carried out throughout the year. Our upcoming
               activities are available to you on our calendar, social media and
