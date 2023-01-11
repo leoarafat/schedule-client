@@ -1,16 +1,20 @@
-import React from 'react';
-import SignUp from '../SignIn/SignIn';
-import Header from './Header/Header';
-import Membership from './Membership/Membership';
+import React from "react";
+import Header from "./Header/Header";
+import Membership from "./Membership/Membership";
+
+import Services from "./Services/Services";
+
+import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {
-    return (
-        <div>
-            <Header></Header>
-            <Membership></Membership>
-            <SignUp/>
-        </div>
-    );
+  return (
+    <div>
+      <Header></Header>
+      <Services></Services>
+      <Membership></Membership>
+      <Sponsorship></Sponsorship>
+    </div>
+  );
 };
 
 export default Home;
