@@ -1,9 +1,12 @@
 import React from 'react';
+import Nav from '../../Shared/Nav/Nav';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div className='max-w-[1400px] mx-auto'>
-            <h1>This is main page </h1>
+        <div>
+            <Nav></Nav>
+            <Outlet></Outlet>
         </div>
     );
 };
