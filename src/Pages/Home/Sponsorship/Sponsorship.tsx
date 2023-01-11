@@ -19,7 +19,7 @@ const Sponsorship = () => {
                     <h2 className="text-center text-2xl font-bold md:text-4xl">
                         Our <span className="text-pink-600">Sponsorship</span></h2>
                     <div className="mt-12">
-                        <div className="flex flex-wrap justify-center gap-6">
+                        <div className="flex flex-wrap justify-center gap-6 md:gap-12">
                             {
                                 imagesrc.map((src, i) => {
                                     return (
@@ -29,7 +29,7 @@ const Sponsorship = () => {
                                         >
                                             <img
                                                 src={src}
-                                                className="contrast-0 transition group-hover:contrast-100 md:w-24 w-20"
+                                                className="contrast-0 group-hover:contrast-100 md:w-24 w-20 hover:w-28 transition-all transition-duration: 150ms;"
                                             />
                                         </div>
                                     )
