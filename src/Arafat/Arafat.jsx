@@ -4,6 +4,7 @@ const Arafat = () => {
     return (
         <div>
             <p>Arafat</p>
+            <h1>Hello</h1>
         </div>
     );
 };
