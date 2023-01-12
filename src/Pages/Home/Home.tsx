@@ -1,5 +1,7 @@
 import React from 'react';
-import SignUp from '../SignIn/SignIn';
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
+
 import Header from './Header/Header';
 import Membership from './Membership/Membership';
 
@@ -9,6 +11,7 @@ const Home = () => {
             <Header></Header>
             <Membership></Membership>
             <SignUp/>
+            <SignIn/>
         </div>
     );
 };
