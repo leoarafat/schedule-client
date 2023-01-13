@@ -16,14 +16,9 @@ const Services = () => {
           <div className="card-body pt-0 text-center">
             <h2 className="card-title mx-auto font-bold">Booking pages</h2>
             <p>
-              that connect leads and customers with the right people in your
-              team
+              that connect leads and customers with the right people in your team
             </p>
-            <div className="card-actions mx-auto py-3">
-              <button className="btn btn-secondary text-white w-32 rounded-full ">
-                Buy Now
-              </button>
-            </div>
+
           </div>
         </div>
 
@@ -31,21 +26,16 @@ const Services = () => {
           <figure className="pt-5 ">
             <img
               className="w-40 rounded-full bg-white"
-              src="https://i.ibb.co/FwMNWCj/Online-calendar-cuate.png"
+              src="https://i.ibb.co/yn5dfTk/Customer-Survey-rafiki.png"
               alt=""
             />
           </figure>
           <div className="card-body pt-0 text-center">
-            <h2 className="card-title mx-auto font-bold">Booking pages</h2>
+            <h2 className="card-title mx-auto font-bold">Automated forms</h2>
             <p>
-              that connect leads and customers with the right people in your
-              team
+              that instantly qualify and route visitors to the right people in your team
             </p>
-            <div className="card-actions mx-auto py-3">
-              <button className="btn btn-secondary text-white w-32 rounded-full ">
-                Buy Now
-              </button>
-            </div>
+
           </div>
         </div>
 
@@ -53,21 +43,17 @@ const Services = () => {
           <figure className="pt-5 ">
             <img
               className="w-40 rounded-full bg-white"
-              src="https://i.ibb.co/FwMNWCj/Online-calendar-cuate.png"
+              src="https://i.ibb.co/smhKkQp/Messaging-amico.png"
               alt=""
             />
           </figure>
           <div className="card-body pt-0 text-center">
-            <h2 className="card-title mx-auto font-bold">Booking pages</h2>
+            <h2 className="card-title mx-auto font-bold">Automated chatbots</h2>
             <p>
-              that connect leads and customers with the right people in your
-              team
+              that adds instant engagement options to
+              your existing webforms
             </p>
-            <div className="card-actions mx-auto py-3">
-              <button className="btn btn-secondary text-white w-32 rounded-full ">
-                Buy Now
-              </button>
-            </div>
+
           </div>
         </div>
 
@@ -75,21 +61,16 @@ const Services = () => {
           <figure className="pt-5 ">
             <img
               className="w-40 rounded-full bg-white"
-              src="https://i.ibb.co/FwMNWCj/Online-calendar-cuate.png"
+              src="https://i.ibb.co/JRX4gch/Chat-rafiki-1.png"
               alt=""
             />
           </figure>
           <div className="card-body pt-0 text-center">
-            <h2 className="card-title mx-auto font-bold">Booking pages</h2>
+            <h2 className="card-title mx-auto font-bold">Webform plug-in</h2>
             <p>
-              that connect leads and customers with the right people in your
-              team
+              that instantly qualify and route visitors to the right people in your team
             </p>
-            <div className="card-actions mx-auto py-3">
-              <button className="btn btn-secondary text-white w-32 rounded-full ">
-                Buy Now
-              </button>
-            </div>
+
           </div>
         </div>
 
