@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Membership = () => {
   return (
@@ -25,7 +26,9 @@ const Membership = () => {
               just RM12 per annum and RM100 for lifetime membership. Register
               now to become a part of our family.
             </p>
+            <Link to={'/pricing'}>
             <button className="btn btn-primary">Click Here</button>
+            </Link>
           </div>
         </div>
       </div>
