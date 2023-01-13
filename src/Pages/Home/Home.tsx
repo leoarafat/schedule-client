@@ -16,7 +16,6 @@ const Home = () => {
       <Sponsorship></Sponsorship>
     </div>
   );
-
 };
 
 export default Home;
