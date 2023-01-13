@@ -1,5 +1,6 @@
 
 import React from "react";
+import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
 
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <Header></Header>
       <Services></Services>
+      <Details></Details>
       <Membership></Membership>
       <Sponsorship></Sponsorship>
     </div>
