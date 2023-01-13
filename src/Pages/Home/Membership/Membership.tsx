@@ -27,7 +27,7 @@ const Membership = () => {
               now to become a part of our family.
             </p>
             <Link to={'/pricing'}>
-            <button className="btn btn-primary">Click Here</button>
+              <button className="btn btn-primary">Click Here</button>
             </Link>
           </div>
         </div>
