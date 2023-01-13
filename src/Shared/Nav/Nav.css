@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid salmon;
+    border: 2px solid #0098da;
     margin: auto;
     border-radius: 50px;
     position: relative;
     width: 492px;
     text-align: center;
 }
+
 
 li {
     display: flex;
@@ -48,7 +49,7 @@ a:hover {
     top: 0;
     z-index: 0;
     border-radius: 25px;
-    background-color: salmon;
+    background-color: #0098da;
     transition: all .5s ease 0s;
     text-align: center;
     margin-top: 5px;
@@ -64,7 +65,7 @@ nav.start-home,
 li:nth-child(1):hover~.animation {
     width: 120px;
     left: 5px;
-    color: aqua;
+    color: #0098da;
 }
 
 
