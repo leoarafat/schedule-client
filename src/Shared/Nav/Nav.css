@@ -24,19 +24,22 @@ li:hover {
     color: white;
 }
 
-a {
+.link-style {
     text-align: center;
     font-weight: bold;
 
 }
 
-.no-hover {
-    pointer-events: none;
-    cursor: pointer;
+.no-hover:hover {
+    background-color: transparent;
 }
 
-a:hover {
+.link-style:hover {
     color: white;
+}
+
+.link-style:focus {
+    background-color: transparent;
 }
 
 .animation:hover {

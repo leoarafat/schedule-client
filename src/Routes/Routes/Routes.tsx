@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main/Main";
+import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
+import SignIn from "../../Pages/SignIn/SignIn";
+import SignUp from "../../Pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
     {
@@ -12,22 +15,36 @@ export const router = createBrowserRouter([
         // errorElement:
         children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/pricing',
+                path: '/pricing',
                 element: <Pricing></Pricing>
             },
             {
-                path:'/blog',
+                path: '/blog',
                 element: <Blog></Blog>
             },
             {
-                path:'/blogPost',
+                path: '/blogPost',
                 element: <BLogPost></BLogPost>
             },
-            
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
+            },
+
+
+
 
         ]
     }
