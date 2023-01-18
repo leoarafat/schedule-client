@@ -1,39 +1,85 @@
-import React from 'react';
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
-const SignIn = () => {
-	return (
-		<div>
-			<div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100 mx-auto mt-3">
-	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold">Sign in</h1>
-		<p className="text-sm text-gray-400">Sign in to access your account</p>
-	</div>
-	<form className="space-y-12 ng-untouched ng-pristine ng-valid">
-		<div className="space-y-4">
-			<div>
-				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-				<input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" />
-			</div>
-			<div>
-				<div className="flex justify-between mb-2">
-					<label htmlFor="password" className="text-sm">Password</label>
-					<a rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-400">Forgot password?</a>
-				</div>
-				<input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" />
-			</div>
-		</div>
-		<div className="space-y-2">
-			<div>
-				<button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">Sign in</button>
-			</div>
-			<p className="px-6 text-sm text-center text-gray-400">Already have an account yet?
-				<a rel="noopener noreferrer" href="/SignIn" className="hover:underline text-violet-400">Sign In</a>.
-			</p>
-		</div>
-	</form>
-</div>
-		</div>
-	);
+
+const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    console.log("click");
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user)
+        navigate(from, { replace: true });
+        form.reset()
+        setLoginError('')
+        // setSuccess('Successfully registered')
+        // toast.success('Successfully Register!')
+        // console.log(user);
+      })
+      .catch((err) => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        setLoginError(errorCode, errorMessage);
+        // toast.error(errorMessage)
+      });
+  };
+
+  return (
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <h1 className="text-5xl font-bold">Login now!</h1>
+          <p className="py-6"></p>
+        </div>
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={handleSignIn} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="text"
+                name="email"
+                placeholder="email"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary">Login</button>
+              <span>
+                Don't have an account? <Link to="/signup">Signup</Link>{" "}
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default SignIn;
+export default Login;
