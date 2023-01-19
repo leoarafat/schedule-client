@@ -1,3 +1,4 @@
+import TimeAndDate from "../Schedule/TimeAndDate/TimeAndDate";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -14,6 +15,7 @@ const Home = () => {
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
+
     </div>
   );
 };
