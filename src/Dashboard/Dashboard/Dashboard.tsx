@@ -177,7 +177,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -196,7 +196,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
