@@ -37,7 +37,7 @@ const Nav = () => {
                 </div>
                 {/* Small Screen nav items */}
 
-                <Link to={""} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Sign In</Link>
+                <Link to={"/signin"} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Sign In</Link>
             </div>
         </nav>
     );

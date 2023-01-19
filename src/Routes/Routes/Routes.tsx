@@ -3,6 +3,7 @@ import Main from "../../Layouts/Main/Main";
 import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
 
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -10,14 +11,13 @@ export const router = createBrowserRouter([
         // errorElement:
         children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/pricing',
+                path: '/pricing',
                 element: <Pricing></Pricing>
-            }
-            
+            },
 
         ]
     }
