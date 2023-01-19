@@ -1,4 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import Check from "../../Dashboard/Check/Check";
+import Dashboard from "../../Dashboard/Dashboard/Dashboard";
+
+import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
@@ -7,6 +11,7 @@ import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +47,13 @@ export const router = createBrowserRouter([
                 path: '/signin',
                 element: <SignIn></SignIn>
             },
-
+        ]
+    },
+    {
+        path: '/dashboard', element: <DashboardLayout/>, children: [
+            {
+                // path: '/dashboard', element: <Check/>
+            }
         ]
     }
 ]);
