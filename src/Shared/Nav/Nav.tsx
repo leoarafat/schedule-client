@@ -6,7 +6,7 @@ const Nav = () => {
     return (
         <nav className="navbar bg-base-100 flex items-center mt-5 max-w-[1300px] mx-auto">
             <div className="navbar-start">
-                <img src="https://i.ibb.co/MSsVHm1/logo.png" className='lg:w-6/12' alt="" />
+                <Link to={"/"}><img src="https://i.ibb.co/MSsVHm1/logo.png" className='lg:w-6/12' alt="" /></Link>
             </div>
 
             {/* Large Screen nav items */}
