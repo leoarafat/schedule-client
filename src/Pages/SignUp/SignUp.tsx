@@ -113,9 +113,9 @@ const SignUp = () => {
               >
                 <span className="text-base font-semibold">Register</span>
               </button>
-              <button className="py-4">
+              <Link to="/login" className="py-4">
                 <span className="text-sm tracking-wide text-sky-600">Already Have An Account?</span>
-              </button>
+              </Link>
             </div>
           </form>
         </div>
