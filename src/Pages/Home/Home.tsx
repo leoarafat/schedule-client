@@ -1,9 +1,9 @@
 
 import React from "react";
-import LogIn from "../LogIn/LogIn";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
+import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
 import Sponsorship from "./Sponsorship/Sponsorship";
 
@@ -15,7 +15,7 @@ const Home = () => {
       <Details></Details>
       <Membership></Membership>
       <Sponsorship></Sponsorship>
-      <LogIn />
+      <Reviews></Reviews>
     </div>
   );
 };
