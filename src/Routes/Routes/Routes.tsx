@@ -5,6 +5,9 @@ import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
+import SignIn from "../../Pages/SignIn/SignIn";
+import SignUp from "../../Pages/SignUp/SignUp";
+import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 
 
 
@@ -12,6 +15,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -35,7 +39,14 @@ export const router = createBrowserRouter([
                 path: '/about',
                 element: <About></About>
             },
-        
+            {
+                path: '/login',
+                element: <SignIn />
+            },
+            {
+                path: '/signup',
+                element: <SignUp />
+            }
         ]
     }
 ]);
