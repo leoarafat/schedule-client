@@ -12,10 +12,10 @@ const Nav = () => {
             {/* Large Screen nav items */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ul-style text-primary">
-                    <li><Link to={"/"} className="noo-hover link-style">Home</Link></li>
-                    <li><Link to={"/about"} className="noo-hover link-style">About</Link></li>
-                    <li><Link to={"/"} className="noo-hover link-style">Schedule</Link></li>
-                    <li><Link to={"/blog"} className="noo-hover link-style">Blog</Link></li>
+                    <li className='li-style'><Link to={"/"} className="noo-hover link-style">Home</Link></li>
+                    <li className='li-style'><Link to={"/about"} className="noo-hover link-style">About</Link></li>
+                    <li className='li-style'><Link to={"/"} className="noo-hover link-style">Schedule</Link></li>
+                    <li className='li-style'><Link to={"/blog"} className="noo-hover link-style">Blog</Link></li>
                     <div className="animation start-home"></div>
                 </ul>
             </div>
