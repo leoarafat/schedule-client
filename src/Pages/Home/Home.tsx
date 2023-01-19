@@ -1,5 +1,7 @@
 
 import React from "react";
+import SignIn from "../SignIn/SignIn";
+import SignUp from "../SignUp/SignUp";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";

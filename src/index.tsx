@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
 import App from "./App";
+import AuthProvider from "./components/Contexts/AuthProvider/AuthProvider";
 import "./index.css";
 
 const root = ReactDOM.createRoot(
@@ -8,6 +10,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+      <Toaster />
+    </AuthProvider>
   </React.StrictMode>
 );
