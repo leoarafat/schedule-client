@@ -1,143 +1,99 @@
-// import React, { createContext, ReactNode, useEffect, useState } from "react";
-
-// import {
-//   createUserWithEmailAndPassword,
-//   getAuth,
-//   GoogleAuthProvider,
-//   onAuthStateChanged,
-//   signInWithEmailAndPassword,
-//   signInWithPopup,
-//   signOut,
-//   updateProfile,
-// } from "firebase/auth";
-// import { app } from "../../../firebase/firebase.config";
-
-// export const AuthContext = createContext(null);
-// const auth = getAuth(app);
-// const googleProvider = new GoogleAuthProvider();
-
-// type PropsContext = {
-//   children: ReactNode
-// }
-
-// const AuthProvider = ({ children }: PropsContext) => {
-//   const [user, setUser] = useState<null | {}>(null);
-//   const [loading, setLoading] = useState(true);
-
-//   const createUser = (email: string, password: string) => {
-//     setLoading(true);
-//     return createUserWithEmailAndPassword(auth, email, password);
-//   };
-
-//   const signIn = (email: string, password: string) => {
-//     setLoading(true);
-//     return signInWithEmailAndPassword(auth, email, password);
-//   };
-
-//   const logOut = () => {
-//     setLoading(true);
-//     return signOut(auth);
-//   };
-//   useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-//       setUser(currentUser);
-//       setLoading(false);
-//     });
-
-//     return () => unsubscribe();
-//   }, []);
-//   const googleSignUp = () => {
-//     setLoading(true);
-//     return signInWithPopup(auth, googleProvider);
-//   };
-//   const updateUser = (profile: { displayName?: string | null | undefined; photoURL?: string | null | undefined; }) => {
-//     setLoading(true);
-//     return updateProfile(auth.currentUser, profile);
-//   };
-
-//   const authInfo = { user, loading, signIn, createUser, logOut, googleSignUp,updateUser };
-//   return (
-//     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-//   );
-// };
-
-// export default AuthProvider;
 import React, {
   ReactNode,
   useEffect,
   useState,
-  useContext,
-  createContext,
 } from 'react'
-import { auth } from '../config/firebase'
+
 import {
-  Auth,
-  UserCredential,
-  User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  getAuth,
+  GoogleAuthProvider,
+  updateProfile,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth'
+import { app } from '../../../firebase/firebase.config'
 
-export interface AuthProviderProps {
+const auth = getAuth(app)
+
+interface AuthProviderProps {
   children?: ReactNode
 }
 
-export interface UserContextState {
-  isAuthenticated: boolean
-  isLoading: boolean
-  id?: string
-}
+export const AuthContext = React.createContext({})
 
-export const UserStateContext = createContext<UserContextState>(
-  {} as UserContextState,
-)
-export interface AuthContextModel {
-  auth: Auth
-  user: User | null
-  signIn: (email: string, password: string) => Promise<UserCredential>
-  signUp: (email: string, password: string) => Promise<UserCredential>
-  sendPasswordResetEmail?: (email: string) => Promise<void>
-}
+const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
 
-export const AuthContext = React.createContext<AuthContextModel>(
-  {} as AuthContextModel,
-)
+  const [user, setUser] = useState<{} | null>(null);
+  const [loading, setLoading] = useState(true);
+  const googleProvider = new GoogleAuthProvider();
 
-export function useAuth(): AuthContextModel {
-  return useContext(AuthContext)
-}
+  // Register User
+  const RegisterUser = async (email: string, password: string, displayName: string) => {
+    setLoading(true)
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
-export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
-  const [user, setUser] = useState<User | null>(null)
+    const newUser = {
+      email: email,
+      displayName: displayName
+    };
 
-  function signUp(email: string, password: string): Promise<UserCredential> {
-    return createUserWithEmailAndPassword(auth, email, password)
+    setUser(newUser);
+
+    updateProfile(userCredential.user, {
+      displayName: displayName
+    }).then(() => { }).catch((error) => { });
   }
 
-  function signIn(email: string, password: string): Promise<UserCredential> {
-    return signInWithEmailAndPassword(auth, email, password)
-  }
-  function resetPassword(email: string): Promise<void> {
+  // google sign in
+  const googleSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // log in user
+  const logInUser = async (email: string, password: string) => {
+    setLoading(true)
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // sign out
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth)
+      .then(() => { })
+      .catch((err) => { console.error(err) });
+  };
+
+  // user observer
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (current) => {
+      setUser(current);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Reset password
+  const resetPassword = (email: string) => {
     return sendPasswordResetEmail(auth, email)
   }
-  useEffect(() => {
-    //function that firebase notifies you if a user is set
-    const unsubsrcibe = auth.onAuthStateChanged((user) => {
-      setUser(user)
-    })
-    return unsubsrcibe
-  }, [])
 
   const values = {
-    signUp,
     user,
-    signIn,
-    resetPassword,
     auth,
+    RegisterUser,
+    logInUser,
+    googleSignIn,
+    logOut,
+    resetPassword,
+    loading
   }
+
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }
 
-export const useUserContext = (): UserContextState => {
-  return useContext(UserStateContext)
+export default AuthProvider;
