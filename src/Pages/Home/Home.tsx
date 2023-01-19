@@ -1,12 +1,8 @@
-
-import React from "react";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
 import Reviews from "./Reviews/Reviews";
-
 import Services from "./Services/Services";
-
 import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {

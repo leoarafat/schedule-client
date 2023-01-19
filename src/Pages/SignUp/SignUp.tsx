@@ -116,6 +116,9 @@ const SignUp = () => {
               <button className="py-4">
                 <span className="text-sm tracking-wide text-sky-600">Already Have An Account?</span>
               </button>
+              <Link to="/login" className="py-4">
+                <span className="text-sm tracking-wide text-sky-600">Already Have An Account?</span>
+              </Link>
             </div>
           </form>
         </div>

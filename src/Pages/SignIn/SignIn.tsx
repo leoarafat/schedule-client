@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../components/Contexts/AuthProvider/AuthProvider';
 
 type UserSubmitForm = {
@@ -116,9 +118,13 @@ const SignIn = () => {
               >
                 <span className="text-base font-semibold">Log In</span>
               </button>
+
               <button className="py-4">
                 <span className="text-sm tracking-wide text-sky-600">Create New Account?</span>
               </button>
+              <Link to="/signup" className="py-4">
+                <span className="text-sm tracking-wide text-sky-600">Create New Account?</span>
+              </Link>
             </div>
           </form>
         </div>

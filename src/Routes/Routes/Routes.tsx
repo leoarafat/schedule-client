@@ -11,12 +11,16 @@ import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+
+
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -26,6 +30,7 @@ export const router = createBrowserRouter([
                 path: '/pricing',
                 element: <Pricing></Pricing>
             },
+
             {
                 path: '/blog',
                 element: <Blog></Blog>
@@ -40,8 +45,8 @@ export const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: '/signup',
-                element: <SignUp></SignUp>
+                path: '/login',
+                element: <SignIn />
             },
             {
                 path: '/signin',
@@ -53,6 +58,8 @@ export const router = createBrowserRouter([
         path: '/dashboard', element: <DashboardLayout/>, children: [
             {
                 // path: '/dashboard', element: <Check/>
+                path: '/signup',
+                element: <SignUp />
             }
         ]
     }
