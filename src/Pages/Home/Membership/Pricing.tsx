@@ -104,17 +104,14 @@ const Pricing = () => {
                 >
                   <li className="space-x-2 flex items-center">
                     <i className="fa-solid fa-check-double"></i>
-
                     <span>First premium advantage</span>
                   </li>
                   <li className="space-x-2 flex items-center">
                     <i className="fa-solid fa-check-double"></i>
-
                     <span>Second advantage weekly</span>
                   </li>
                   <li className="space-x-2 flex items-center">
                     <i className="fa-solid fa-check-double"></i>
-
                     <span>Third advantage donate to project</span>
                   </li>
                 </ul>
@@ -132,131 +129,134 @@ const Pricing = () => {
           </div>
         </div>
 
-
-
-
         <section>
           <div className="flex justify-center">
-          <img src="https://www.pngmart.com/files/10/FAQ-PNG-Transparent.png" alt="" />
+            <img
+              src="https://www.pngmart.com/files/10/FAQ-PNG-Transparent.png"
+              alt=""
+            />
           </div>
-        <div className="px-8 lg:px-40 py-10 lg:pb-20">
-        <div className="space-y-4">
-          <details
-            className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
-            open
-          >
-            <summary className="flex items-center justify-between cursor-pointer">
-              <h2 className="text-lg font-medium text-gray-900">
-                Which plan is best for me and my team?
-              </h2>
+          <div className="px-8 lg:px-40 py-10 lg:pb-20">
+            <div className="space-y-4">
+              <details
+                className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+                open
+              >
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    Which plan is best for me and my team?
+                  </h2>
 
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </summary>
+                  <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
 
-            <p className="mt-4 leading-relaxed text-gray-700">
-              Check out the plans to compare our different paid plans and select the one that best fits your needs.
-            </p>
-          </details>
+                <p className="mt-4 leading-relaxed text-gray-700">
+                  Check out the plans to compare our different paid plans and
+                  select the one that best fits your needs.
+                </p>
+              </details>
 
-          <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer">
-              <h2 className="text-lg font-medium text-gray-900">
-                What does the renewal process look like?
-              </h2>
+              <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    What does the renewal process look like?
+                  </h2>
 
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </summary>
+                  <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
 
-            <p className="mt-4 leading-relaxed text-gray-700">
-              Paid subscription automatically renew for the same subscription period unless you downgrade your plan before your renewal date.
-            </p>
-          </details>
+                <p className="mt-4 leading-relaxed text-gray-700">
+                  Paid subscription automatically renew for the same
+                  subscription period unless you downgrade your plan before your
+                  renewal date.
+                </p>
+              </details>
 
-          <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer">
-              <h2 className="text-lg font-medium text-gray-900">
-                How do i upgrade or downgrade?
-              </h2>
+              <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    How do i upgrade or downgrade?
+                  </h2>
 
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </summary>
+                  <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
 
-            <p className="mt-4 leading-relaxed text-gray-700">
-              Visit your billing page. From there, you can change your plan, add or remove user seats, and update your payment information.
-            </p>
-          </details>
+                <p className="mt-4 leading-relaxed text-gray-700">
+                  Visit your billing page. From there, you can change your plan,
+                  add or remove user seats, and update your payment information.
+                </p>
+              </details>
 
-          <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer">
-              <h2 className="text-lg font-medium text-gray-900">
-                What payment methods do you accept?
-              </h2>
+              <details className="group border-l-4 border-primary bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h2 className="text-lg font-medium text-gray-900">
+                    What payment methods do you accept?
+                  </h2>
 
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </summary>
+                  <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </summary>
 
-            <p className="mt-4 leading-relaxed text-gray-700">
-              We accept Visa, Mastercard, American Express, Credit and Debit cards.
-            </p>
-          </details>
-        </div>
-        </div>
-      </section>
+                <p className="mt-4 leading-relaxed text-gray-700">
+                  We accept Visa, Mastercard, American Express, Credit and Debit
+                  cards.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
       </div>
-
-      
     </div>
   );
 };
