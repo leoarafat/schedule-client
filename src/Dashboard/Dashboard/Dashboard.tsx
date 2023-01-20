@@ -14,8 +14,8 @@ import {
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
   return (
-    <body className="bg-gray-100 dark:bg-gray-900">
-      <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-700">
+    <body className="bg-gray-100">
+      <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]  dark:border-gray-700">
         <div>
           <div className="-mx-6 px-6 py-4">
             <a href="#/" title="home">
@@ -33,7 +33,7 @@ const Dashboard = () => {
               alt=""
               className="m-auto h-10 w-10 rounded-full object-cover lg:h-28 lg:w-28"
             />
-            <h5 className="mt-4 hidden text-xl font-semibold text-gray-600 lg:block dark:text-gray-300">
+            <h5 className="mt-4 hidden text-xl font-semibold lg:block">
               Yeasin Arafat
             </h5>
             <div className="flex justify-center items-center">
@@ -71,7 +71,7 @@ const Dashboard = () => {
         </div>
 
         <div className="-mx-6 flex items-center justify-between border-t px-6 pt-4 dark:border-gray-700">
-          <button className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300">
+          <button className="group flex items-center space-x-4 rounded-md px-4 py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -86,7 +86,7 @@ const Dashboard = () => {
                 d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
               />
             </svg>
-            <span className="group-hover:text-gray-700 dark:group-hover:text-white">
+            <span className="group-hover:text-gray-700 dark:group-hover:text-white ml-2">
               Logout
             </span>
           </button>
@@ -102,7 +102,7 @@ const Dashboard = () => {
       </aside>
 
       <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-        <div className="sticky top-0 h-16 border-b bg-white dark:bg-gray-800 dark:border-gray-700 lg:py-2.5">
+        <div className="sticky top-0 h-16 border-b bg-white  dark:border-gray-700 lg:py-2.5">
           <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
             <h5
               hidden
@@ -150,7 +150,7 @@ const Dashboard = () => {
                     name="leadingIcon"
                     id="leadingIcon"
                     placeholder="Search here"
-                    className="outline-none w-full rounded-xl border border-gray-300 py-2.5 pl-14 pr-4 text-sm text-gray-600 transition focus:border-cyan-300 dark:bg-gray-900 dark:border-gray-700"
+                    className="outline-none w-full rounded-xl border border-gray-300 py-2.5 pl-14 pr-4 text-sm text-gray-600 transition focus:border-cyan-300 dark:border-gray-700"
                   />
                 </div>
               </div>
@@ -161,7 +161,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://ww50w3.org/2000/svg"
-                  className="mx-auto w-4 fill-current text-gray-600 dark:text-gray-300"
+                  className="mx-auto w-4 fill-current"
                   viewBox="0 0 35.997 36.004"
                 >
                   <path
@@ -173,11 +173,11 @@ const Dashboard = () => {
               </button>
               <button
                 aria-label="chat"
-                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
+                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -192,11 +192,11 @@ const Dashboard = () => {
               </button>
               <button
                 aria-label="notification"
-                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
+                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 text-[#0098da]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

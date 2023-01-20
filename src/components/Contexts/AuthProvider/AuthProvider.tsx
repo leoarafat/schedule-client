@@ -1,5 +1,4 @@
 import React, {
-
   ReactNode,
   useEffect,
   useState,
@@ -97,4 +96,5 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }
 
-export default AuthProvider;
+
+  export default AuthProvider;
