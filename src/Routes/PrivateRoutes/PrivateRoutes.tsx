@@ -16,7 +16,6 @@ const PrivateRoute = ({ element, path, ...rest }: PrivateProps) => {
   if (loading) {
     return <Loading />;
   }
-
   if (user) {
     return rest;
   }
