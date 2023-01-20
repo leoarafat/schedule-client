@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import App from "./App";
 import AuthProvider from "./components/Contexts/AuthProvider/AuthProvider";
+
 import "./index.css";
 
 const root = ReactDOM.createRoot(
