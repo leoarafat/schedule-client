@@ -61,11 +61,11 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/dashboard', element: <DashboardLayout/>, children: [
+        path: '/dashboard', element: <DashboardLayout />, children: [
             {
-                // path: '/dashboard', element: <Check/>
-                path: '/signup',
-                element: <SignUp />
+                path: '/dashboard', element: <Check />
+                // path: '/signup',
+                // element: <SignUp />
             }
         ]
     }
