@@ -42,21 +42,11 @@ const css = `
 
 const TimeAndDate = ({ handleForm, days, setDays }: any) => {
 
-    // const [time, setTime] = useState<any>("");
-
-
-    // const footer =
-    //     days && days.length > 0 ? (
-    //         <p>You selected {days.length} day(s).</p>
-    //     ) : (
-    //         <p>Please pick one or more days.</p>
-    //     );
-
 
     return (
         <div className="">
             <h1 className='text-center text-4xl mt-5 mb-10 font-semibold'>Schedule <span className='text-primary'>Date & Time</span></h1>
-            <form onSubmit={() => handleForm(setDays)}>
+            <form onSubmit={handleForm}>
                 <div className='font-semibold flex flex-row justify-center   items-center'>
                     <style>{css}</style>
                     <div className='mx-10'>
