@@ -5,9 +5,9 @@ import Dashboard from "../Dashboard/Dashboard";
 const DashboardLayout = () => {
   return (
     <div>
-      {/* <Outlet />
+      <Outlet />
 
-      <Dashboard /> */}
+      <Dashboard />
     </div>
   );
 };
