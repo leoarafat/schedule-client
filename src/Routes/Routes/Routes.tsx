@@ -8,6 +8,7 @@ import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
+import Plans from "../../Pages/Home/Membership/Plans";
 import Pricing from "../../Pages/Home/Membership/Pricing";
 import Profile from "../../Pages/Profile/Profile";
 import SignIn from "../../Pages/SignIn/SignIn";
@@ -28,8 +29,8 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/pricing',
-                element: <Pricing></Pricing>
+                path: '/plan',
+                element: <Plans></Plans>
             },
 
             {
