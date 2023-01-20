@@ -12,12 +12,18 @@ type UserSubmitForm = {
     description: string;
 };
 
-const ScheduleInfo = () => {
+interface timeDateType {
+    timeDate: object;
+}
+
+const ScheduleInfo = ({ timeDate }: timeDateType) => {
+
+    console.log(timeDate);
 
     const { register, handleSubmit, formState: { errors } } = useForm<UserSubmitForm>();
 
     const handleInfo = (data: UserSubmitForm) => {
-        console.log(data);
+        console.log(data)
     }
 
     return (

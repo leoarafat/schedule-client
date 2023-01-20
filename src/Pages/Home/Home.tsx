@@ -1,11 +1,11 @@
 
-
 import AddNotes from "../../AddNote/AddNotes";
 import Notes from "../../AddNote/Notes";
 
 import ScheduleInfo from "../Schedule/ScheduleInfo/ScheduleInfo";
 
 import AddNote from "../../AddNote/AddNote";
+
 
 
 import Details from "./Details/Details";
@@ -26,6 +26,7 @@ const Home = () => {
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
+
     </div>
   );
 };
