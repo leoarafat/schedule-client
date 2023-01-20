@@ -9,7 +9,6 @@ import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plans";
-import Pricing from "../../Pages/Home/Membership/Pricing";
 import Profile from "../../Pages/Profile/Profile";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
