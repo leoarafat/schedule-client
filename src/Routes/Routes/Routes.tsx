@@ -9,14 +9,19 @@ import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Pricing from "../../Pages/Home/Membership/Pricing";
+import Profile from "../../Pages/Profile/Profile";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+
+
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -26,6 +31,7 @@ export const router = createBrowserRouter([
                 path: '/pricing',
                 element: <Pricing></Pricing>
             },
+
             {
                 path: '/blog',
                 element: <Blog></Blog>
@@ -40,20 +46,28 @@ export const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: '/signup',
-                element: <SignUp></SignUp>
+
+                path: '/profile',
+                element: <Profile></Profile>
             },
             {
-                path: '/signin',
-                element: <SignIn></SignIn>
+                path: '/login',
+                element: <SignIn />
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
             },
         ]
     },
     {
-        path: '/dashboard', element: <DashboardLayout/>, children: [
+        path: '/dashboard', element: <DashboardLayout />, children: [
             {
-                // path: '/dashboard', element: <Check/>
+                path: '/dashboard', element: <Check />
+                // path: '/signup',
+                // element: <SignUp />
             }
         ]
     }
+
 ]);
