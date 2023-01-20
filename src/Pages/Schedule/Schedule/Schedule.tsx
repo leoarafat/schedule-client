@@ -27,10 +27,7 @@ const Schedule = () => {
     return (
         <div>
             <TimeAndDate handleForm={handleForm} days={days} setDays={setDays}></TimeAndDate>
-            {
-                timeDate != null &&
-                <ScheduleInfo timeDate={timeDate}></ScheduleInfo>
-            }
+            <ScheduleInfo timeDate={timeDate}></ScheduleInfo>
         </div>
     );
 };

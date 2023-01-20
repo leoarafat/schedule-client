@@ -10,6 +10,7 @@ import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plans";
 import Profile from "../../Pages/Profile/Profile";
+import Schedule from "../../Pages/Schedule/Schedule/Schedule";
 import ScheduleInfo from "../../Pages/Schedule/ScheduleInfo/ScheduleInfo";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/schedule',
-                element: <ScheduleInfo />
+                element: <Schedule />
             }
         ]
     },

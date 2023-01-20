@@ -17,11 +17,13 @@ interface timeDateType {
 }
 
 const ScheduleInfo = ({ timeDate }: timeDateType) => {
+
     console.log(timeDate);
+
     const { register, handleSubmit, formState: { errors } } = useForm<UserSubmitForm>();
 
     const handleInfo = (data: UserSubmitForm) => {
-        console.log(data);
+        console.log(data)
     }
 
     return (
