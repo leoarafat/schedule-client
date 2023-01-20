@@ -1,3 +1,4 @@
+import ScheduleInfo from "../Schedule/ScheduleInfo/ScheduleInfo";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
