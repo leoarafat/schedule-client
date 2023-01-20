@@ -63,15 +63,15 @@ const About = () => {
 
                     <div className="cardbox">
                         <div className='imgbox'>
-                            <img src="https://www.onthisday.com/images/people/rabindranath-tagore-medium.jpg" className='rounded-2xl' alt="" />
+                            <img src="https://i.ibb.co/Wcy6mpV/me.png" className='rounded-2xl' alt="" />
                         </div>
                         <div className="content">
                             <div className="details">
-                                <h2 className='text-3xl font-semibold pt-5'>Rabi Thagore</h2>
-                                <h3 className='text-2xl'>Mern Stack Developer</h3>
-                                <div className="flex my-5">
-                                    <button className='btn btn-primary mx-1'>Portfolio</button>
-                                    <button className='btn btn-outline btn-primary mx-1'>Download Cv</button>
+                                <h2 className='text-2xl font-semibold '>Rabi Thagore</h2>
+                                <h3 className='text-xl font-light'>Mern Stack Developer</h3>
+                                <div className="flex my-5 justify-center">
+                                    <button className='btn btn-primary mx-1 px-2'>Portfolio</button>
+                                    <button className='btn btn-outline btn-primary mx-1 px-2'>Download Cv</button>
                                 </div>
                                 <div className='flex justify-center mt-2'>
                                     <span className="drop w-12 h-12 rounded-full mx-2"><FaLinkedinIn className='text-primary' /></span>
