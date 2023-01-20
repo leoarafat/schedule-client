@@ -1,7 +1,10 @@
 import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
+const url = 'http://localhost:5000/notes';
+
 const Notes = () => {
+
     return (
         <div>
             <div className=''>

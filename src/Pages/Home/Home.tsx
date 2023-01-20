@@ -1,4 +1,6 @@
-import AddNote from "../../AddNote/AddNote";
+
+import AddNotes from "../../AddNote/AddNotes";
+import Notes from "../../AddNote/Notes";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -11,6 +13,8 @@ const Home = () => {
     <div>
       <Header></Header>
       <Services></Services>
+      <AddNotes></AddNotes>
+      <Notes></Notes>
       <Details></Details>
       <Membership></Membership>
       <Sponsorship></Sponsorship>
