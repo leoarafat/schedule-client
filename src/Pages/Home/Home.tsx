@@ -1,4 +1,7 @@
+
 import Schedule from "../Schedule/Schedule/Schedule";
+import ScheduleInfo from "../Schedule/ScheduleInfo/ScheduleInfo";
+import AddNote from "../../AddNote/AddNote";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
