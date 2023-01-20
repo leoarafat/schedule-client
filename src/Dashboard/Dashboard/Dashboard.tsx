@@ -14,7 +14,7 @@ import {
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
   return (
-    <body className="bg-gray-100 dark:bg-gray-900">
+    <body className="bg-gray-100">
       <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-700">
         <div>
           <div className="-mx-6 px-6 py-4">
@@ -150,7 +150,7 @@ const Dashboard = () => {
                     name="leadingIcon"
                     id="leadingIcon"
                     placeholder="Search here"
-                    className="outline-none w-full rounded-xl border border-gray-300 py-2.5 pl-14 pr-4 text-sm text-gray-600 transition focus:border-cyan-300 dark:bg-gray-900 dark:border-gray-700"
+                    className="outline-none w-full rounded-xl border border-gray-300 py-2.5 pl-14 pr-4 text-sm text-gray-600 transition focus:border-cyan-300 dark:border-gray-700"
                   />
                 </div>
               </div>
@@ -177,7 +177,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -196,7 +196,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-gray-600 dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
