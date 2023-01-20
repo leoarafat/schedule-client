@@ -2,7 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PricingCard = ({ plan }) => {
-  const {status, cost, email_support, Active_event_types, Collect_payments_with_Stripe, Connect_to_Google_Meet_Zoom_Web_Conference, Create_group_events, Customize_email_notifications, Phone_support, Update_your_cancellation_policy, View_analytics_and_insights}=plan
+  const {
+    status,
+    cost,
+    email_support,
+    Active_event_types,
+    Collect_payments_with_Stripe,
+    Connect_to_Google_Meet_Zoom_Web_Conference,
+    Create_group_events,
+    Customize_email_notifications,
+    Phone_support,
+    Update_your_cancellation_policy,
+    View_analytics_and_insights,
+  } = plan;
   console.log(plan);
   return (
     <div>
@@ -45,12 +57,17 @@ const PricingCard = ({ plan }) => {
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
 
-                <span>Collect payments with Stripe : {Collect_payments_with_Stripe}</span>
+                <span>
+                  Collect payments with Stripe : {Collect_payments_with_Stripe}
+                </span>
               </li>
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
 
-                <span>Connect to Google Meet, Zoom Web Conference : {Connect_to_Google_Meet_Zoom_Web_Conference}</span>
+                <span>
+                  Connect to Google Meet, Zoom Web Conference :{" "}
+                  {Connect_to_Google_Meet_Zoom_Web_Conference}
+                </span>
               </li>
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
@@ -60,17 +77,25 @@ const PricingCard = ({ plan }) => {
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
 
-                <span>Customize email notifications : {Customize_email_notifications}</span>
+                <span>
+                  Customize email notifications :{" "}
+                  {Customize_email_notifications}
+                </span>
               </li>
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
 
-                <span>Update your cancellation policy : {Update_your_cancellation_policy}</span>
+                <span>
+                  Update your cancellation policy :{" "}
+                  {Update_your_cancellation_policy}
+                </span>
               </li>
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
 
-                <span>View analytics and insights : {View_analytics_and_insights}</span>
+                <span>
+                  View analytics and insights : {View_analytics_and_insights}
+                </span>
               </li>
               <li className="space-x-2 flex items-center">
                 <i className="fa-solid fa-check-double"></i>
@@ -82,22 +107,29 @@ const PricingCard = ({ plan }) => {
 
                 <span>24/7 Phone support : {Phone_support}</span>
               </li>
-              
             </ul>
-              
 
-              <label htmlFor="my-modal-3" className="block w-full py-3 px-6 text-center rounded-xl transition bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:bg-indigo-600"><span className="text-white font-semibold">Subscribe</span></label>
+            <label
+              htmlFor="my-modal-3"
+              className="block w-full py-3 px-6 text-center rounded-xl transition bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:bg-indigo-600"
+            >
+              <span className="text-white font-semibold">Subscribe</span>
+            </label>
           </div>
         </div>
       </div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box relative">
-    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-  </div>
-</div>
+      <div className="modal">
+        <div className="modal-box relative">
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <img src="https://images.ctfassets.net/fzn2n1nzq965/6JEjxpwMd1OIIk6RosReNU/3d5c5f5217a7cce4af750ebfe599b6fc/Payments-social-card.png?q=80" alt="" />
+        </div>
+      </div>
     </div>
   );
 };

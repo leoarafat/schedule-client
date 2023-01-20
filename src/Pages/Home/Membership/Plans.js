@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from 'react-query';
 import PricingCard from './PricingCard';
 
@@ -6,7 +5,7 @@ const Plans = () => {
     const { data: membership = [] } = useQuery({
         queryKey: ["membership"],
         queryFn: async () => {
-          const res = await fetch("http://localhost:5000/membership");
+          const res = await fetch("https://scheduplannr-server.vercel.app/membership");
           const data = await res.json();
           return data;
         },
