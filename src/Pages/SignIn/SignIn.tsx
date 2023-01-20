@@ -118,11 +118,7 @@ const SignIn = () => {
               >
                 <span className="text-base font-semibold">Log In</span>
               </button>
-
-              <button className="py-4">
-                <span className="text-sm tracking-wide text-sky-600">Create New Account?</span>
-              </button>
-              <Link to="/signup" className="py-4">
+              <Link to="/signUp" className="py-4">
                 <span className="text-sm tracking-wide text-sky-600">Create New Account?</span>
               </Link>
             </div>
