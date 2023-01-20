@@ -9,7 +9,24 @@ const css = `
   .my-selected:not([disabled]) { 
     font-weight: bold; 
    
-    color:blue;
+    color:#0098da;
+    
+  }
+.rdp-caption{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+  .rdp-caption, .rdp-head_row{
+    color: #fff;
+    background-color: #0098da;
+    padding: 20px;
+  }
+  .rdp-tbody, .rdp-month{
+    
+  }
+   .rdp-month{
+    border: 1px solid #0098da;
+    border-radius: 20px;
     
   }
   .my-selected:hover:not([disabled]) { 
@@ -23,51 +40,64 @@ const css = `
   }
 `;
 
-const TimeAndDate = () => {
-    const initialDays: Date[] = [];
-    const [days, setDays] = React.useState<Date[] | undefined>(initialDays);
-    const [value, onChange] = useState<any>(['10:00', '11:00']);
+const TimeAndDate = ({ handleForm, days, setDays }: any) => {
 
-    const footer =
-        days && days.length > 0 ? (
-            <p>You selected {days.length} day(s).</p>
-        ) : (
-            <p>Please pick one or more days.</p>
-        );
+    // const [time, setTime] = useState<any>("");
 
-    const handleNow = () => {
-        const now = new Date();
-        date.format(now, 'YYYY/MM/DD HH:mm:ss');
 
-    }
+    // const footer =
+    //     days && days.length > 0 ? (
+    //         <p>You selected {days.length} day(s).</p>
+    //     ) : (
+    //         <p>Please pick one or more days.</p>
+    //     );
+
+
     return (
-        <div className='font-semibold flex flex-col justify-center items-center'>
-            <style>{css}</style>
-            <DayPicker
-                mode="multiple"
-                min={1}
-                selected={days}
-                onSelect={setDays}
-                modifiersClassNames={{
-                    selected: 'my-selected',
+        <div className="">
+            <h1 className='text-center text-4xl mt-5 mb-10 font-semibold'>Schedule <span className='text-primary'>Date & Time</span></h1>
+            <form onSubmit={() => handleForm(setDays)}>
+                <div className='font-semibold flex flex-row justify-center   items-center'>
+                    <style>{css}</style>
+                    <div className='mx-10'>
+                        <DayPicker
+                            mode="multiple"
+                            min={1}
+                            selected={days}
+                            onSelect={setDays}
+                            modifiersClassNames={{
+                                selected: 'my-selected',
 
-                }}
-                footer={footer}
-            />
+                            }}
+                        />
 
-            <div>
-                <label htmlFor="start">Start Time</label>
-                <input placeholder='00:00' type="time" id="start" name="start"
-                    min="09:00" max="18:00" required />
-            </div>
+                    </div>
 
-            <div>
-                <label htmlFor="end">End Time</label>
-                <input type="time" id="end" name="end"
-                    min="09:00" max="18:00" required />
-            </div>
 
-            <button className='btn btn-primary' onClick={handleNow}>ss</button>
+                    <div className=''>
+                        <h2 className='text-3xl font-semibold mb-5'>Set your time</h2>
+                        <div className='flex items-center'>
+
+
+                            <input type="time" id="start" className='border-black border rounded-lg p-1 pl-3 pb-0 text-2xl mr-4' name="start"
+                                min="00:00 AM" max="24:00 PM" required />
+                            <span className="text-xl font-normal">To</span>
+                            <input type="time" id="end" className='border-black border rounded-lg p-1 pl-3 pb-0 text-2xl ml-4' name="end"
+                                min="00:00 AM" max="24:00 PM" required />
+                        </div>
+
+                        <div>
+
+                        </div>
+                        <div className='w-5/12 mt-10'>
+                            <button className='btn btn-primary'>Set Schedule</button>
+                        </div>
+                    </div>
+
+
+                    {/* <button className='btn btn-primary' onClick={handleNow}>ss</button> */}
+                </div>
+            </form>
         </div>
     );
 };

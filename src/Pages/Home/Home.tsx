@@ -1,4 +1,4 @@
-import TimeAndDate from "../Schedule/TimeAndDate/TimeAndDate";
+import Schedule from "../Schedule/Schedule/Schedule";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -9,6 +9,7 @@ import Sponsorship from "./Sponsorship/Sponsorship";
 const Home = () => {
   return (
     <div>
+      <Schedule></Schedule>
       <Header></Header>
       <Services></Services>
       <Details></Details>
