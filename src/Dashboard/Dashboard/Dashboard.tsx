@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import {
   BsFillBarChartLineFill,
   BsFillAlarmFill,
@@ -10,9 +10,15 @@ import {
   BsEmojiSunglasses,
   BsBank2,
 } from "react-icons/bs";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+
 
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
+
+  const { user }: any = useContext(AuthContext);
+  console.log(user);
+
   return (
     <div className="bg-gray-100">
       <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]  dark:border-gray-700">
@@ -45,11 +51,11 @@ const Dashboard = () => {
           <ul className="flex flex-col justify-center items-center mt-5">
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillBarChartLineFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="">Dashboard</Link>
+              <Link to="/dashboard/allUser">All User</Link>
             </li>
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillAlarmFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="">Dashboard</Link>
+              <Link to="/dashboard/admin">Admin</Link>
             </li>
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillPeopleFill className="w-6 h-6 mr-1 text-[#0098da]" />
@@ -214,7 +220,7 @@ const Dashboard = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
-                  <Link to="">All User</Link>
+                  <Link to="/dashboard/allUser">All User</Link>
                 </li>
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
                   <Link to="">My Schedule</Link>
@@ -222,20 +228,20 @@ const Dashboard = () => {
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
                   <Link to="">Payment</Link>
                 </li>
+                <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
+                  <Link to="/dashboard/admin">Admin</Link>
+                </li>
               </ul>
             </>
           )}
         </div>
-        <div className="px-6 pt-6 2xl:container relative">
-          <div className="flex h-[80vh] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 ">
-            <span className="dark:text-white">
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/003/582/701/original/coming-soon-background-illustration-template-design-free-vector.jpg"
-                alt=""
-              />
-            </span>
+        <div className="px-6 pt-6">
+          <div className="rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 p-3 ">
+         <Outlet/>
+
           </div>
         </div>
+
       </div>
     </div>
   );

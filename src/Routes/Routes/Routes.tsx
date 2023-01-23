@@ -1,7 +1,5 @@
-import { element } from "prop-types";
 import { createBrowserRouter } from "react-router-dom";
-import Check from "../../Dashboard/Check/Check";
-import Dashboard from "../../Dashboard/Dashboard/Dashboard";
+import AllUser from "../../Dashboard/AllUser/AllUser";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
@@ -11,7 +9,6 @@ import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plans";
 import Profile from "../../Pages/Profile/Profile";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
-import ScheduleInfo from "../../Pages/Schedule/ScheduleInfo/ScheduleInfo";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
@@ -70,10 +67,10 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard', element: <DashboardLayout />, children: [
             {
-                path: '/dashboard', element: <Check />
-                // path: '/signup',
-                // element: <SignUp />
-            }
+                path: '/dashboard/allUser', element: <AllUser/>
+            },
+          
+            
         ]
     }
 
