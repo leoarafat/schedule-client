@@ -29,7 +29,7 @@
     font-weight: bold;
     font-size: 140%;
     color: red;
-
+}
 .my-selected:not([disabled]) {
     font-weight: bold;
     color: #0098da;
