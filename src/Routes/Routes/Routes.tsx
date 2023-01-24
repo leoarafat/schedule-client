@@ -1,17 +1,14 @@
-import { element } from "prop-types";
 import { createBrowserRouter } from "react-router-dom";
 import Check from "../../Dashboard/Check/Check";
-import Dashboard from "../../Dashboard/Dashboard/Dashboard";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
-import Plans from "../../Pages/Home/Membership/Plans";
+import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
-import ScheduleInfo from "../../Pages/Schedule/ScheduleInfo/ScheduleInfo";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";

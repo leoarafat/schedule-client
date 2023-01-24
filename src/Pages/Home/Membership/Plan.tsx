@@ -1,6 +1,12 @@
 import { useQuery } from 'react-query';
 import PricingCard from './PricingCard';
 
+// type plan <T> = T[]
+// interface props {
+//     plan: plan
+//     _id: number
+// }
+
 const Plans = () => {
     const { data: membership = [] } = useQuery({
         queryKey: ["membership"],
@@ -21,8 +27,13 @@ const Plans = () => {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {membership.map((plan) => (
-                <PricingCard plan={plan} key={plan._id}></PricingCard>
+
+              {membership.map((plan:any) => (
+                <PricingCard
+                plan={plan}
+                key={plan._id}
+                ></PricingCard>
+
               ))}
             </div>
           </div>
