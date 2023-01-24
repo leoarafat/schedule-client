@@ -23,9 +23,11 @@ const Plans = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
             {membership.map((plan: any) => (
               <PricingCard plan={plan} key={plan._id}></PricingCard>
             ))}
+            
           </div>
         </div>
 

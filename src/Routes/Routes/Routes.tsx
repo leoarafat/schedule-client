@@ -14,9 +14,6 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 
 
-
-
-
 export const router = createBrowserRouter([
     {
         path: '/',
