@@ -9,7 +9,8 @@ const TimeAndDate = ({ handleForm, days, setDays }: any) => {
       <h1 className='text-center text-4xl mt-5 mb-10 font-semibold'>Schedule <span className='text-primary'>Date & Time</span></h1>
       <form onSubmit={handleForm}>
         <div className='font-semibold flex flex-row justify-center items-center'>
-          <div className='mx-10'>
+          <div className='mx-20'>
+
             <DayPicker
               mode="multiple"
               min={1}
