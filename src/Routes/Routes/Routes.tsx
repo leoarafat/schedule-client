@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllUser from "../../Dashboard/AllUser/AllUser";
+import Check from "../../Dashboard/Check/Check";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
-import Plans from "../../Pages/Home/Membership/Plans";
+import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
 import SignIn from "../../Pages/SignIn/SignIn";
