@@ -1,20 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Check from "../../Dashboard/Check/Check";
-import Dashboard from "../../Dashboard/Dashboard/Dashboard";
-
+import AllUser from "../../Dashboard/AllUser/AllUser";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
-import Pricing from "../../Pages/Home/Membership/Pricing";
+import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
+import Schedule from "../../Pages/Schedule/Schedule/Schedule";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
-
-
 
 
 export const router = createBrowserRouter([
@@ -28,8 +25,8 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/pricing',
-                element: <Pricing></Pricing>
+                path: '/plan',
+                element: <Plans></Plans>
             },
 
             {
@@ -58,15 +55,19 @@ export const router = createBrowserRouter([
                 path: '/signUp',
                 element: <SignUp></SignUp>
             },
+            {
+                path: '/schedule',
+                element: <Schedule />
+            }
         ]
     },
     {
         path: '/dashboard', element: <DashboardLayout />, children: [
             {
-                path: '/dashboard', element: <Check />
-                // path: '/signup',
-                // element: <SignUp />
-            }
+                path: '/dashboard/allUser', element: <AllUser/>
+            },
+          
+            
         ]
     }
 

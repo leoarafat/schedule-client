@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import {
   BsFillBarChartLineFill,
   BsFillAlarmFill,
@@ -10,12 +10,18 @@ import {
   BsEmojiSunglasses,
   BsBank2,
 } from "react-icons/bs";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+
 
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
+
+  const { user }: any = useContext(AuthContext);
+  console.log(user);
+
   return (
-    <body className="bg-gray-100">
-      <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-700">
+    <div className="bg-gray-100">
+      <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]  dark:border-gray-700">
         <div>
           <div className="-mx-6 px-6 py-4">
             <a href="#/" title="home">
@@ -33,7 +39,7 @@ const Dashboard = () => {
               alt=""
               className="m-auto h-10 w-10 rounded-full object-cover lg:h-28 lg:w-28"
             />
-            <h5 className="mt-4 hidden text-xl font-semibold text-gray-600 lg:block dark:text-gray-300">
+            <h5 className="mt-4 hidden text-xl font-semibold lg:block">
               Yeasin Arafat
             </h5>
             <div className="flex justify-center items-center">
@@ -45,11 +51,11 @@ const Dashboard = () => {
           <ul className="flex flex-col justify-center items-center mt-5">
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillBarChartLineFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="">Dashboard</Link>
+              <Link to="/dashboard/allUser">All User</Link>
             </li>
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillAlarmFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="">Dashboard</Link>
+              <Link to="/dashboard/admin">Admin</Link>
             </li>
             <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
               <BsFillPeopleFill className="w-6 h-6 mr-1 text-[#0098da]" />
@@ -71,7 +77,7 @@ const Dashboard = () => {
         </div>
 
         <div className="-mx-6 flex items-center justify-between border-t px-6 pt-4 dark:border-gray-700">
-          <button className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 dark:text-gray-300">
+          <button className="group flex items-center space-x-4 rounded-md px-4 py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -80,13 +86,13 @@ const Dashboard = () => {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
               />
             </svg>
-            <span className="group-hover:text-gray-700 dark:group-hover:text-white">
+            <span className="group-hover:text-gray-700 dark:group-hover:text-white ml-2">
               Logout
             </span>
           </button>
@@ -102,7 +108,7 @@ const Dashboard = () => {
       </aside>
 
       <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-        <div className="sticky top-0 h-16 border-b bg-white dark:bg-gray-800 dark:border-gray-700 lg:py-2.5">
+        <div className="sticky top-0 h-16 border-b bg-white  dark:border-gray-700 lg:py-2.5">
           <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
             <h5
               hidden
@@ -122,9 +128,9 @@ const Dashboard = () => {
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -161,7 +167,7 @@ const Dashboard = () => {
               >
                 <svg
                   xmlns="http://ww50w3.org/2000/svg"
-                  className="mx-auto w-4 fill-current text-gray-600 dark:text-gray-300"
+                  className="mx-auto w-4 fill-current"
                   viewBox="0 0 35.997 36.004"
                 >
                   <path
@@ -173,30 +179,30 @@ const Dashboard = () => {
               </button>
               <button
                 aria-label="chat"
-                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
+                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
                   />
                 </svg>
               </button>
               <button
                 aria-label="notification"
-                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:active:bg-gray-800"
+                className="h-10 w-10 rounded-xl border bg-gray-100 active:bg-gray-200 text-[#0098da]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="m-auto h-5 w-5 text-[#0098da] dark:text-gray-300"
+                  className="m-auto h-5 w-5 text-[#0098da] "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -214,7 +220,7 @@ const Dashboard = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
-                  <Link to="">All User</Link>
+                  <Link to="/dashboard/allUser">All User</Link>
                 </li>
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
                   <Link to="">My Schedule</Link>
@@ -222,22 +228,22 @@ const Dashboard = () => {
                 <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
                   <Link to="">Payment</Link>
                 </li>
+                <li className="mt-1 hover:bg-[#0098da] p-1 rounded-md">
+                  <Link to="/dashboard/admin">Admin</Link>
+                </li>
               </ul>
             </>
           )}
         </div>
-        <div className="px-6 pt-6 2xl:container relative">
-          <div className="flex h-[80vh] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 ">
-            <span className="dark:text-white">
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/003/582/701/original/coming-soon-background-illustration-template-design-free-vector.jpg"
-                alt=""
-              />
-            </span>
+        <div className="px-6 pt-6">
+          <div className="rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 p-3 ">
+         <Outlet/>
+
           </div>
         </div>
+
       </div>
-    </body>
+    </div>
   );
 };
 
