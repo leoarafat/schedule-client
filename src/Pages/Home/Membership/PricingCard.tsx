@@ -1,6 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 const PricingCard = ({ plan }: any) => {
   const {
     status,
@@ -11,7 +8,7 @@ const PricingCard = ({ plan }: any) => {
     Customize_email_notifications,
     Phone_support,
     Update_your_cancellation_policy,
-    View_analytics_and_insights,
+    View_analytics_and_insights
   } = plan;
   console.log(plan);
   return (
