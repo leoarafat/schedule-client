@@ -1,11 +1,5 @@
 import AddNotes from "../../AddNote/AddNotes";
 import Notes from "../../AddNote/Notes";
-
-import ScheduleInfo from "../Schedule/ScheduleInfo/ScheduleInfo";
-import AddNote from "../../AddNote/AddNote";
-
-import Schedule from "../Schedule/Schedule/Schedule";
-
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -16,7 +10,6 @@ import Sponsorship from "./Sponsorship/Sponsorship";
 const Home = () => {
   return (
     <div>
-      <Schedule></Schedule>
       <Header></Header>
       <Services></Services>
       <AddNotes></AddNotes>
