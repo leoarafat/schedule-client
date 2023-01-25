@@ -2,16 +2,16 @@ import { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import {
   BsFillBarChartLineFill,
-  BsFillAlarmFill,
+  BsFillCalendarCheckFill,
   BsFillEmojiSmileFill,
   BsFillPeopleFill,
   BsTools,
   BsBadgeTm,
   BsEmojiSunglasses,
   BsBank2,
+  BsArrowUpRightSquare,
 } from "react-icons/bs";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
-
 
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
@@ -49,27 +49,66 @@ const Dashboard = () => {
           </div>
 
           <ul className="flex flex-col justify-center items-center mt-5">
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
               <BsFillBarChartLineFill className="w-6 h-6 mr-1 text-[#0098da]" />
               <Link to="/dashboard/allUser">All User</Link>
             </li>
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
-              <BsFillAlarmFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="/dashboard/admin">Admin</Link>
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
+              <BsFillCalendarCheckFill className="w-6 h-6 mr-1 text-[#0098da]" />
+              {/* <Link to="/dashboard/admin">Admin</Link>
+               */}
+              <div className="dropdown">
+                <label tabIndex={0} className="m-1">
+                  Meeting
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content bg-[#0098da] menu p-2 shadow  rounded-box w-38"
+                >
+                  <li>
+                    <Link to={"/dashboard/myMeeting"}>My Meeting</Link>
+                  </li>
+                  <li>
+                    <Link to={""}>Meeting type</Link>
+                  </li>
+                  <li>
+                    <Link to={""}>Calender integrations</Link>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
-              <BsFillPeopleFill className="w-6 h-6 mr-1 text-[#0098da]" />
-              <Link to="">Dashboard</Link>
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
+              <BsArrowUpRightSquare className="w-6 h-6 mr-1 text-[#0098da]" />
+              <div className="dropdown">
+                <label tabIndex={1} className="m-1">
+                  <div className="dropdown">
+                    <label tabIndex={0} className="m-1">
+                      Personal Meeting
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content bg-[#0098da] menu p-2 shadow  rounded-box w-38"
+                    >
+                      <li>
+                        <Link to={""}>New Meeting</Link>
+                      </li>
+                      <li>
+                        <Link to={""}>Organization Meeting</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </label>
+              </div>
             </li>
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
               <BsEmojiSunglasses className="w-6 h-6 mr-1 text-[#0098da]" />
               <Link to="">Dashboard</Link>
             </li>
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
               <BsFillEmojiSmileFill className="w-6 h-6 mr-1 text-[#0098da]" />
               <Link to="">Dashboard</Link>
             </li>
-            <li className="mt-2 p-1 hover:bg-gray-800 rounded-md flex justify-around items-center">
+            <li className="mt-2 p-1 hover:bg-gray-800 hover:text-white rounded-md flex justify-around items-center">
               <BsTools className="w-6 h-6 mr-1 text-[#0098da]" />
               <Link to="">Dashboard</Link>
             </li>
@@ -237,11 +276,9 @@ const Dashboard = () => {
         </div>
         <div className="px-6 pt-6">
           <div className="rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 p-3 ">
-         <Outlet/>
-
+            <Outlet />
           </div>
         </div>
-
       </div>
     </div>
   );

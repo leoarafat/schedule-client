@@ -3,8 +3,7 @@ import Dashboard from "../Dashboard/Dashboard";
 
 const DashboardLayout = () => {
   return (
-    <div>
-      
+    <div> 
       <Dashboard />
     </div>
   );
