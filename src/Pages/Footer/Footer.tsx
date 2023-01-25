@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-blue-100 pt-8 pb-6">
+    <footer className="relative bg-blue-100 pt-8 pb-6 max-w-[1400px] mx-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full lg:w-6/12 px-4">
@@ -62,7 +63,7 @@ const Footer = () => {
                       Blog
                     </a>
                   </li>
-                  
+
                   <li>
                     <a
                       className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
@@ -120,15 +121,12 @@ const Footer = () => {
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="text-sm text-blueGray-500 font-semibold py-1">
               Copyright © <span id="get-current-year">2023</span>
-              <a
-                href="https://www.creative-tim.com/product/notus-js"
+              <Link
+                to="https://www.creative-tim.com/product/notus-js"
                 className="text-blueGray-500 hover:text-gray-800"
                 target="_blank"
               />{" "}
-              ScheduPlannr by Syntax Terminators
-              
-             
-              .
+              ScheduPlannr by Syntax Terminators .
             </div>
           </div>
         </div>

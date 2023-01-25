@@ -32,7 +32,7 @@ const Nav = () => {
             <li><Link to={"/about"} className=" hover:bg-secondary pr-32">About</Link></li>
             <li><Link to={"/schedule"} className=" hover:bg-secondary pr-28">Schedule</Link></li>
             <li><Link to={"/blog"} className=" hover:bg-secondary pr-36">Blog</Link></li>
-            <li><Link to={"/signin"} className="btn border-0 lg:flex rounded-full px-10 text-white">Sign In</Link></li>
+            <li><Link to={"/login"} className="btn border-0 lg:flex rounded-full px-10 text-white">Sign In</Link></li>
           </ul>
         </div>
         {/* Small Screen nav items */}
