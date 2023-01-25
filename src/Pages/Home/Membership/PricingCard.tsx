@@ -11,6 +11,8 @@ const PricingCard = ({ plan }: any) => {
     View_analytics_and_insights
   } = plan;
   console.log(plan);
+
+  
   return (
     <div className="my-16">
       <div className="relative group">
