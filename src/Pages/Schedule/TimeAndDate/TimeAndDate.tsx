@@ -1,67 +1,25 @@
-import { DayPicker } from 'react-day-picker';
-import './TimeAndDate.css';
 import 'react-day-picker/dist/style.css';
+import Calendar from 'react-calendar';
+import { useState } from 'react';
+import 'react-calendar/dist/Calendar.css';
+import TimeSlots from '../TimeSlots/TimeSlots';
 
-const TimeAndDate = ({ handleForm, days, setDays }: any) => {
+const TimeAndDate = ({ handleForm }: any) => {
+
+  const [value, onChange] = useState(new Date());
+  console.log(value)
 
   return (
     <>
-      <h1 className='text-center text-4xl mt-5 mb-10 font-semibold'>Schedule <span className='text-primary'>Date & Time</span></h1>
       <form onSubmit={handleForm}>
-        <div className='font-semibold flex flex-row justify-center items-center'>
-          <div>
+        <div className='md:flex justify-center gap-4'>
 
-            <DayPicker
-              mode="multiple"
-              min={1}
-              selected={days}
-              onSelect={setDays}
-              modifiersClassNames={{
-                selected: 'my-selected',
-
-              }}
-            />
+          <div className='px-2'>
+            <Calendar className='md:w-[40rem] w-full h-[25rem] bg-sky-300 font-bold text-lg' onChange={onChange} value={value} />
+            <h1 className='text-2xl text-center -mt-14'>Please select a date </h1>
           </div>
 
-          <div className='flex flex-col gap-4 h-[20rem] overflow-y-auto p-2'>
-
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-            <button
-              className="inline-block rounded border border-primary px-24 py-3 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
-            >
-              10:15
-            </button>
-
-          </div>
+          <TimeSlots />
 
         </div>
       </form>
