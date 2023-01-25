@@ -9,15 +9,12 @@ import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
-import Plans from "../../Pages/Home/Membership/Plans";
+import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
-
-
-
 
 
 export const router = createBrowserRouter([
