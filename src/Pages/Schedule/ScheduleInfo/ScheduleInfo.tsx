@@ -12,21 +12,25 @@ type UserSubmitForm = {
     description: string;
 };
 
-const ScheduleInfo = () => {
+interface timeDateType {
+    timeDate: object;
+}
+
+const ScheduleInfo = ({ timeDate }: timeDateType) => {
+
+    console.log(timeDate);
 
     const { register, handleSubmit, formState: { errors } } = useForm<UserSubmitForm>();
 
     const handleInfo = (data: UserSubmitForm) => {
-        console.log(data);
+        console.log(data)
     }
 
     return (
         <>
-            <div className="py-6 sm:py-8 lg:py-12">
+            <div className="py-12">
                 <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
-                    <div className="mb-10 md:mb-16">
-                        <h2 className="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">Schedule Information</h2>
-                    </div>
+                    <h1 className='text-center text-4xl py-10 font-semibold'>Schedule <span className='text-primary'>Information</span></h1>
 
                     <form onSubmit={handleSubmit(handleInfo)} className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto">
                         <div>
