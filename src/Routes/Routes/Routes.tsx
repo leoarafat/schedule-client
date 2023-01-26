@@ -1,10 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
-import AllDay from "../../Dashboard/Meeting/MyMeeting/AllDay/AllDay";
 import MyMeeting from "../../Dashboard/Meeting/MyMeeting/MyMeeting";
 import Main from "../../Layouts/Main/Main";
-import MeetingLayout from "../../Layouts/MeetingLayout/MeetingLayout";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import BLogPost from "../../Pages/Blog/BLogPost";
@@ -46,10 +44,6 @@ export const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: '/profile',
-                element: <Profile></Profile>
-            },
-            {
                 path: '/login',
                 element: <SignIn />
             },
@@ -71,12 +65,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myMeeting', element: <MyMeeting/>
             },
-          
-            // {
-            //     path: '/dashboard/allday', element: <AllDay/>
-            // }
-        ]
-    },
+            {
+                path: '/dashboard/profile',
+                element: <Profile></Profile>
+            },
         ]
     }
 
