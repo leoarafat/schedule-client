@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllUser from "../../Dashboard/AllUser/AllUser";
+import Billing from "../../Dashboard/Dashboard/Billing/Billing";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import MyMeeting from "../../Dashboard/Meeting/MyMeeting/MyMeeting";
 import Main from "../../Layouts/Main/Main";
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/profile',
                 element: <Profile></Profile>
+            },
+            {
+                path: '/dashboard/billing',
+                element: <Billing></Billing>
             },
         ]
     }

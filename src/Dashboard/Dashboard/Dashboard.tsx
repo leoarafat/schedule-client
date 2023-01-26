@@ -176,8 +176,8 @@ const Dashboard = () => {
                     </li>
                   </Link>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      to='/dashboard/billing'
                       className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                     >
                       <span className="inline-flex justify-center items-center ml-4">
@@ -199,7 +199,7 @@ const Dashboard = () => {
                       <span className="ml-2 text-sm tracking-wide truncate">
                         Billing
                       </span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a
