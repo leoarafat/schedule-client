@@ -29,9 +29,8 @@ const Contact = () => {
       data-aos="fade-up"
       data-aos-duration="3000"
     >
-      <h1 className="text-6xl font-bold text-center">
-        Contact <span className="text-primary">Us</span>
-      </h1>
+      <h2 className="text-center text-2xl font-bold md:text-4xl">
+      Contact <span className="text-primary">Us</span></h2>
       <section className="py-5 lg:py-20 mx-5 lg:mx-0 dark:text-black">
         <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x shadow-lg p-10">
           <div className="py-6 md:py-0 md:px-6">
