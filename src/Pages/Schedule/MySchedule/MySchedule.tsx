@@ -1,10 +1,11 @@
 import React from 'react'
 import { AiOutlineDelete, AiOutlineEdit, AiOutlineCopy, AiOutlineShareAlt } from 'react-icons/ai'
 import { FiCopy } from 'react-icons/fi'
+
 const MySchedule = () => {
     return (
-        <div>
-            <div className="flex justify-center items-center mb-20">
+        <div className='flex justify-center'>
+            <div className="grid md:grid-cols-3 gap-8 my-20">
                 <div className="bg-white rounded-lg shadow-xl">
                     <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
 
