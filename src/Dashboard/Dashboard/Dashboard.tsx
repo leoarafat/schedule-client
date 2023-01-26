@@ -53,6 +53,15 @@ const Dashboard = () => {
         <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
           <ul className="flex flex-col py-4 space-y-1">
             <li className="px-5 hidden md:block">
+              <div className="flex flex-row items-center ">
+                <img
+                  src="https://i.ibb.co/MSsVHm1/logo.png"
+                  className=""
+                  alt=""
+                />
+              </div>
+            </li>
+            <li className="px-5 hidden md:block">
               <div className="flex flex-row items-center h-8">
                 <div className="text-sm tracking-wide text-Primary font-bold uppercase">
                   Main
@@ -199,6 +208,32 @@ const Dashboard = () => {
                 </span>
                 <span className="ml-2 text-sm tracking-wide truncate">
                   Profile
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+              >
+                <span className="inline-flex justify-center items-center ml-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
+                    />
+                  </svg>
+                </span>
+                <span className="ml-2 text-sm tracking-wide truncate">
+                  Billing
                 </span>
               </a>
             </li>
