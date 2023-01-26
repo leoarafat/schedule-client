@@ -79,9 +79,9 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/dashboard/meeting', element: <DashboardLayout/>, children:[
+        path: '/dashboard', element: <DashboardLayout/>, children:[
             {
-                path: '/dashboard/meeting/allday', element: <AllDay/>
+                path: '/dashboard/test', element: <AllDay/>
             }
         ]
     }

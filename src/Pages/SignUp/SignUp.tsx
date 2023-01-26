@@ -8,10 +8,10 @@ type UserSubmitForm = {
   displayName: string;
   email: string;
   password: string;
-  // image: any;
+  image: any;
 };
 interface dataProps {
-  // image: any;
+  image: any;
   email: string;
   password: string;
   displayName: string;
@@ -31,18 +31,18 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleRegister = (data: dataProps) => {
-    RegisterUser(data.email, data.password, data.displayName)
-      .then((result: any) => {
-        // const user = result.user
-        toast.success("Sign Up Successfully");
-        navigate("/");
-        saveUserToDatabase(data?.email, data?.displayName);
-        console.log();
-      })
-      .catch((err: any) => {
-        setFirebaseError(err.message);
-        console.log(err);
-      });
+    // RegisterUser(data.email, data.password, data.displayName)
+    //   .then((result: any) => {
+    //     // const user = result.user
+    //     toast.success("Sign Up Successfully");
+    //     navigate("/");
+    //     saveUserToDatabase(data?.email, data?.displayName);
+    //     console.log();
+    //   })
+    //   .catch((err: any) => {
+    //     setFirebaseError(err.message);
+    //     console.log(err);
+    //   });
     // const image = data.image[0];
     // const formData = new FormData();
     // formData.append("image", image);

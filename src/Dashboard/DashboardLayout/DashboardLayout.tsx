@@ -4,12 +4,10 @@ import Dashboard from "../Dashboard/Dashboard";
 
 const DashboardLayout = () => {
   return (
-
-
     <div>
-      <Outlet></Outlet>
-
+      {/* <Outlet/> */}
       <Dashboard />
+      {/* <Outlet/> */}
     </div>
   );
 };

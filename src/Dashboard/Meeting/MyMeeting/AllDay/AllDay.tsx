@@ -3,7 +3,7 @@ import React from 'react';
 const AllDay = () => {
     return (
         <div>
-            All Day
+            <h1 className='text-5xl text-red-500'>All Day</h1>
         </div>
     );
 };
