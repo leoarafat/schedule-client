@@ -6,7 +6,7 @@ type FormValues = {
 };
 
 const AddNotes = () => {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const { register, handleSubmit, reset } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const addNotes: any = {
       title: data.title,
@@ -25,6 +25,7 @@ const AddNotes = () => {
         // setDataa(data)
         if (data.acknowledged) {
           alert("done!");
+          reset();
           // toast.success('Successfully toasted!')
           // loading(true)
         } else {
