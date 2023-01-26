@@ -1,6 +1,4 @@
-import Profile from "../Profile/Profile";
-import AddNotes from "../../AddNote/AddNotes";
-import Notes from "../../AddNote/Notes";
+import Contact from "./Contact/Contact";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -13,14 +11,11 @@ const Home = () => {
     <div className="max-w-[1400px] mx-auto">
       <Header></Header>
       <Services></Services>
-      <AddNotes></AddNotes>
-      <Notes></Notes>
       <Details></Details>
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
-      <Profile />
-
+      <Contact></Contact>
     </div>
   );
 };
