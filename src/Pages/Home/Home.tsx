@@ -1,11 +1,10 @@
+import Profile from "../Profile/Profile";
 import AddNotes from "../../AddNote/AddNotes";
 import Notes from "../../AddNote/Notes";
-
 
 import ScheduleInfo from "../Schedule/ScheduleInfo/ScheduleInfo";
 
 import AddNote from "../../AddNote/AddNote";
-
 
 import Details from "./Details/Details";
 import Header from "./Header/Header";
@@ -14,10 +13,9 @@ import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
 import Sponsorship from "./Sponsorship/Sponsorship";
 
-
 const Home = () => {
   return (
-    <div>
+    <div className="max-w-[1400px] mx-auto">
       <Header></Header>
       <Services></Services>
       <AddNotes></AddNotes>
@@ -26,6 +24,8 @@ const Home = () => {
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
+
+      <Profile />
     </div>
   );
 };
