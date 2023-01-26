@@ -46,7 +46,6 @@ export const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-
                 path: '/profile',
                 element: <Profile></Profile>
             },
@@ -67,7 +66,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard', element: <DashboardLayout />, children: [
             {
-                path: '/dashboard/allUser', element: <AllUser/>
+                path: '/dashboard/allUser', element: <AllUser />
             },
             {
                 path: '/dashboard/myMeeting', element: <MyMeeting/>
@@ -78,11 +77,6 @@ export const router = createBrowserRouter([
             // }
         ]
     },
-    {
-        path: '/dashboard', element: <DashboardLayout/>, children:[
-            {
-                path: '/dashboard/test', element: <AllDay/>
-            }
         ]
     }
 

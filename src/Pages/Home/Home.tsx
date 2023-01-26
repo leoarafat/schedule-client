@@ -1,4 +1,3 @@
-import Profile from "../Profile/Profile";
 import AddNotes from "../../AddNote/AddNotes";
 import Notes from "../../AddNote/Notes";
 
