@@ -12,7 +12,7 @@ const TimeAndDate = ({ handleForm }: any) => {
   return (
     <>
       <form onSubmit={handleForm}>
-        <div className='md:flex justify-center gap-4'>
+        <div className='md:flex justify-center gap-8'>
 
           <div className='px-2'>
             <Calendar className='md:w-[40rem] w-full h-[25rem] bg-sky-300 font-bold text-lg' onChange={onChange} value={value} />
