@@ -11,6 +11,7 @@ import Membership from "./Membership/Membership";
 import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
 import Sponsorship from "./Sponsorship/Sponsorship";
+import Profile from "../Profile/Profile";
 
 const Home = () => {
   return (
