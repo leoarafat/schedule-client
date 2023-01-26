@@ -15,66 +15,68 @@ import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 
-
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/plan',
-                element: <Plans></Plans>
-            },
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/plan",
+        element: <Plans></Plans>,
+      },
 
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/blogPost',
-                element: <BLogPost></BLogPost>
-            },
-            {
-
-                path: '/about',
-                element: <About></About>
-            },
-            {
-                path: '/login',
-                element: <SignIn />
-            },
-            {
-                path: '/signUp',
-                element: <SignUp></SignUp>
-            },
-            {
-                path: '/schedule',
-                element: <Schedule />
-            }
-        ]
-    },
-    {
-        path: '/dashboard', element: <DashboardLayout />, children: [
-            {
-                path: '/dashboard/allUser', element: <AllUser />
-            },
-            {
-                path: '/dashboard/myMeeting', element: <MyMeeting/>
-            },
-            {
-                path: '/dashboard/profile',
-                element: <Profile></Profile>
-            },
-            {
-                path: '/dashboard/billing',
-                element: <Billing></Billing>
-            },
-        ]
-    }
-
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/blogPost",
+        element: <BLogPost></BLogPost>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/login",
+        element: <SignIn />,
+      },
+      {
+        path: "/signUp",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/schedule",
+        element: <Schedule />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/dashboard/allUser",
+        element: <AllUser />,
+      },
+      {
+        path: "/dashboard/myMeeting",
+        element: <MyMeeting />,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "/dashboard/billing",
+        element: <Billing></Billing>,
+      },
+    ],
+  },
 ]);
