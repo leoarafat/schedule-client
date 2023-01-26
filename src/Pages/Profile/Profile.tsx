@@ -8,7 +8,8 @@ const Profile = () => {
   console.log(user);
   return (
     <div className="bg-gray-100">
-      <div className="container mx-auto my-5 p-5 relative">
+      <h1 className="text-6xl font-bold">Pro<span className="text-primary">file</span></h1>
+      <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
             <div className="bg-white p-3 border-t-4 border-primary">
