@@ -46,9 +46,9 @@ const Nav = () => {
 
             {
               user?.uid ?
-                <Link to={"/"} onClick={signOut} className="btn border-0 lg:flex px-10 mr-4 text-white">Sign Out</Link>
+                <Link to={"/"} onClick={signOut} className="btn border-0 lg:flex px-10 mr-4 text-white">Log Out</Link>
                 :
-                <Link to={"/login"} className="btn border-0 lg:flex px-10 mr-4 text-white">Sign In</Link>
+                <Link to={"/login"} className="btn border-0 lg:flex px-10 mr-4 text-white">Log In</Link>
             }
           </ul>
         </div>
@@ -56,9 +56,9 @@ const Nav = () => {
 
         {
           user?.uid ?
-            <Link to={"/"} onClick={signOut} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Sign Out</Link>
+            <Link to={"/"} onClick={signOut} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Log Out</Link>
             :
-            <Link to={"/login"} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Sign In</Link>
+            <Link to={"/login"} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Log In</Link>
         }
       </div>
     </nav>
