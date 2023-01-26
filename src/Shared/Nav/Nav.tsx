@@ -9,8 +9,8 @@ const Nav = () => {
   const signOut = () => {
     logOut()
       .then(() => { })
-      .catch((err: any) => {
-        console.error(err)
+      .catch((error: any) => {
+        console.error(error)
       })
   }
   return (
