@@ -1,3 +1,4 @@
+import MySchedule from "../Schedule/MySchedule/MySchedule";
 import Contact from "./Contact/Contact";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
@@ -16,6 +17,7 @@ const Home = () => {
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
       <Contact></Contact>
+      <MySchedule />
     </div>
   );
 };
