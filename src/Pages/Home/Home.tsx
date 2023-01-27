@@ -17,7 +17,6 @@ const Home = () => {
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
       <Contact></Contact>
-      <MySchedule />
     </div>
   );
 };
