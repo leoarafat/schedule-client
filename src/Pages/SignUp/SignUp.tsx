@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 type UserSubmitForm = {
@@ -18,7 +18,7 @@ interface dataProps {
 }
 
 const SignUp = () => {
-  const { RegisterUser,user, googleSignIn }: any = useContext(AuthContext);
+  const { RegisterUser, user, googleSignIn }: any = useContext(AuthContext);
   console.log(user);
   // const imageHostKey = "8b90eb0929bfebb0ad08213a1dc74625";
   const {
@@ -43,7 +43,6 @@ const SignUp = () => {
         setFirebaseError(err.message);
         console.log(err);
       });
-
   };
 
   const handleGoogleSignIn = () => {
@@ -65,7 +64,7 @@ const SignUp = () => {
 
   const saveUserToDatabase = (email: any, name: any) => {
     const user = { email, name };
-    fetch(`http://localhost:5000/users`, {
+    fetch(`https://scheduplannr-server.vercel.app/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

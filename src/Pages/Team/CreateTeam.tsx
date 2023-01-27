@@ -23,12 +23,45 @@ const Unique = () => {
   } = useForm<dataProps>();
 
   const handleAdd = (data: dataProps) => {
-    saveToDatabase(data.name, data.email, data.name1, data.email1, data.name2, data.email2, data.name3, data.email3, data.name4, data.email4);
+    saveToDatabase(
+      data.name,
+      data.email,
+      data.name1,
+      data.email1,
+      data.name2,
+      data.email2,
+      data.name3,
+      data.email3,
+      data.name4,
+      data.email4
+    );
   };
 
-  const saveToDatabase = (name: string, email: string, name1: string, email1: string, name2: string, email2: string, name3: string, email3: string, name4: string, email4: string) => {
-    const TeamData = { name, email, name1, email1, name2, email2, name3, email3, name4, email4 };
-    fetch(`http://localhost:5000/team`, {
+  const saveToDatabase = (
+    name: string,
+    email: string,
+    name1: string,
+    email1: string,
+    name2: string,
+    email2: string,
+    name3: string,
+    email3: string,
+    name4: string,
+    email4: string
+  ) => {
+    const TeamData = {
+      name,
+      email,
+      name1,
+      email1,
+      name2,
+      email2,
+      name3,
+      email3,
+      name4,
+      email4,
+    };
+    fetch(`https://scheduplannr-server.vercel.app/team`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,7 +71,7 @@ const Unique = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success('Team Created Successful')
+        toast.success("Team Created Successful");
       });
   };
 
@@ -46,41 +79,78 @@ const Unique = () => {
     <>
       <div className="my-10 pl-10">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
-          <h1 className='text-center text-4xl py-10 font-semibold'>Create Your <span className='text-primary'>Team/Organization</span></h1>
+          <h1 className="text-center text-4xl py-10 font-semibold">
+            Create Your <span className="text-primary">Team/Organization</span>
+          </h1>
 
-          <form onSubmit={handleSubmit(handleAdd)} className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto">
+          <form
+            onSubmit={handleSubmit(handleAdd)}
+            className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
+          >
             <div>
-              <label htmlFor="name" className="inline-block text-gray-800 text-sm sm:text-base mb-2">Team/Organization Name</label>
+              <label
+                htmlFor="name"
+                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+              >
+                Team/Organization Name
+              </label>
               <input
                 {...register("name", {
-                  required: "Name is Required"
+                  required: "Name is Required",
                 })}
-                id='name' name="name" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" />
-              {errors.name && <p className="text-sm text-red-600 mt-2">{errors.name.message}</p>}
+                id="name"
+                name="name"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+              />
+              {errors.name && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="email" className="inline-block text-gray-800 text-sm sm:text-base mb-2">Team/Organization Email</label>
+              <label
+                htmlFor="email"
+                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+              >
+                Team/Organization Email
+              </label>
               <input
                 {...register("email", {
                   required: true,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid Email Address"
-                  }
+                    message: "Invalid Email Address",
+                  },
                 })}
-                id='email' name="email" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" />
-              {errors.email && <p className="text-sm text-red-600 mt-2">{errors.email.message}</p>}
+                id="email"
+                name="email"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+              />
+              {errors.email && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             <div>
               <label htmlFor="name1">Member 1 Name</label>
               <input
                 {...register("name1", {
-                  required: "Name is Required"
+                  required: "Name is Required",
                 })}
-                id='name1' name="name1" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
-              {errors.name1 && <p className="text-sm text-red-600 mt-2">{errors.name1.message}</p>}
+                id="name1"
+                name="name1"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Name"
+              />
+              {errors.name1 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.name1.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -90,20 +160,36 @@ const Unique = () => {
                   required: true,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid Email Address"
-                  }
+                    message: "Invalid Email Address",
+                  },
                 })}
-                id='email1' name="email1" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
-              {errors.email1 && <p className="text-sm text-red-600 mt-2">{errors.email1.message}</p>}
+                id="email1"
+                name="email1"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Email"
+              />
+              {errors.email1 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.email1.message}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="name2">Member 2 Name</label>
               <input
                 {...register("name2", {
-                  required: "Name is Required"
+                  required: "Name is Required",
                 })}
-                id='name2' name="name2" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
-              {errors.name2 && <p className="text-sm text-red-600 mt-2">{errors.name2.message}</p>}
+                id="name2"
+                name="name2"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Name"
+              />
+              {errors.name2 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.name2.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -113,20 +199,36 @@ const Unique = () => {
                   required: true,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid Email Address"
-                  }
+                    message: "Invalid Email Address",
+                  },
                 })}
-                id='email2' name="email2" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
-              {errors.email2 && <p className="text-sm text-red-600 mt-2">{errors.email2.message}</p>}
+                id="email2"
+                name="email2"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Email"
+              />
+              {errors.email2 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.email2.message}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="name3">Member 3 Name</label>
               <input
                 {...register("name3", {
-                  required: "Name is Required"
+                  required: "Name is Required",
                 })}
-                id='name3' name="name3" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
-              {errors.name3 && <p className="text-sm text-red-600 mt-2">{errors.name3.message}</p>}
+                id="name3"
+                name="name3"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Name"
+              />
+              {errors.name3 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.name3.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -136,20 +238,36 @@ const Unique = () => {
                   required: true,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid Email Address"
-                  }
+                    message: "Invalid Email Address",
+                  },
                 })}
-                id='email3' name="email3" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
-              {errors.email3 && <p className="text-sm text-red-600 mt-2">{errors.email3.message}</p>}
+                id="email3"
+                name="email3"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Email"
+              />
+              {errors.email3 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.email3.message}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="name4">Member 4 Name</label>
               <input
                 {...register("name4", {
-                  required: "Name is Required"
+                  required: "Name is Required",
                 })}
-                id='name4' name="name4" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
-              {errors.name4 && <p className="text-sm text-red-600 mt-2">{errors.name4.message}</p>}
+                id="name4"
+                name="name4"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Name"
+              />
+              {errors.name4 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.name4.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -159,22 +277,43 @@ const Unique = () => {
                   required: true,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid Email Address"
-                  }
+                    message: "Invalid Email Address",
+                  },
                 })}
-                id='email4' name="email4" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
-              {errors.email4 && <p className="text-sm text-red-600 mt-2">{errors.email4.message}</p>}
+                id="email4"
+                name="email4"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Email"
+              />
+              {errors.email4 && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.email4.message}
+                </p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="description" className="inline-block text-gray-800 text-sm sm:text-base mb-2">Description</label>
+              <label
+                htmlFor="description"
+                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+              >
+                Description
+              </label>
               <textarea
                 {...register("description")}
-                id='description' name="description" className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"></textarea>
+                id="description"
+                name="description"
+                className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+              ></textarea>
             </div>
             <div></div>
-            <div className='flex justify-end'>
-              <button type='submit' className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Create Team</button>
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
+              >
+                Create Team
+              </button>
             </div>
           </form>
         </div>

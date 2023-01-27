@@ -1,8 +1,6 @@
-import React from "react";
 import {
   AiOutlineDelete,
   AiOutlineEdit,
-  AiOutlineCopy,
   AiOutlineShareAlt,
 } from "react-icons/ai";
 import { useQuery } from "react-query";
@@ -15,7 +13,7 @@ const Team = () => {
   } = useQuery({
     queryKey: ["team"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/team");
+      const res = await fetch("https://scheduplannr-server.vercel.app/team");
       const data = res.json();
       return data;
     },
