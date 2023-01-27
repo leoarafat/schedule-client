@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="bg-gray-100">
-        <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between border-r bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:border-gray-700">
+        <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between bg-white px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:border-gray-700">
           <div>
             <div className="fixed flex flex-col  left-0 w-14 hover:w-64 md:w-64 shadow-2xl h-full text-primary transition-all duration-300 border-none z-10 sidebar">
               <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
@@ -242,32 +242,7 @@ const Dashboard = () => {
           </div>
         </aside>
         <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-          <div className="sticky top-0 h-16 border-b bg-white dark:border-gray-700 lg:py-2.5 hidden lg:block">
-            <div className="flex items-center justify-between space-x-4 px-6 2xl:container">
-              <h5
-                hidden
-                className="text-2xl font-medium text-gray-600 lg:block "
-              >
-                Dashboard
-              </h5>
-              <button className="-mr-2 h-16 w-12 border-r lg:hidden dark:border-gray-700 dark:text-gray-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="my-auto h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+
 
           <div className="px-6 pt-6 2xl:container">
             <div className="flex h-[80vh] items-center justify-center rounded-xl">
