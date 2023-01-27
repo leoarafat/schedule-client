@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         element: <SixtyMins></SixtyMins>
       }
     ]
-  }
+  },
   {
     path: "/dashboard",
     element: <DashboardLayout />,
