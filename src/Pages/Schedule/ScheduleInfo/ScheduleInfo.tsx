@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
 
 type UserSubmitForm = {
     name: string;
@@ -16,14 +17,53 @@ interface timeDateType {
     timeDate: object;
 }
 
-const ScheduleInfo = ({ timeDate }: timeDateType) => {
-
-    console.log(timeDate);
+const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<UserSubmitForm>();
 
+
+
     const handleInfo = (data: UserSubmitForm) => {
-        console.log(data)
+        const name = data.name;
+        const email = data.email;
+        const phone = data.phone;
+        const organization = data.organization;
+        const title = data.title;
+        const location = data.location;
+        const link = data.link;
+        const description = data.description;
+
+        const info = {
+            name,
+            email,
+            phone,
+            organization,
+            title,
+            location,
+            link,
+            description,
+            value,
+            slot,
+            slotPm
+        }
+        setScheduleInfo(info);
+        fetch('http://localhost:5000/createSchedule', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(info),
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('Successfully addeded');
+                }
+                else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error(error));
     }
 
     return (
@@ -135,7 +175,7 @@ const ScheduleInfo = ({ timeDate }: timeDateType) => {
                         </div>
                         <div></div>
                         <div className='flex justify-end'>
-                            <button type='submit' className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Next</button>
+                            <button type='submit' className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Done</button>
                         </div>
                     </form>
                 </div>
