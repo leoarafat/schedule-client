@@ -4,7 +4,7 @@ import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider
 
 const Profile = () => {
   const { user }: any = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   return (
     <div className="pl-20 md:pl-0">
       <h1 className="text-6xl font-bold text-center">
