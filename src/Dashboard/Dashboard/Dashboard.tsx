@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AiOutlineTeam } from "react-icons/ai";
-import { MdCreateNewFolder } from "react-icons/md";
+import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
+
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
@@ -58,6 +58,19 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/dashboard/mySchedule"
+                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                    >
+                      <span className="inline-flex justify-center items-center ml-4">
+                        <AiOutlineSchedule size={"1.25rem"}></AiOutlineSchedule>
+                      </span>
+                      <span className="ml-2 text-sm tracking-wide truncate">
+                        My Schedule
+                      </span>
+                    </Link>
+                  </li>
 
                   <li>
                     <Link
@@ -65,7 +78,20 @@ const Dashboard = () => {
                       className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                     >
                       <span className="inline-flex justify-center items-center ml-4">
-                        <MdCreateNewFolder size={"1.25rem"}></MdCreateNewFolder>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                          />
+                        </svg>
                       </span>
                       <span className="ml-2 text-sm tracking-wide truncate">
                         Create Team

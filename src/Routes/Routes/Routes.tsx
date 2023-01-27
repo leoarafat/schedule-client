@@ -20,6 +20,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import Team from "../../Pages/Team/Team";
 import CreateTeam from "../../Pages/Team/CreateTeam";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/team",
         element: <Team />,
+      },
+      {
+        path: '/dashboard/mySchedule',
+        element: <MySchedule></MySchedule>,
       },
     ],
   },
