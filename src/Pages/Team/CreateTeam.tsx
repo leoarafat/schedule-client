@@ -79,7 +79,7 @@ const Unique = () => {
                 {...register("name1", {
                   required: "Name is Required"
                 })}
-                id='name1' name="name" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
+                id='name1' name="name1" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
               {errors.name1 && <p className="text-sm text-red-600 mt-2">{errors.name1.message}</p>}
             </div>
 
@@ -93,7 +93,7 @@ const Unique = () => {
                     message: "Invalid Email Address"
                   }
                 })}
-                id='email' name="email" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
+                id='email1' name="email1" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
               {errors.email1 && <p className="text-sm text-red-600 mt-2">{errors.email1.message}</p>}
             </div>
             <div>
@@ -102,7 +102,7 @@ const Unique = () => {
                 {...register("name2", {
                   required: "Name is Required"
                 })}
-                id='name2' name="name" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
+                id='name2' name="name2" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
               {errors.name2 && <p className="text-sm text-red-600 mt-2">{errors.name2.message}</p>}
             </div>
 
@@ -116,7 +116,7 @@ const Unique = () => {
                     message: "Invalid Email Address"
                   }
                 })}
-                id='email' name="email" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
+                id='email2' name="email2" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
               {errors.email2 && <p className="text-sm text-red-600 mt-2">{errors.email2.message}</p>}
             </div>
             <div>
@@ -125,7 +125,7 @@ const Unique = () => {
                 {...register("name3", {
                   required: "Name is Required"
                 })}
-                id='name3' name="name" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
+                id='name3' name="name3" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
               {errors.name3 && <p className="text-sm text-red-600 mt-2">{errors.name3.message}</p>}
             </div>
 
@@ -139,7 +139,7 @@ const Unique = () => {
                     message: "Invalid Email Address"
                   }
                 })}
-                id='email' name="email" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
+                id='email3' name="email3" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
               {errors.email3 && <p className="text-sm text-red-600 mt-2">{errors.email3.message}</p>}
             </div>
             <div>
@@ -148,7 +148,7 @@ const Unique = () => {
                 {...register("name4", {
                   required: "Name is Required"
                 })}
-                id='name4' name="name" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
+                id='name4' name="name4" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Name" />
               {errors.name4 && <p className="text-sm text-red-600 mt-2">{errors.name4.message}</p>}
             </div>
 
@@ -162,7 +162,7 @@ const Unique = () => {
                     message: "Invalid Email Address"
                   }
                 })}
-                id='email' name="email" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
+                id='email4' name="email4" className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2" placeholder="Email" />
               {errors.email4 && <p className="text-sm text-red-600 mt-2">{errors.email4.message}</p>}
             </div>
 
