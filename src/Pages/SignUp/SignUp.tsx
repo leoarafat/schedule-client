@@ -31,63 +31,19 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleRegister = (data: dataProps) => {
-    // RegisterUser(data.email, data.password, data.displayName)
-    //   .then((result: any) => {
-    //     // const user = result.user
-    //     toast.success("Sign Up Successfully");
-    //     navigate("/");
-    //     saveUserToDatabase(data?.email, data?.displayName);
-    //     console.log();
-    //   })
-    //   .catch((err: any) => {
-    //     setFirebaseError(err.message);
-    //     console.log(err);
-    //   });
-    // const image = data.image[0];
-    // const formData = new FormData();
-    // formData.append("image", image);
-    // const url = `https://api.imgbb.com/1/upload?key=${"8b90eb0929bfebb0ad08213a1dc74625"}`;
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((imgData) => {
-    //     if (imgData.success) {
-    //       console.log(imgData.data.url);
-    //       const users = {
-    //         name: data.displayName,
-    //         email: data.email,
-    //         // image: imgData.data.url,
-    //       };
-    //       RegisterUser(data.email, data.displayName)
-    //         .then((result: any) => {
-    //           // toast.success("Sign Up Successfully");
-    //           // saveUserToDatabase(data?.email, data?.displayName);
-    //           console.log(result);
-    //         })
-    //         .catch((err: any) => {
-    //           setFirebaseError(err.message);
-    //           console.log(err);
-    //         });
+    RegisterUser(data.email, data.password, data.displayName)
+      .then((result: any) => {
+        // const user = result.user
+        toast.success("Sign Up Successfully");
+        navigate("/");
+        saveUserToDatabase(data?.email, data?.displayName);
+        console.log();
+      })
+      .catch((err: any) => {
+        setFirebaseError(err.message);
+        console.log(err);
+      });
 
-    //       // save doctor information to the database
-    //       fetch("http://localhost:5000/users", {
-    //         method: "POST",
-    //         headers: {
-    //           "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify(users),
-    //       })
-    //         .then((res) => res.json())
-    //         .then((result) => {
-    //           // console.log(result);
-    //           if (result.acknowledged) {
-    //           }
-    //           // navigate("/");
-    //         });
-    //     }
-    //   });
   };
 
   const handleGoogleSignIn = () => {

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../components/Contexts/AuthProvider/AuthProvider';
 
 type UserSubmitForm = {
@@ -20,11 +20,12 @@ const SignIn = () => {
   const { logInUser, googleSignIn, resetPassword, auth, user }: any = useContext(AuthContext)
 
   const { register, handleSubmit, formState: { errors } } = useForm<UserSubmitForm>();
-
+const navigate = useNavigate()
   const handleLogIn = (data: dataProps) => {
     logInUser(data.email, data.password)
       .then((result: any) => {
         toast.success('Sign In Successfully')
+        navigate('/')
         console.log(result.user);
       })
       .catch((err: string) => {
