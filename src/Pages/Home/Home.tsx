@@ -5,7 +5,6 @@ import Membership from "./Membership/Membership";
 import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
 import Sponsorship from "./Sponsorship/Sponsorship";
-import CreateTeam from "../Team/CreateTeam";
 
 const Home = () => {
   return (
@@ -17,7 +16,6 @@ const Home = () => {
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
       <Contact></Contact>
-      <CreateTeam />
     </div>
   );
 };
