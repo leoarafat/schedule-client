@@ -53,26 +53,26 @@ export const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
-      }
+      },
     ],
   },
   {
-    path: '/schedule',
+    path: "/schedule",
     element: <Schedule></Schedule>,
     children: [
       {
-        path: '/schedule/fifteen',
-        element: <Fifteen></Fifteen>
+        path: "/schedule/fifteen",
+        element: <Fifteen></Fifteen>,
       },
       {
-        path: '/schedule/thirty',
-        element: <ThirtyMins></ThirtyMins>
+        path: "/schedule/thirty",
+        element: <ThirtyMins></ThirtyMins>,
       },
       {
-        path: '/schedule/sixteen',
-        element: <SixtyMins></SixtyMins>
-      }
-    ]
+        path: "/schedule/sixteen",
+        element: <SixtyMins></SixtyMins>,
+      },
+    ],
   },
   {
     path: "/dashboard",
@@ -89,15 +89,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <Profile></Profile>,
-      },
-      {
-        path: "/dashboard/notes",
-        element: <MyNotes></MyNotes>,
+        element: <Profile/>,
       },
       {
         path: "/dashboard/billing",
-        element: <Billing></Billing>,
+        element: <Billing/>,
+      },
+      {
+        path: "/dashboard/billing",
+        element: <Billing/>,
       },
     ],
   },

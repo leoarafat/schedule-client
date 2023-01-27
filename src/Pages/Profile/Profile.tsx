@@ -1,13 +1,15 @@
-import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import { useContext } from "react";
 import AddNote from "../../AddNote/AddNote";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 const Profile = () => {
   const { user }: any = useContext(AuthContext);
   console.log(user);
   return (
-    <div className="bg-gray-100">
-      <h1 className="text-6xl font-bold">Pro<span className="text-primary">file</span></h1>
+    <div className="pl-20 md:pl-0">
+      <h1 className="text-6xl font-bold text-center">
+        Pro<span className="text-primary">file</span>
+      </h1>
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
@@ -22,13 +24,13 @@ const Profile = () => {
               <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
                 {user?.displayName}
               </h1>
-              <h3 className="text-gray-600 font-lg text-semibold leading-6">
-                Owner at Her Company Inc.
+              <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
+                Frontend Developer
               </h3>
-              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur
-                non deserunt
+              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5">
+                Junior Frontend Developer with a passion for Web Applications
+                Development. Has experience in developing many web pages
+                successfully.
               </p>
             </div>
 
@@ -47,9 +49,9 @@ const Profile = () => {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
@@ -121,9 +123,9 @@ const Profile = () => {
                       stroke="currentColor"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
