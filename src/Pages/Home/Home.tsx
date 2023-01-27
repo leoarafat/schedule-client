@@ -6,6 +6,7 @@ import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
 import Sponsorship from "./Sponsorship/Sponsorship";
 import Profile from "../Profile/Profile";
+import Unique from "../Unique/Unique";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
       <Contact></Contact>
+      <Unique/>
     </div>
   );
 };
