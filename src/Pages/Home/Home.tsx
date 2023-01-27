@@ -1,5 +1,4 @@
-import AddNotes from "../../AddNote/AddNotes";
-import Notes from "../../AddNote/Notes";
+import Contact from "./Contact/Contact";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -9,16 +8,14 @@ import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {
   return (
-    <div>
+    <div className="max-w-[1400px] mx-auto">
       <Header></Header>
       <Services></Services>
-      <AddNotes></AddNotes>
-      <Notes></Notes>
       <Details></Details>
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
-
+      <Contact></Contact>
     </div>
   );
 };

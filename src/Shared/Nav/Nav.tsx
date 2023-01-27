@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../components/Contexts/AuthProvider/AuthProvider';
 import './Nav.css'
 
 const Nav = () => {
+  const { user, logOut }: any = useContext(AuthContext);
+
+  const signOut = () => {
+    logOut()
+      .then(() => { })
+      .catch((error: any) => {
+        console.error(error)
+      })
+  }
   return (
     <nav className="navbar bg-base-100 flex items-center mt-5 max-w-[1300px] mx-auto">
       <div className="navbar-start">
@@ -32,12 +42,24 @@ const Nav = () => {
             <li><Link to={"/about"} className=" hover:bg-secondary pr-32">About</Link></li>
             <li><Link to={"/schedule/fifteen"} className=" hover:bg-secondary pr-28">Schedule</Link></li>
             <li><Link to={"/blog"} className=" hover:bg-secondary pr-36">Blog</Link></li>
-            <li><Link to={"/signin"} className="btn border-0 lg:flex rounded-full px-10 text-white">Sign In</Link></li>
+
+
+            {
+              user?.uid ?
+                <Link to={"/"} onClick={signOut} className="btn border-0 lg:flex px-10 mr-4 text-white">Log Out</Link>
+                :
+                <Link to={"/login"} className="btn border-0 lg:flex px-10 mr-4 text-white">Log In</Link>
+            }
           </ul>
         </div>
         {/* Small Screen nav items */}
 
-        <Link to={"/login"} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Sign In</Link>
+        {
+          user?.uid ?
+            <Link to={"/"} onClick={signOut} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Log Out</Link>
+            :
+            <Link to={"/login"} className="btn hidden border-0 lg:flex bg-primary rounded-full text-white px-10">Log In</Link>
+        }
       </div>
     </nav>
   );
