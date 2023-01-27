@@ -1,3 +1,4 @@
+import Contact from "./Contact/Contact";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
@@ -15,6 +16,7 @@ const Home = () => {
       <Membership></Membership>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
+      <Contact></Contact>
     </div>
   );
 };

@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans&display=swap');
+
+/* font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  font-family: 'Mulish', sans-serif;
+}
+
+p,
+ul,
+ol,
+textarea,
+figure,
+label,
+select,
+input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
 /* Box sizing rules */
 *,
 *::before,

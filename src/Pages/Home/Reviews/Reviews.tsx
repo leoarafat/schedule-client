@@ -1,45 +1,41 @@
-import React from 'react';
-import "swiper/css";
-
+import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css/effect-coverflow";
+// Import Swiper styles
+import "swiper/css";
 import "swiper/css/pagination";
 
-import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+
+// import required modules
+import { Autoplay, Pagination } from "swiper";
 import './Reviews'
 
 const Reviews = () => {
-    return (
-        <div className="mb-10" data-aos="fade-up"
-    data-aos-duration="3000">
+  return (
+    <div className="mb-10" data-aos="fade-up" data-aos-duration="3000">
       <div className="my-10">
-        <h1 className="text-4xl font-bold text-center my-3 text-primary">What My Clients Say</h1>
+      <h2 className="text-center text-2xl font-bold md:text-4xl">
+      What My <span className="text-primary">Clients Say</span></h2>
 
-        <h1 className="text-center">Most common methods for designing websites that work well on desktop is responsive and adaptive design</h1>
+        <h1 className="text-center">
+          Most common methods for designing websites that work well on desktop
+          is responsive and adaptive design
+        </h1>
       </div>
       <>
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[Autoplay, EffectCoverflow, Pagination]}
-          className="mySwiper"
-        >
+      <Swiper
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Autoplay]}
+        className="mySwiper"
+      >
           <SwiperSlide>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  dark:text-black">
               <div className="flex justify-between p-4">
@@ -53,9 +49,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Rich Forsen</h4>
-                    <span className="text-xs text-black">
-                      2 days ago
-                    </span>
+                    <span className="text-xs text-black">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -71,7 +65,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                I rarely like to write reviews, but the Marketify team truly deserve a standing ovation for their customer support, customisation and most importantly, friendliness and professionalism. Many thanks once again for everything and hope that I get to deal with you again in the near future.
+                  I rarely like to write reviews, but the Marketify team truly
+                  deserve a standing ovation for their customer support,
+                  customisation and most importantly, friendliness and
+                  professionalism. Many thanks once again for everything and
+                  hope that I get to deal with you again in the near future.
                 </p>
               </div>
             </div>
@@ -89,9 +87,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Doug Newton</h4>
-                    <span className="text-xs text-black">
-                      2 days ago
-                    </span>
+                    <span className="text-xs text-black">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -107,7 +103,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                Really the Code Quality, Customer Support, and design are awesome and its good support they are giving. They give an instant solution to our needs. Really awesome. I will strongly recommend to my friends. Simply amazing team and amazing theme! Thank you from United States of America!
+                  Really the Code Quality, Customer Support, and design are
+                  awesome and its good support they are giving. They give an
+                  instant solution to our needs. Really awesome. I will strongly
+                  recommend to my friends. Simply amazing team and amazing
+                  theme! Thank you from United States of America!
                 </p>
               </div>
             </div>
@@ -125,9 +125,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Bill Scott</h4>
-                    <span className="text-xs text-black">
-                      4 days ago
-                    </span>
+                    <span className="text-xs text-black">4 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -143,7 +141,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                Loved the template design, documentation, customizability and the customer support from Marketify team! I am a noob in programming with very little knowledge about coding but the Marketify team helped me to launch my resume website successfully. Much recommended!
+                  Loved the template design, documentation, customizability and
+                  the customer support from Marketify team! I am a noob in
+                  programming with very little knowledge about coding but the
+                  Marketify team helped me to launch my resume website
+                  successfully. Much recommended!
                 </p>
               </div>
             </div>
@@ -161,9 +163,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Lindsey C.</h4>
-                    <span className="text-xs text-black">
-                      2 days ago
-                    </span>
+                    <span className="text-xs text-black">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -179,7 +179,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                Loved the template design, documentation, customizability and the customer support from Marketify team! I am a noob in programming with very little knowledge about coding but the Marketify team helped me to launch my resume website successfully. Much recommended!
+                  Loved the template design, documentation, customizability and
+                  the customer support from Marketify team! I am a noob in
+                  programming with very little knowledge about coding but the
+                  Marketify team helped me to launch my resume website
+                  successfully. Much recommended!
                 </p>
               </div>
             </div>
@@ -197,9 +201,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Thomas L. Archambault</h4>
-                    <span className="text-xs text-black">
-                      6 days ago
-                    </span>
+                    <span className="text-xs text-black">6 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -215,7 +217,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                I rarely like to write reviews, but the Marketify team truly deserve a standing ovation for their customer support, customisation and most importantly, friendliness and professionalism. Many thanks once again for everything and hope that I get to deal with you again in the near future.
+                  I rarely like to write reviews, but the Marketify team truly
+                  deserve a standing ovation for their customer support,
+                  customisation and most importantly, friendliness and
+                  professionalism. Many thanks once again for everything and
+                  hope that I get to deal with you again in the near future.
                 </p>
               </div>
             </div>
@@ -233,9 +239,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Chris Brockhurst</h4>
-                    <span className="text-xs text-black">
-                      7 days ago
-                    </span>
+                    <span className="text-xs text-black">7 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -251,7 +255,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                Really the Code Quality, Customer Support, and design are awesome and its good support they are giving. They give an instant solution to our needs. Really awesome. I will strongly recommend to my friends. Simply amazing team and amazing theme! Thank you from United States of America!
+                  Really the Code Quality, Customer Support, and design are
+                  awesome and its good support they are giving. They give an
+                  instant solution to our needs. Really awesome. I will strongly
+                  recommend to my friends. Simply amazing team and amazing
+                  theme! Thank you from United States of America!
                 </p>
               </div>
             </div>
@@ -269,9 +277,7 @@ const Reviews = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Brandon Johnson</h4>
-                    <span className="text-xs text-black">
-                      2 days ago
-                    </span>
+                    <span className="text-xs text-black">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -287,7 +293,11 @@ const Reviews = () => {
               </div>
               <div className="p-4 space-y-2 text-sm text-black">
                 <p>
-                Loved the template design, documentation, customizability and the customer support from Marketify team! I am a noob in programming with very little knowledge about coding but the Marketify team helped me to launch my resume website successfully. Much recommended!
+                  Loved the template design, documentation, customizability and
+                  the customer support from Marketify team! I am a noob in
+                  programming with very little knowledge about coding but the
+                  Marketify team helped me to launch my resume website
+                  successfully. Much recommended!
                 </p>
               </div>
             </div>
@@ -295,7 +305,7 @@ const Reviews = () => {
         </Swiper>
       </>
     </div>
-    );
+  );
 };
 
 export default Reviews;

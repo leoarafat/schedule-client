@@ -10,47 +10,47 @@ const TimeSlots = () => {
                     <div className='flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2'>
 
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 AM
                         </button>
@@ -59,47 +59,47 @@ const TimeSlots = () => {
                     <div className='flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2 '>
 
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
                         <button
-                            className="inline-block rounded border border-primary py-3 px-12 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                            className="inline-block rounded border border-primary py-3 px-16 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                         >
                             10:15 PM
                         </button>
