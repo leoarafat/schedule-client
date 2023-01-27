@@ -6,7 +6,7 @@ const Profile = () => {
   const { user }: any = useContext(AuthContext);
   // console.log(user);
   return (
-    <div className="pl-20 md:pl-0">
+    <div className="pl-5 md:pl-0">
       <h1 className="text-6xl font-bold text-center">
         Pro<span className="text-primary">file</span>
       </h1>
@@ -33,11 +33,10 @@ const Profile = () => {
                 successfully.
               </p>
             </div>
-
             <div className="my-4"></div>
           </div>
 
-          <div className="w-full mx-2 h-64">
+          <div className="w-full h-64">
             <div className="bg-white p-3 shadow-sm rounded-sm">
               <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span className="text-primary">
