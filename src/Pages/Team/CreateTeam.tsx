@@ -44,7 +44,7 @@ const Unique = () => {
 
   return (
     <>
-      <div className="my-10">
+      <div className="my-10 pl-10">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <h1 className='text-center text-4xl py-10 font-semibold'>Create Your <span className='text-primary'>Team/Organization</span></h1>
 

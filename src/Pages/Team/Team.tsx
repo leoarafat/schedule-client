@@ -43,12 +43,12 @@ const Team = () => {
         } = e;
 
         return (
-          <div className="my-10">
+          <div className="my-10 pl-10">
             <h1 className="text-center text-4xl py-10 font-semibold">{name}</h1>
             <div className="flex justify-center">
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
+                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
                     <div className="flex flex-col gap-4">
                       <h1 className="text-2xl">Member 1</h1>
                       <div>
@@ -84,7 +84,7 @@ const Team = () => {
                   </div>
                 </div>
                 <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
+                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
                     <div className="flex flex-col gap-4">
                       <h1 className="text-2xl">Member 2</h1>
                       <div>
@@ -120,7 +120,7 @@ const Team = () => {
                   </div>
                 </div>
                 <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
+                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
                     <div className="flex flex-col gap-4">
                       <h1 className="text-2xl">Member 3</h1>
                       <div>
@@ -156,7 +156,7 @@ const Team = () => {
                   </div>
                 </div>
                 <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
+                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
                     <div className="flex flex-col gap-4">
                       <h1 className="text-2xl">Member 4</h1>
                       <div>
