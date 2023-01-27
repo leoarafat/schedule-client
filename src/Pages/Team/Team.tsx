@@ -43,7 +43,7 @@ const Team = () => {
         } = e;
 
         return (
-          <div className="my-20">
+          <div className="my-10">
             <h1 className="text-center text-4xl py-10 font-semibold">{name}</h1>
             <div className="flex justify-center">
               <div className="grid md:grid-cols-3 gap-8">

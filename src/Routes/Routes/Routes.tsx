@@ -17,6 +17,8 @@ import SixtyMins from "../../Pages/Schedule/SixtyMins/SixtyMins";
 import ThirtyMins from "../../Pages/Schedule/ThirtyMins/ThirtyMins";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+import Team from "../../Pages/Team/Team";
+import CreateTeam from "../../Pages/Team/CreateTeam";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
@@ -89,15 +91,23 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <Profile/>,
+        element: <Profile />,
       },
       {
         path: "/dashboard/billing",
-        element: <Billing/>,
+        element: <Billing />,
       },
       {
         path: "/dashboard/billing",
-        element: <Billing/>,
+        element: <Billing />,
+      },
+      {
+        path: "/dashboard/createTeam",
+        element: <CreateTeam />,
+      },
+      {
+        path: "/dashboard/team",
+        element: <Team />,
       },
     ],
   },
