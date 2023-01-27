@@ -5,7 +5,7 @@ import AddNote from "../../AddNote/AddNote";
 
 const Profile = () => {
   const { user }: any = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   return (
     <div className="bg-gray-100">
       <h1 className="text-6xl font-bold">Pro<span className="text-primary">file</span></h1>

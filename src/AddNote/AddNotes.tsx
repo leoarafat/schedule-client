@@ -1,4 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 
 type FormValues = {
   title: string;
@@ -22,12 +23,9 @@ const AddNotes = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setDataa(data)
         if (data.acknowledged) {
-          alert("done!");
+          toast.success('Saved your note!')
           reset();
-          // toast.success('Successfully toasted!')
-          // loading(true)
         } else {
           alert(data.message);
         }
@@ -36,23 +34,27 @@ const AddNotes = () => {
   };
 
   return (
-    <div className="bg-blue-100 p-10 my-16">
-      <div className="border-2 bg-blue-50 border-dashed border-gray-500 py-10 lg:px-16 px-5 text-2xl text-primary font-bold">
+
+    <div className="bg-blue-100 mb-16 mt-10 rounded-2xl">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+      <div className="  border-gray-500 py-10 lg:px-16 px-5 text-2xl text-primary font-bold">
         <h2 className="mb-5 font-semibold lg:text-3xl text-2xl">
           Take your note
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            {...register("title")}
-            placeholder="Add Title"
-            className="border border-gray-500 input input-bordered w-full mb-3"
-          />
           <textarea
-            {...register("note")}
-            className="textarea textarea-bordered border-gray-500 w-full h-32"
+            {...register("title")}
             placeholder="What's on your mind?"
+            className="border border-gray-500 input input-bordered w-full mb-3 h-24 pt-3"
           ></textarea>
+          {/* <textarea
+            {...register("note")}
+            className="textarea textarea-bordered border-gray-500 w-full h-24"
+            placeholder="What's on your mind?"
+          ></textarea> */}
           <button className="btn btn-primary text-white px-7 mt-3">
             Save Note
           </button>
