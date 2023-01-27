@@ -11,7 +11,10 @@ import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
+import Fifteen from "../../Pages/Schedule/Fifteen/Fifteen";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
+import SixtyMins from "../../Pages/Schedule/SixtyMins/SixtyMins";
+import ThirtyMins from "../../Pages/Schedule/ThirtyMins/ThirtyMins";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
@@ -50,12 +53,26 @@ export const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
+      }
+    ],
+  },
+  {
+    path: '/schedule',
+    element: <Schedule></Schedule>,
+    children: [
+      {
+        path: '/schedule/fifteen',
+        element: <Fifteen></Fifteen>
       },
       {
-        path: "/schedule",
-        element: <Schedule />,
+        path: '/schedule/thirty',
+        element: <ThirtyMins></ThirtyMins>
       },
-    ],
+      {
+        path: '/schedule/sixteen',
+        element: <SixtyMins></SixtyMins>
+      }
+    ]
   },
   {
     path: "/dashboard",

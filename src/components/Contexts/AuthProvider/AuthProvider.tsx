@@ -30,7 +30,8 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   const [user, setUser] = useState<{} | null>(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
-
+  const [slot, setSlot] = useState<any>(null);
+  const [slotPm, setSlotPm] = useState<any>(null);
   // Register User
   const RegisterUser = async (email: string, password: string, displayName: string) => {
     setLoading(true)
@@ -90,11 +91,15 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     googleSignIn,
     logOut,
     resetPassword,
-    loading
+    loading,
+    slot,
+    setSlot,
+    slotPm,
+    setSlotPm
   }
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }
 
 
-  export default AuthProvider;
+export default AuthProvider;

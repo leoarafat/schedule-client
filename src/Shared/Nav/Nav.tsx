@@ -24,7 +24,7 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1 ul-style text-primary">
           <li className='li-style'><Link to={"/dashboard"} className="noo-hover link-style">Dashboard</Link></li>
           <li className='li-style'><Link to={"/about"} className="noo-hover link-style">About</Link></li>
-          <li className='li-style'><Link to={"/schedule"} className="noo-hover link-style">Schedule</Link></li>
+          <li className='li-style'><Link to={"/schedule/fifteen"} className="noo-hover link-style">Schedule</Link></li>
           <li className='li-style'><Link to={"/blog"} className="noo-hover link-style">Blog</Link></li>
           <div className="animation start-home"></div>
         </ul>
@@ -40,7 +40,7 @@ const Nav = () => {
           <ul tabIndex={0} className="menu menu-compact dropdown-content right-1 mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link to={"/dashboard"} className=" hover:bg-secondary pr-32">Dashboard</Link></li>
             <li><Link to={"/about"} className=" hover:bg-secondary pr-32">About</Link></li>
-            <li><Link to={"/schedule"} className=" hover:bg-secondary pr-28">Schedule</Link></li>
+            <li><Link to={"/schedule/fifteen"} className=" hover:bg-secondary pr-28">Schedule</Link></li>
             <li><Link to={"/blog"} className=" hover:bg-secondary pr-36">Blog</Link></li>
 
 
