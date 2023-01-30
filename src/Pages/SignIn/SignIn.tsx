@@ -38,6 +38,7 @@ const navigate = useNavigate()
     googleSignIn()
       .then((result: any) => {
         toast.success('Google Sign In Successfully')
+        navigate('/')
         console.log(result.user);
       })
       .catch((err: string) => {

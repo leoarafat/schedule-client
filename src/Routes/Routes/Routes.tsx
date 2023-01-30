@@ -11,10 +11,16 @@ import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
+import Fifteen from "../../Pages/Schedule/Fifteen/Fifteen";
 import Schedule from "../../Pages/Schedule/Schedule/Schedule";
+import SixtyMins from "../../Pages/Schedule/SixtyMins/SixtyMins";
+import ThirtyMins from "../../Pages/Schedule/ThirtyMins/ThirtyMins";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+import Team from "../../Pages/Team/Team";
+import CreateTeam from "../../Pages/Team/CreateTeam";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 
 export const router = createBrowserRouter([
   {
@@ -51,9 +57,23 @@ export const router = createBrowserRouter([
         path: "/signUp",
         element: <SignUp></SignUp>,
       },
+    ],
+  },
+  {
+    path: "/schedule",
+    element: <Schedule></Schedule>,
+    children: [
       {
-        path: "/schedule",
-        element: <Schedule />,
+        path: "/schedule/fifteen",
+        element: <Fifteen></Fifteen>,
+      },
+      {
+        path: "/schedule/thirty",
+        element: <ThirtyMins></ThirtyMins>,
+      },
+      {
+        path: "/schedule/sixteen",
+        element: <SixtyMins></SixtyMins>,
       },
     ],
   },
@@ -72,15 +92,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <Profile></Profile>,
-      },
-      {
-        path: "/dashboard/notes",
-        element: <MyNotes></MyNotes>,
+        element: <Profile />,
       },
       {
         path: "/dashboard/billing",
-        element: <Billing></Billing>,
+        element: <Billing />,
+      },
+      {
+        path: "/dashboard/billing",
+        element: <Billing />,
+      },
+      {
+        path: "/dashboard/createTeam",
+        element: <CreateTeam />,
+      },
+      {
+        path: "/dashboard/team",
+        element: <Team />,
+      },
+      {
+        path: '/dashboard/mySchedule',
+        element: <MySchedule></MySchedule>,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 type UserSubmitForm = {
@@ -9,16 +9,30 @@ type UserSubmitForm = {
   email: string;
   password: string;
   image: any;
+  gender: string;
+  firstName: string;
+  lastName: string;
+  currentAddress: string;
+  permanentAddress: string;
+  birthDate: string;
+  contactNumber: string;
 };
 interface dataProps {
   image: any;
   email: string;
   password: string;
   displayName: string;
+  gender: string;
+  firstName: string;
+  lastName: string;
+  currentAddress: string;
+  permanentAddress: string;
+  birthDate: string;
+  contactNumber: string;
 }
 
 const SignUp = () => {
-  const { RegisterUser,user, googleSignIn }: any = useContext(AuthContext);
+  const { RegisterUser, user, googleSignIn }: any = useContext(AuthContext);
   console.log(user);
   // const imageHostKey = "8b90eb0929bfebb0ad08213a1dc74625";
   const {
@@ -31,19 +45,42 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleRegister = (data: dataProps) => {
+   
+
     RegisterUser(data.email, data.password, data.displayName)
       .then((result: any) => {
         // const user = result.user
+        // console.log(user)
+        const email = data?.email;
+        const name = data?.displayName;
+        const firstName = "";
+        const lastName = "";
+        const currentAddress = "";
+        const permanentAddress = "";
+        const contactNumber = "";
+        const gender = "";
+        const birthDate = "";
+        console.log(firstName, lastName);
         toast.success("Sign Up Successfully");
         navigate("/");
-        saveUserToDatabase(data?.email, data?.displayName);
+        // saveUserToDatabase(data?.email, data?.displayName);
+        saveUserToDatabase(
+          email,
+          name,
+          firstName,
+          lastName,
+          currentAddress,
+          permanentAddress,
+          contactNumber,
+          gender,
+          birthDate
+        );
         console.log();
       })
       .catch((err: any) => {
         setFirebaseError(err.message);
         console.log(err);
       });
-
   };
 
   const handleGoogleSignIn = () => {
@@ -53,8 +90,25 @@ const SignUp = () => {
         const user = result?.user;
         const email = user?.email;
         const name = user?.displayName;
+        const firstName = "";
+        const lastName = "";
+        const currentAddress = "";
+        const permanentAddress = "";
+        const contactNumber = "";
+        const gender = "";
+        const birthDate = "";
         navigate("/");
-        saveUserToDatabase(email, name);
+        saveUserToDatabase(
+          email,
+          name,
+          firstName,
+          lastName,
+          currentAddress,
+          permanentAddress,
+          contactNumber,
+          gender,
+          birthDate
+        );
 
         console.log(result);
       })
@@ -63,9 +117,29 @@ const SignUp = () => {
       });
   };
 
-  const saveUserToDatabase = (email: any, name: any) => {
-    const user = { email, name };
-    fetch(`http://localhost:5000/users`, {
+  const saveUserToDatabase = (
+    email: string,
+    name: string,
+    firstName: string,
+    lastName: string,
+    currentAddress: string,
+    permanentAddress: string,
+    contactNumber: string,
+    gender: string,
+    birthDate: string
+  ) => {
+    const user = {
+      email,
+      name,
+      firstName,
+      lastName,
+      currentAddress,
+      permanentAddress,
+      contactNumber,
+      gender,
+      birthDate,
+    };
+    fetch(`https://scheduplannr-server.vercel.app/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -17,7 +17,7 @@
     "daisyui": "^2.46.1",
     "date-and-time": "^2.4.2",
     "date-fns": "^2.29.3",
-    "firebase": "^9.15.0",
+    "firebase": "^9.16.0",
     "lottie-react": "^2.3.1",
     "react": "^18.2.0",
     "react-calendar": "^4.0.0",
