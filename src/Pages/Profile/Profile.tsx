@@ -15,11 +15,16 @@ const Profile = () => {
           <div className="w-full md:w-3/12 md:mx-2">
             <div className="bg-white p-3 border-t-4 border-primary">
               <div className="image overflow-hidden">
-                <img
+                {
+                  user ?
+                  <img
                   className="h-auto w-full mx-auto"
                   src={user?.photoURL}
                   alt=""
                 />
+                :
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" />
+                }
               </div>
               <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
                 {user?.displayName}
