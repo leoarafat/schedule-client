@@ -1,23 +1,24 @@
-import React, { useContext } from "react";
-import { useQuery } from "react-query";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import DetailsPage from "./DetailsPage";
 
 const UpdateProfile = () => {
   const { user }: any = useContext(AuthContext);
-  console.log(user);
 
-  const { data: userInfo = [], refetch } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      const res = await fetch(
+const [userInfo, setData] = useState([]);
+
+useEffect(() => {
+  const dataFetch = async () => {
+    const data = await (
+      await fetch(
         `http://localhost:5000/user?email=${user?.email}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
-  console.log(userInfo);
+      )
+    ).json();
+    setData(data);
+  };
+
+  dataFetch();
+}, [user?.email]);
 
   return (
     <div>
