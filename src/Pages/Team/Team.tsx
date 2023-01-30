@@ -6,6 +6,7 @@ import {
 import { useQuery } from "react-query";
 
 const Team = () => {
+
   const {
     data: team = [],
     isLoading,
