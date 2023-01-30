@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 type UserSubmitForm = {
   displayName: string;
@@ -15,6 +17,7 @@ interface dataProps {
 }
 
 const Unique = () => {
+  const {user}: any = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -41,6 +44,7 @@ const Unique = () => {
         toast.success('Feedback Successful')
       });
   };
+
 
   return (
     <>
