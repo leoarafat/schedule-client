@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const DetailsPage = ({ singleUser }: any) => {
   const { name, email } = singleUser;
+  
+
+
+
   return (
     <div>
       <section className="p-6 bg-base-100">
@@ -31,7 +35,7 @@ const DetailsPage = ({ singleUser }: any) => {
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="firstname" className="text-sm font-semibold">
-                  firs name
+                  Firs name
                 </label>
                 <input
                   id="firstname"
@@ -107,7 +111,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 </label>
                 <input
                   id="number"
-                  type="number"
+                  type="text"
                   placeholder=""
                   className="w-full rounded-sm p-2"
                 />
