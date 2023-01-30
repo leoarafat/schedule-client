@@ -7,13 +7,13 @@ const Profile = () => {
   // console.log(user);
   return (
     <div className="pl-5 md:pl-0">
-      <h1 className="text-6xl font-bold text-center">
+      <h1 className="text-6xl font-bold text-center md:text-left">
         Pro<span className="text-primary">file</span>
       </h1>
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
-            <div className="bg-white p-3 border-t-4 border-primary">
+            <div className=" p-3 border-t-4 border-primary">
               <div className="image overflow-hidden">
                 {
                   user ?
@@ -32,7 +32,7 @@ const Profile = () => {
               <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
                 Frontend Developer
               </h3>
-              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5">
+              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5 text-center md:text-left">
                 Junior Frontend Developer with a passion for Web Applications
                 Development. Has experience in developing many web pages
                 successfully.
@@ -42,7 +42,7 @@ const Profile = () => {
           </div>
 
           <div className="w-full h-64">
-            <div className="bg-white p-3 shadow-sm rounded-sm">
+            <div className=" p-5 rounded-sm">
               <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span className="text-primary">
                   <svg
@@ -95,11 +95,11 @@ const Profile = () => {
                     <div className="px-4 py-2">Charmadhua, Narsingdi</div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Email.</div>
+                    <div className="px-4 py-2 font-semibold">Email</div>
                     <div className="px-4 py-2">
                       <a
                         className="text-blue-800"
-                        href="mailto:jane@example.com"
+                        href={user?.email}
                       >
                         {user?.email}
                       </a>
