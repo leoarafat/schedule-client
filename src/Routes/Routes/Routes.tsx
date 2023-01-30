@@ -21,6 +21,7 @@ import Team from "../../Pages/Team/Team";
 import CreateTeam from "../../Pages/Team/CreateTeam";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
+import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/profile",
         element: <Profile />,
+      },
+      {
+        path: "/dashboard/updateProfile",
+        element: <UpdateProfile />,
       },
       {
         path: "/dashboard/billing",
