@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import Billing from "../../Dashboard/Dashboard/Billing/Billing";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
-import MyNotes from "../../Dashboard/dashboardPages/MyNotes/MyNotes";
 import MyMeeting from "../../Dashboard/Meeting/MyMeeting/MyMeeting";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
@@ -22,6 +21,7 @@ import CreateTeam from "../../Pages/Team/CreateTeam";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 import UpdateProfile from "../../Pages/Profile/UpdateProfile";
+import Payment from "../../Dashboard/Dashboard/Billing/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -104,8 +104,8 @@ export const router = createBrowserRouter([
         element: <Billing />,
       },
       {
-        path: "/dashboard/billing",
-        element: <Billing />,
+        path: "/dashboard/billing/membership/:id",
+        element: <Payment />,
       },
       {
         path: "/dashboard/createTeam",

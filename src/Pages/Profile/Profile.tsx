@@ -31,6 +31,7 @@ const Profile = () => {
           image,
           profession,
           about,
+          name
         } = usr;
         return (
           <div className="pl-5 md:pl-0">
@@ -56,7 +57,7 @@ const Profile = () => {
                       )}
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
-                      {user?.displayName}
+                      {name}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
                       {profession}
@@ -164,7 +165,7 @@ const Profile = () => {
                             />
                           </svg>
                         </span>
-                        <span className="tracking-wide">Add Note</span>
+                        <p className="tracking-wide">Add Note</p>
                       </div>
                       <AddNote></AddNote>
                     </div>

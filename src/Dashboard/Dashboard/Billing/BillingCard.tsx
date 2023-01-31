@@ -1,7 +1,8 @@
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { MdCardMembership } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-const BillingCard = ({ plan }: any) => {
+const BillingCard = ({ plan, setBilling }: any) => {
   const {
     status,
     cost,
@@ -12,6 +13,7 @@ const BillingCard = ({ plan }: any) => {
     Phone_support,
     Update_your_cancellation_policy,
     View_analytics_and_insights,
+    _id
   } = plan;
   console.log(plan);
   return (
@@ -30,9 +32,12 @@ const BillingCard = ({ plan }: any) => {
           <span className="text-2xl font-bold">${cost}</span> USD/month
         </h3>
         <div className="my-5 flex justify-center ">
+          
+          <Link to={`membership/${_id}`}>
           <label
             className="group relative inline-flex items-center overflow-hidden rounded-full border border-current px-8 py-3 text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
             htmlFor="my-modal-4"
+            
           >
             <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
               <svg
@@ -55,6 +60,8 @@ const BillingCard = ({ plan }: any) => {
               Subscribe
             </span>
           </label>
+          </Link>
+          
         </div>
 
         <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
