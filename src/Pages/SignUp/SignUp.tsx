@@ -8,7 +8,7 @@ type UserSubmitForm = {
   displayName: string;
   email: string;
   password: string;
-  image: any;
+  image: string;
   gender: string;
   firstName: string;
   lastName: string;
@@ -18,7 +18,7 @@ type UserSubmitForm = {
   contactNumber: string;
 };
 interface dataProps {
-  image: any;
+  image: string;
   email: string;
   password: string;
   displayName: string;
@@ -60,6 +60,7 @@ const SignUp = () => {
         const contactNumber = "";
         const gender = "";
         const birthDate = "";
+        const image = "";
         console.log(firstName, lastName);
         toast.success("Sign Up Successfully");
         navigate("/");
@@ -73,7 +74,8 @@ const SignUp = () => {
           permanentAddress,
           contactNumber,
           gender,
-          birthDate
+          birthDate,
+          image
         );
         console.log();
       })
@@ -97,6 +99,7 @@ const SignUp = () => {
         const contactNumber = "";
         const gender = "";
         const birthDate = "";
+        const image = "";
         navigate("/");
         saveUserToDatabase(
           email,
@@ -107,7 +110,8 @@ const SignUp = () => {
           permanentAddress,
           contactNumber,
           gender,
-          birthDate
+          birthDate,
+          image
         );
 
         console.log(result);
@@ -126,7 +130,8 @@ const SignUp = () => {
     permanentAddress: string,
     contactNumber: string,
     gender: string,
-    birthDate: string
+    birthDate: string,
+    image: string
   ) => {
     const user = {
       email,
@@ -138,6 +143,7 @@ const SignUp = () => {
       contactNumber,
       gender,
       birthDate,
+      image
     };
     fetch(`https://scheduplannr-server.vercel.app/users`, {
       method: "POST",
