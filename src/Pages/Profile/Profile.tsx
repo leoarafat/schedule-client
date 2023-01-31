@@ -28,7 +28,9 @@ const Profile = () => {
           contactNumber,
           gender,
           birthDate,
-          image
+          image,
+          profession,
+          about,
         } = usr;
         return (
           <div className="pl-5 md:pl-0">
@@ -57,12 +59,10 @@ const Profile = () => {
                       {user?.displayName}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
-                      Frontend Developer
+                      {profession}
                     </h3>
                     <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5 text-center md:text-left">
-                      Junior Frontend Developer with a passion for Web
-                      Applications Development. Has experience in developing
-                      many web pages successfully.
+                      {about}
                     </p>
                   </div>
                   <div className="my-4"></div>

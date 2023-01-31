@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import Loading from '../../Shared//Loading/Loading'
+import Loading from "../../Shared//Loading/Loading";
 interface dataProps {
   name: string;
   email: string;
@@ -13,6 +13,8 @@ interface dataProps {
   contactNumber: string;
   gender: string;
   birthDate: string;
+  profession: string;
+  about: string;
 }
 const DetailsPage = ({ singleUser }: any) => {
   const { _id, email } = singleUser;
@@ -37,7 +39,9 @@ const DetailsPage = ({ singleUser }: any) => {
       data.contactNumber,
       data.gender,
       data.birthDate,
-      data.image
+      data.image,
+      data.profession,
+      data.about
     );
   };
 
@@ -51,9 +55,10 @@ const DetailsPage = ({ singleUser }: any) => {
     contactNumber: string,
     gender: string,
     birthDate: string,
-    image: any
+    image: any,
+    profession: string,
+    about: string
   ) => {
-
     setIsLoading(true);
     const images = image[0];
     const formData = new FormData();
@@ -64,7 +69,7 @@ const DetailsPage = ({ singleUser }: any) => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log(imgData)
+        console.log(imgData);
         if (imgData.success) {
           const userData = {
             name,
@@ -77,8 +82,10 @@ const DetailsPage = ({ singleUser }: any) => {
             gender,
             birthDate,
             image: imgData.data.url,
+            profession,
+            about,
           };
-          // console.log(addproduct);
+
           fetch(`http://localhost:5000/user/${_id}`, {
             method: "PUT",
             headers: {
@@ -89,14 +96,14 @@ const DetailsPage = ({ singleUser }: any) => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              setIsLoading(false)
+              setIsLoading(false);
               toast.success("Profile Update Successful");
             });
         }
       });
   };
-  if(isLoading){
-    return <Loading/>
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <div>
@@ -114,7 +121,7 @@ const DetailsPage = ({ singleUser }: any) => {
               <label htmlFor="firstName">First Name</label>
               <input
                 {...register("firstName", {
-                  required: "Name is Required",
+                  required: "First name is Required",
                 })}
                 id="firstName"
                 name="firstName"
@@ -131,7 +138,7 @@ const DetailsPage = ({ singleUser }: any) => {
               <label htmlFor="lastName">Last Name</label>
               <input
                 {...register("lastName", {
-                  required: true,
+                  required: "Last name is required",
                 })}
                 id="lastName"
                 name="lastName"
@@ -172,7 +179,7 @@ const DetailsPage = ({ singleUser }: any) => {
               <label htmlFor="currentAddress">Your Current Address</label>
               <input
                 {...register("currentAddress", {
-                  required: "Name is Required",
+                  required: "Current address is Require",
                 })}
                 id="currentAddress"
                 name="currentAddress"
@@ -189,7 +196,7 @@ const DetailsPage = ({ singleUser }: any) => {
               <label htmlFor="permanentAddress">Your Permanent Address</label>
               <input
                 {...register("permanentAddress", {
-                  required: "Name is Required",
+                  required: "Permanent address is Required",
                 })}
                 id="permanentAddress"
                 name="permanentAddress"
@@ -220,6 +227,43 @@ const DetailsPage = ({ singleUser }: any) => {
                 </p>
               )}
             </div>
+
+            <div>
+              <label htmlFor="profession">Your Profession</label>
+              <input
+                {...register("profession", {
+                  required: "Profession is required",
+                })}
+                id="profession"
+                name="profession"
+                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                placeholder="Profession"
+              />
+              {errors.profession && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.profession.message}
+                </p>
+              )}
+            </div>
+
+            <div className="form-control">
+              <label htmlFor="about">About</label>
+              <textarea
+                {...register("about", {
+                  required: "About is required",
+                })}
+                id="about"
+                name="about"
+                className="textarea textarea-bordered textarea-xs w-full max-w-xs"
+                placeholder="Describe here, about your profession!"
+              />
+              {errors.about && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.about.message}
+                </p>
+              )}
+            </div>
+
             <div>
               <label htmlFor="gender">Gender</label>
               <select
