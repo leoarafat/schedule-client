@@ -6,8 +6,12 @@ import {
 } from "react-icons/ai";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../Shared/Loading/Loading";
 
 const Team = () => {
+
+  const { user }: any = useContext(AuthContext)
+
   const {
     data: team = [],
     isLoading,
@@ -24,7 +28,7 @@ const Team = () => {
   console.log(team);
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading />;
   }
 
   return (
