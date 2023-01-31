@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../../Shared/Loading/Loading";
 
 const SixtyMins = () => {
-  const { setSlot }: any = useContext(AuthContext);
+  const { setSlot, }: any = useContext(AuthContext);
   const { data: sixtyMinsAm, isLoading } = useQuery({
     queryKey: ["sixtyMinsAm"],
     queryFn: async () => {
@@ -27,12 +28,12 @@ const SixtyMins = () => {
   });
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading />;
   }
 
   return (
-    <div>
-      <div className="h-[25rem] md:py-0 py-12 px-2">
+    <>
+      <div className="h-[25rem] lg:py-0 py-12 px-2">
         <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
           Please select a time slot{" "}
         </h1>
@@ -64,7 +65,7 @@ const SixtyMins = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const SlotCategory = () => {
     return (
-        <div className='lg:flex justify-center py-10 px-2'>
-            <div className='grid md:grid-cols-3 gap-4'>
+        <div className='flex justify-center py-10 px-2'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <Link to='/schedule/fifteen'><button
                     className="rounded border border-primary px-20 py-3 font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary flex items-center gap-4 text-xl justify-center"
                 >
