@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../../Shared/Loading/Loading";
 import FifteenAmChild from "./FifteenAmChild";
 import FifteenPmChild from "./FifteenPmChild";
 
@@ -29,12 +30,12 @@ const Fifteen = () => {
   });
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
     <div>
-      <div className="h-[25rem] md:py-0 py-12 px-2">
+      <div className="h-[25rem] lg:py-0 py-12 px-2">
         <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
           Please select a time slot{" "}
         </h1>

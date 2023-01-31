@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../../Shared/Loading/Loading";
 
 const ThirtyMins = () => {
   const { setSlot, setSlotPm }: any = useContext(AuthContext);
@@ -26,12 +27,12 @@ const ThirtyMins = () => {
     },
   });
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading />;
   }
 
   return (
     <div>
-      <div className="h-[25rem] md:py-0 py-12 px-2">
+      <div className="h-[25rem] lg:py-0 py-12 px-2">
         <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
           Please select a time slot{" "}
         </h1>
@@ -42,7 +43,7 @@ const ThirtyMins = () => {
                 <span
                   onClick={() => setSlot(thirtyAm)}
                   key={thirtyAm._id}
-                  className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                  className="cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                 >
                   {thirtyAm}
                 </span>
@@ -55,7 +56,7 @@ const ThirtyMins = () => {
                   <span
                     onClick={() => setSlotPm(thirtyPm)}
                     key={thirtyPm._id}
-                    className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                    className="cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                   >
                     {thirtyPm}
                   </span>

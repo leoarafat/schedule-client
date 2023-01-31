@@ -4,7 +4,7 @@ const BillingModal = ({ billing, plan }: any) => {
     console.log(billing);
     
   return (
-    <div>
+    <>
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
       <label htmlFor="my-modal-4" className="modal cursor-pointer">
         <label className="modal-box relative" htmlFor="">
@@ -17,7 +17,7 @@ const BillingModal = ({ billing, plan }: any) => {
           </p>
         </label>
       </label>
-    </div>
+    </>
   );
 };
 

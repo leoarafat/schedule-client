@@ -1,28 +1,34 @@
+import { useContext } from "react";
 import {
   AiOutlineDelete,
   AiOutlineEdit,
   AiOutlineShareAlt,
 } from "react-icons/ai";
 import { useQuery } from "react-query";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../Shared/Loading/Loading";
 
 const Team = () => {
+
+  const { user }: any = useContext(AuthContext)
 
   const {
     data: team = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["team"],
+    queryKey: ["team", user?.email],
     queryFn: async () => {
-      const res = await fetch("https://scheduplannr-server.vercel.app/team");
+      const res = await fetch(`http://localhost:5000/team?email=${user?.email}`);
       const data = res.json();
       return data;
     },
   });
+
   console.log(team);
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading />;
   }
 
   return (
