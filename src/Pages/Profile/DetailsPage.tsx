@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Loading from '../../Shared//Loading/Loading'
 interface dataProps {
   name: string;
   email: string;
@@ -65,7 +66,7 @@ const DetailsPage = ({ singleUser }: any) => {
       .then((imgData) => {
         console.log(imgData)
         if (imgData.success) {
-          const TeamData = {
+          const userData = {
             name,
             email,
             firstName,
@@ -83,16 +84,20 @@ const DetailsPage = ({ singleUser }: any) => {
             headers: {
               "content-type": "application/json",
             },
-            body: JSON.stringify(TeamData),
+            body: JSON.stringify(userData),
           })
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
+              setIsLoading(false)
               toast.success("Profile Update Successful");
             });
         }
       });
   };
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div>
       <div className="my-10 pl-10">
