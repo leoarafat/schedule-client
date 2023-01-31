@@ -13,7 +13,7 @@ import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const {
     data: mySchedule = [],
@@ -55,14 +55,13 @@ const MySchedule = () => {
                     </label>
                   </div>
 
-                  {/* modal label */}
-                  <label htmlFor="my-modal-3">
-                    <button
-                      className="text-gray-500 hover:text-black"
-                      title="Edit"
-                    >
-                      <AiOutlineEdit size={"2rem"} />
-                    </button>
+                  <label
+                    htmlFor="my-modal-3"
+                    className="text-gray-500 hover:text-black"
+                    title="Edit"
+                  >
+                    {" "}
+                    <AiOutlineEdit size={"2rem"} />
                   </label>
 
                   <button
@@ -107,10 +106,16 @@ const MySchedule = () => {
               </div>
               {/* this is modal */}
               {
-                <EditSchedule organization={organization} slot={slot} name={name} link={link} location={location} title={title} />
+                <EditSchedule
+                  organization={organization}
+                  slot={slot}
+                  name={name}
+                  link={link}
+                  location={location}
+                  title={title}
+                />
               }
             </div>
-
           );
         })}
       </div>
