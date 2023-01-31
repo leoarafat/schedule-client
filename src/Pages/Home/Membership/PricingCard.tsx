@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const PricingCard = ({ plan }: any) => {
   const {
     status,
@@ -8,11 +10,10 @@ const PricingCard = ({ plan }: any) => {
     Customize_email_notifications,
     Phone_support,
     Update_your_cancellation_policy,
-    View_analytics_and_insights
+    View_analytics_and_insights,
   } = plan;
   console.log(plan);
 
-  
   return (
     <div className="my-16">
       <div className="relative group">
@@ -63,8 +64,7 @@ const PricingCard = ({ plan }: any) => {
               <i className="fa-solid fa-check-double"></i>
 
               <span>
-                Update your cancellation policy :{" "}
-                {Update_your_cancellation_policy}
+                Update cancellation policy : {Update_your_cancellation_policy}
               </span>
             </li>
             <li className="space-x-2 flex items-center">
@@ -86,12 +86,13 @@ const PricingCard = ({ plan }: any) => {
             </li>
           </ul>
 
+          <Link to='/dashboard/billing'>
           <label
             htmlFor="my-modal-3"
             className="block w-full py-3 px-6 text-center rounded-xl transition bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:bg-indigo-600"
           >
-            <span className="text-white font-semibold">Subscribe</span>
-          </label>
+            <span className="text-white font-semibold cursor-pointer">Get Started</span>
+          </label></Link>
         </div>
       </div>
     </div>

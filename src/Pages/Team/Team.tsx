@@ -8,7 +8,6 @@ import { useQuery } from "react-query";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 const Team = () => {
-  const { user }: any = useContext(AuthContext)
   const {
     data: team = [],
     isLoading,
