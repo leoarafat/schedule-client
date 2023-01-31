@@ -18,9 +18,9 @@ interface dataProps {
 }
 
 const SignUp = () => {
-  const { RegisterUser, user, googleSignIn }: any = useContext(AuthContext);
-  console.log(user);
-  // const imageHostKey = "8b90eb0929bfebb0ad08213a1dc74625";
+
+  const { RegisterUser, googleSignIn }: any = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,

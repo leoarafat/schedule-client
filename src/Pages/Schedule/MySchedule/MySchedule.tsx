@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   AiOutlineCopy,
   AiOutlineDelete,
@@ -9,9 +9,11 @@ import { FiCopy } from "react-icons/fi";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
+import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false)
 
   const {
     data: mySchedule = [],
@@ -38,9 +40,9 @@ const MySchedule = () => {
     <div className="flex justify-center">
       <div className="grid md:grid-cols-2 gap-8 my-20">
         {mySchedule.map((e: any) => {
-          const { title, location, link, name, slot, organization } = e;
+          const { title, location, link, name, slot, organization, _id } = e;
           return (
-            <div className="bg-white rounded-lg shadow-xl">
+            <div key={_id} className="bg-white rounded-lg shadow-xl">
               <div className="w-96 border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
                 <div className="flex justify-center gap-4">
                   <div className="form-control w-52">
@@ -53,11 +55,13 @@ const MySchedule = () => {
                     </label>
                   </div>
                   <button
+                    onClick={() => setIsOpen(true)}
                     className="text-gray-500 hover:text-black"
                     title="Edit"
                   >
                     <AiOutlineEdit size={"2rem"} />
                   </button>
+
                   <button
                     className="text-gray-500 hover:text-black"
                     title="Delete"
@@ -98,7 +102,12 @@ const MySchedule = () => {
                   </div>
                 </div>
               </div>
+              {
+                isOpen &&
+                <EditSchedule setIsOpen={setIsOpen} _id={_id} organization={organization} slot={slot} name={name} link={link} location={location} title={title} />
+              }
             </div>
+
           );
         })}
       </div>
