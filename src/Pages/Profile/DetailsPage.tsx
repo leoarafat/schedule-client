@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 interface dataProps {
@@ -7,18 +8,22 @@ interface dataProps {
   lastName: string;
   currentAddress: string;
   permanentAddress: string;
+  image: any;
   contactNumber: string;
   gender: string;
   birthDate: string;
 }
 const DetailsPage = ({ singleUser }: any) => {
   const { _id, email } = singleUser;
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<dataProps>();
+
+  const imageHostKey = "8b90eb0929bfebb0ad08213a1dc74625";
 
   const handleAdd = (data: dataProps) => {
     saveToDatabase(
@@ -30,7 +35,8 @@ const DetailsPage = ({ singleUser }: any) => {
       data.permanentAddress,
       data.contactNumber,
       data.gender,
-      data.birthDate
+      data.birthDate,
+      data.image
     );
   };
 
@@ -43,30 +49,48 @@ const DetailsPage = ({ singleUser }: any) => {
     permanentAddress: string,
     contactNumber: string,
     gender: string,
-    birthDate: string
+    birthDate: string,
+    image: any
   ) => {
-    const TeamData = {
-      name,
-      email,
-      firstName,
-      lastName,
-      currentAddress,
-      permanentAddress,
-      contactNumber,
-      gender,
-      birthDate,
-    };
-    fetch(`http://localhost:5000/user/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(TeamData),
+
+    setIsLoading(true);
+    const images = image[0];
+    const formData = new FormData();
+    formData.append("image", images);
+    fetch(`https://api.imgbb.com/1/upload?key=${imageHostKey}`, {
+      method: "POST",
+      body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Profile Update Successful");
+      .then((imgData) => {
+        console.log(imgData)
+        if (imgData.success) {
+          const TeamData = {
+            name,
+            email,
+            firstName,
+            lastName,
+            currentAddress,
+            permanentAddress,
+            contactNumber,
+            gender,
+            birthDate,
+            image: imgData.data.url,
+          };
+          // console.log(addproduct);
+          fetch(`http://localhost:5000/user/${_id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(TeamData),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              toast.success("Profile Update Successful");
+            });
+        }
       });
   };
   return (
@@ -81,28 +105,6 @@ const DetailsPage = ({ singleUser }: any) => {
             onSubmit={handleSubmit(handleAdd)}
             className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
           >
-            {/* <div>
-              <label
-                htmlFor="name"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
-              >
-                Your First Name
-              </label>
-              <input
-                {...register("name", {
-                  required: "Name is Required",
-                })}
-                defaultValue={name}
-                id="name"
-                name="name"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
-              />
-              {errors.name && (
-                <p className="text-sm text-red-600 mt-2">
-                  {errors.name.message}
-                </p>
-              )}
-            </div> */}
             <div>
               <label htmlFor="firstName">First Name</label>
               <input
@@ -216,14 +218,14 @@ const DetailsPage = ({ singleUser }: any) => {
             <div>
               <label htmlFor="gender">Gender</label>
               <select
-              {...register("gender")}
-              className="select input-bordered w-full max-w-xs"
-            >
-              <option disabled>Please Select your gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Others">Others</option>
-            </select>
+                {...register("gender")}
+                className="select input-bordered w-full max-w-xs"
+              >
+                <option disabled>Please Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+              </select>
               {errors.gender && (
                 <p className="text-sm text-red-600 mt-2">
                   {errors.gender.message}
@@ -237,7 +239,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 {...register("birthDate", {
                   required: true,
                 })}
-                type='date'
+                type="date"
                 id="birthDate"
                 name="birthDate"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -249,7 +251,24 @@ const DetailsPage = ({ singleUser }: any) => {
                 </p>
               )}
             </div>
-            <div></div>
+            <div>
+              <div>
+                <label htmlFor="img" className="block dark:text-gray-400">
+                  Product Image
+                </label>
+                <input
+                  {...register("image", {
+                    required: true,
+                  })}
+                  type="file"
+                  name="image"
+                  id="image"
+                  accept="image/*"
+                  placeholder="Enter Your img"
+                  className="w-full px-4 py-3 rounded-md border-2 border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-300"
+                />
+              </div>
+            </div>
             <div className="flex justify-end">
               <button
                 type="submit"

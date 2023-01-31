@@ -28,6 +28,7 @@ const Profile = () => {
           contactNumber,
           gender,
           birthDate,
+          image
         } = usr;
         return (
           <div className="pl-5 md:pl-0">
@@ -42,7 +43,7 @@ const Profile = () => {
                       {user ? (
                         <img
                           className="h-auto w-full mx-auto"
-                          src={user?.photoURL}
+                          src={image}
                           alt=""
                         />
                       ) : (
