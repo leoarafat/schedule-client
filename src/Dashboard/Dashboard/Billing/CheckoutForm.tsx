@@ -3,8 +3,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 
 const CheckoutForm = ({ membership }: any) => {
-    const { user }: any = useContext(AuthContext);
-  console.log(membership);
+    const { user }: any = useContext(AuthContext);f
 
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
