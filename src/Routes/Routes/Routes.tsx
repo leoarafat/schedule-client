@@ -24,6 +24,10 @@ import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 import Payment from "../../Dashboard/Dashboard/Billing/Payment";
 import Availability from "../../Pages/Availablity/Availablity/Availablity";
 
+import AdminRoute from "../AdminRoute/AdminRoute";
+import Admin from "../../Dashboard/Dashboard/Admin/Admin";
+
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -121,9 +125,14 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
+
         path: '/dashboard/availability',
         element: <Availability></Availability>,
       },
+
+        path: '/dashboard/admin',
+        element: <AdminRoute><Admin /></AdminRoute>
+    },
     ],
   },
 ]);
