@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import PaymentTerms from "./PaymentTerms";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
@@ -114,7 +115,7 @@ const CheckoutForm = ({ membership }: any) => {
       <p className="text-red-500">{cardError}</p>
       {success && (
         <div>
-          <div className="bg-white p-6  md:mx-auto">
+          <div className=" shadow-lg p-10  md:mx-auto">
             <div className="text-center">
               <svg
                 viewBox="0 0 24 24"
@@ -131,48 +132,91 @@ const CheckoutForm = ({ membership }: any) => {
               <p className="text-gray-600 my-2">
                 Thank you for completing your secure online payment.
               </p>
+              <p className="visible lg:hidden">Email : {user.email}</p>
+              <p className="visible lg:hidden">Transaction Id : <span className="font-bold">{transactionId}</span></p>
               <p> Have a great day! </p>
             </div>
+
+            {userInfo?.map((usr: any) => {
+              const {
+                currentAddress,
+                permanentAddress,
+                contactNumber,
+                image,
+                name,
+              } = usr;
+              return (
+                <div className="mt-10">
+                  <div className="lg:flex items-center gap-10">
+                    <div className="flex justify-center my-5">
+                      <img className="w-52" src={image} alt="" />
+                    </div>
+                    <div className=" text-xl">
+                      <div className="text-gray-700">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 text-sm">
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Name</div>
+                            <div className="px-4 py-2">{name}</div>
+                          </div>
+
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">
+                              Contact No.
+                            </div>
+                            <div className="px-4 py-2">{contactNumber}</div>
+                          </div>
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">
+                              Current Address
+                            </div>
+                            <div className="px-4 py-2">{currentAddress}</div>
+                          </div>
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">
+                              Permanent Address
+                            </div>
+                            <div className="px-4 py-2">{permanentAddress}</div>
+                          </div>
+                          <div className="hidden lg:grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Email</div>
+                            <div className="px-4 py-2">{user?.email}</div>
+                          </div>
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Status</div>
+                            <div className="px-4 py-2">{status}</div>
+                          </div>
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Amount</div>
+                            <div className="px-4 py-2 font-bold">${cost}</div>
+                          </div>
+                          <div className="grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold"></div>
+                            <div className="px-4 py-2 font-bold"> </div>
+                          </div>
+                          <div className="hidden lg:grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Transaction Id</div>
+                            <div className="px-4 py-2">{transactionId}</div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              );
+              
+            })}
+            <PaymentTerms/>
           </div>
-          <div></div>
-
-          {userInfo?.map((usr: any) => {
-            const {
-              currentAddress,
-              permanentAddress,
-              contactNumber,
-              image,
-              name,
-            } = usr;
-            return (
-              <div>
-                <div className="flex">
-                  <div className="w-1/2">
-                    <img className="h-auto w-full mx-auto" src={image} alt="" />
-                  </div>
-                  <div className="w-1/2">
-                    Name : {name}
-                    Email : {user.email}
-                    Contact No : {contactNumber}
-                    Current Address : {currentAddress}
-                    Permanent Address : {permanentAddress}
-                    Status : {status}
-                    Amount : {cost}
-                    transactionId : {transactionId}
-                  </div>
-                </div>
-
-                <div className="py-10 text-center">
-                  <a
-                    href="/"
-                    className="px-12 bg-primary hover:bg-indigo-500 text-white font-semibold py-3"
-                  >
-                    GO BACK
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+          <div className="py-10 text-center">
+            <a
+              href="/"
+              className="px-12 bg-primary hover:bg-indigo-500 text-white font-semibold py-3"
+            >
+              GO BACK
+            </a>
+          </div>
         </div>
       )}
     </>

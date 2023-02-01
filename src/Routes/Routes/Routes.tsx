@@ -129,7 +129,7 @@ export const router = createBrowserRouter([
         path: '/dashboard/availability',
         element: <Availability></Availability>,
       },
-
+      {
         path: '/dashboard/admin',
         element: <AdminRoute><Admin /></AdminRoute>
     },
