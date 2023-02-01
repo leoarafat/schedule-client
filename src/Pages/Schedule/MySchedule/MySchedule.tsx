@@ -55,14 +55,15 @@ const MySchedule = () => {
                     </label>
                   </div>
 
-                  <label
-                    htmlFor="my-modal-3"
-                    className="text-gray-500 hover:text-black"
-                    title="Edit"
-                  >
-                    {" "}
-                    <AiOutlineEdit size={"2rem"} />
-                  </label>
+                  <button>
+                    <label
+                      htmlFor="my-modal-3"
+                      className="text-gray-500 hover:text-black cursor-pointer"
+                      title="Edit"
+                    >
+                      <AiOutlineEdit size={"2rem"} />
+                    </label>
+                  </button>
 
                   <button
                     className="text-gray-500 hover:text-black"
