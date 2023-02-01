@@ -1,10 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ membership }: any) => {
+    const { user }: any = useContext(AuthContext);
+  console.log(membership);
+
   const [cardError, setCardError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const { cost } = membership;
+  
+
+  useEffect(() => {
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cost }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, [cost]);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -25,6 +45,25 @@ const CheckoutForm = () => {
     } else {
       setCardError("");
     }
+
+    const {paymentIntent, error: confirmError}:any = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: {
+            card: card,
+            billing_details: {
+              name: user.displayName,
+              email: user.email
+            },
+          },
+        },
+      );
+      if(confirmError){
+        setCardError(confirmError.message);
+        return;
+      }
+      console.log('paymentIntent',paymentIntent);
+      
   };
   return (
     <>
@@ -48,7 +87,7 @@ const CheckoutForm = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            disabled={!stripe}
+            disabled={!stripe || !clientSecret}
             className="btn btn-primary w-48 my-5"
           >
             Pay
