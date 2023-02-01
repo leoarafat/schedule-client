@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import PaymentTerms from "./PaymentTerms";
+import { useReactToPrint } from "react-to-print";
+import { IoArrowDownCircleOutline } from "react-icons/io5";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
@@ -20,7 +22,6 @@ const CheckoutForm = ({ membership }: any) => {
 
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
-  const [owner, setOwner] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -83,6 +84,12 @@ const CheckoutForm = ({ membership }: any) => {
     }
     console.log("paymentIntent", paymentIntent);
   };
+
+  const componentRef: any = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "emp-data",
+  });
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -112,10 +119,17 @@ const CheckoutForm = ({ membership }: any) => {
           </button>
         </div>
       </form>
+      
       <p className="text-red-500">{cardError}</p>
       {success && (
         <div>
-          <div className=" shadow-lg p-10  md:mx-auto">
+          <div className="flex justify-end">
+        <button onClick={handlePrint} className="btn btn-primary">
+          Download PDF
+          <IoArrowDownCircleOutline className="h-6 w-6 text-white" />
+        </button>
+      </div>
+          <div ref={componentRef} className=" shadow-lg p-10  md:mx-auto">
             <div className="text-center">
               <svg
                 viewBox="0 0 24 24"
@@ -133,7 +147,10 @@ const CheckoutForm = ({ membership }: any) => {
                 Thank you for completing your secure online payment.
               </p>
               <p className="visible lg:hidden">Email : {user.email}</p>
-              <p className="visible lg:hidden">Transaction Id : <span className="font-bold">{transactionId}</span></p>
+              <p className="visible lg:hidden">
+                Transaction Id :{" "}
+                <span className="font-bold">{transactionId}</span>
+              </p>
               <p> Have a great day! </p>
             </div>
 
@@ -177,45 +194,40 @@ const CheckoutForm = ({ membership }: any) => {
                             </div>
                             <div className="px-4 py-2">{permanentAddress}</div>
                           </div>
-                          <div className="hidden lg:grid grid-cols-2">
-                            <div className="px-4 py-2 font-semibold">Email</div>
-                            <div className="px-4 py-2">{user?.email}</div>
-                          </div>
                           <div className="grid grid-cols-2">
-                            <div className="px-4 py-2 font-semibold">Status</div>
+                            <div className="px-4 py-2 font-semibold">
+                              Status
+                            </div>
                             <div className="px-4 py-2">{status}</div>
                           </div>
                           <div className="grid grid-cols-2">
-                            <div className="px-4 py-2 font-semibold">Amount</div>
+                            <div className="px-4 py-2 font-semibold">
+                              Amount
+                            </div>
                             <div className="px-4 py-2 font-bold">${cost}</div>
+                          </div>
+                          <div className="hidden lg:grid grid-cols-2">
+                            <div className="px-4 py-2 font-semibold">Email</div>
+                            <div className="px-4 py-2">{user?.email}</div>
                           </div>
                           <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold"></div>
                             <div className="px-4 py-2 font-bold"> </div>
                           </div>
                           <div className="hidden lg:grid grid-cols-2">
-                            <div className="px-4 py-2 font-semibold">Transaction Id</div>
+                            <div className="px-4 py-2 font-semibold">
+                              Transaction Id
+                            </div>
                             <div className="px-4 py-2">{transactionId}</div>
                           </div>
-                         
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
               );
-              
             })}
-            <PaymentTerms/>
-          </div>
-          <div className="py-10 text-center">
-            <a
-              href="/"
-              className="px-12 bg-primary hover:bg-indigo-500 text-white font-semibold py-3"
-            >
-              GO BACK
-            </a>
+            <PaymentTerms />
           </div>
         </div>
       )}
