@@ -15,6 +15,21 @@ interface dataProps {
   password: string;
 }
 
+// interface dataProps {
+//   image: string;
+//   email: string;
+//   password: string;
+//   displayName: string;
+//   gender: string;
+//   firstName: string;
+//   lastName: string;
+//   currentAddress: string;
+//   permanentAddress: string;
+//   birthDate: string;
+//   contactNumber: string;
+//   role: string
+// }
+
 const SignIn = () => {
 
   const { logInUser, googleSignIn, resetPassword, auth, user }: any = useContext(AuthContext)
@@ -37,15 +52,40 @@ const navigate = useNavigate()
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result: any) => {
-        toast.success('Google Sign In Successfully')
-        navigate('/')
-        console.log(result.user);
+        toast.success("Google Sign Up Successfully");
+        const user = result?.user;
+        const email = user?.email;
+        const name = user?.displayName;
+        const firstName = "";
+        const lastName = "";
+        const currentAddress = "";
+        const permanentAddress = "";
+        const contactNumber = "";
+        const gender = "";
+        const role = "";
+        const birthDate = "";
+        const image = "";
+        navigate("/");
+        saveUserToDatabase(
+          email,
+          name,
+          firstName,
+          lastName,
+          currentAddress,
+          permanentAddress,
+          contactNumber,
+          gender,
+          role,
+          birthDate,
+          image
+        );
+
+        console.log(result);
       })
-      .catch((err: string) => {
-        // console.log(err.message);
-        console.log(err)
-      })
-  }
+      .catch((err: any) => {
+        console.log(err);
+      });
+  };
 
   const handleForgotPassword = (data: any) => {
     resetPassword(auth, data.email)
@@ -58,7 +98,44 @@ const navigate = useNavigate()
         console.log(err)
       });
   }
-
+  const saveUserToDatabase = (
+    email: string,
+    name: string,
+    firstName: string,
+    lastName: string,
+    currentAddress: string,
+    permanentAddress: string,
+    contactNumber: string,
+    gender: string,
+    birthDate: string,
+    image: string,
+    role: string
+  ) => {
+    const user = {
+      email,
+      name,
+      firstName,
+      lastName,
+      currentAddress,
+      permanentAddress,
+      contactNumber,
+      gender,
+      role,
+      birthDate,
+      image
+    };
+    fetch(`https://scheduplannr-server.vercel.app/users`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <>
       <div className="flex justify-center py-20">
