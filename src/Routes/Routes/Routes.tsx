@@ -22,8 +22,7 @@ import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 import Payment from "../../Dashboard/Dashboard/Billing/Payment";
-import AdminRoute from "../AdminRoute/AdminRoute";
-import Admin from "../../Dashboard/Dashboard/Admin/Admin";
+import Availability from '../../Pages/Availablity/Availablity/Availability'
 
 export const router = createBrowserRouter([
   {
@@ -122,9 +121,9 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
-        path: '/dashboard/admin',
-        element: <AdminRoute><Admin /></AdminRoute>
-    },
+        path: '/dashboard/availability',
+        element: <Availability></Availability>,
+      },
     ],
   },
 ]);

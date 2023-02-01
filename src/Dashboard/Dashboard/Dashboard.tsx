@@ -4,6 +4,7 @@ import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineHome } from "react-icons/ai";
 import { SiAmazonpay } from "react-icons/si";
+import { MdOutlineEventAvailable } from "react-icons/md";
 import { useContext } from "react";
 import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
 import { Link, Outlet } from "react-router-dom";
@@ -16,7 +17,7 @@ const Dashboard = () => {
 
   const signOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error: any) => {
         console.error(error);
       });
@@ -67,12 +68,23 @@ const Dashboard = () => {
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                         >
                           <span className="inline-flex justify-center items-center ml-4">
-                            <AiOutlineSchedule
-                              size={"1.25rem"}
-                            ></AiOutlineSchedule>
+                            <AiOutlineSchedule size={"1.25rem"}></AiOutlineSchedule>
                           </span>
                           <span className="ml-2 text-sm tracking-wide truncate">
                             My Schedule
+                          </span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/dashboard/availability"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                        >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <MdOutlineEventAvailable size={"1.25rem"}></MdOutlineEventAvailable>
+                          </span>
+                          <span className="ml-2 text-sm tracking-wide truncate">
+                            Availability
                           </span>
                         </Link>
                       </li>
