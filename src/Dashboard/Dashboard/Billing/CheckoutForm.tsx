@@ -7,8 +7,8 @@ import { IoArrowDownCircleOutline } from "react-icons/io5";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
+  
   const [userInfo, setData] = useState([]);
-  console.log(userInfo);
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (

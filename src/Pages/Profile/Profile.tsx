@@ -128,6 +128,18 @@ const Profile = () => {
                           <div className="px-4 py-2">{permanentAddress}</div>
                         </div>
                         <div className="grid grid-cols-2">
+                          <div className="px-4 py-2 font-semibold">
+                            Birthday
+                          </div>
+                          <div className="px-4 py-2">{birthDate}</div>
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <div className="px-4 py-2 font-semibold">
+                            
+                          </div>
+                          <div className="px-4 py-2"></div>
+                        </div>
+                        <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">Email</div>
                           <div className="px-4 py-2">
                             <a className="text-blue-800" href={user?.email}>
@@ -135,12 +147,7 @@ const Profile = () => {
                             </a>
                           </div>
                         </div>
-                        <div className="grid grid-cols-2">
-                          <div className="px-4 py-2 font-semibold">
-                            Birthday
-                          </div>
-                          <div className="px-4 py-2">{birthDate}</div>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
