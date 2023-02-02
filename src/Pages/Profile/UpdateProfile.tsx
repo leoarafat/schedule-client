@@ -1,11 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import DetailsPage from "./DetailsPage";
 
 const UpdateProfile = () => {
-  const navigate = useNavigate();
   const { user }: any = useContext(AuthContext);
 
   const [userInfo, setData] = useState([]);
@@ -17,8 +14,6 @@ const UpdateProfile = () => {
       ).json();
 
       setData(data);
-      toast.success("User Profile Updated successfully");
-      navigate("/dashboard/profile");
     };
 
     dataFetch();
