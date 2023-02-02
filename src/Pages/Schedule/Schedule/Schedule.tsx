@@ -19,7 +19,7 @@ const Schedule = () => {
 
     return (
         <div>
-            {/* <Nav></Nav> */}
+            <Nav></Nav>
             <h1 className='text-center text-4xl pt-12 font-semibold'>Schedule <span className='text-primary'>Date & Time</span></h1>
 
             <SlotCategory />
@@ -27,7 +27,7 @@ const Schedule = () => {
             <TimeAndDate value={value} onChange={onChange}></TimeAndDate>
 
             <ScheduleInfo value={value} slot={slot} slotPm={slotPm} setScheduleInfo={setScheduleInfo}></ScheduleInfo>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };
