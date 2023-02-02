@@ -63,40 +63,7 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-                  {isAdmin && (
-                    <>
-                      <li className="dropdown dropdown-bottom">
-                        <Link
-                          to={"#"}
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                        >
-                          <span className="inline-flex justify-center items-center ml-4">
-                            <RiAdminLine className="w-6 h-6" />
-                          </span>
-
-                          <div className="">
-                            <label tabIndex={0} className=" m-1">
-                              {" "}
-                              <span className="ml-2 text-sm tracking-wide truncate">
-                                Admin
-                              </span>
-                            </label>
-                            <ul
-                              tabIndex={0}
-                              className="dropdown-content menu p-2 shadow bg-base-100 text-gray-900 rounded-box w-52"
-                            >
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={"/dashboard/allUser"}>All User</Link>
-                              </li>
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={""}>Admin List</Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </Link>
-                      </li>
-                    </>
-                  )}
+                  
 
                   <li>
                     <Link
@@ -126,21 +93,6 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-
-                  <li>
-                    <Link
-                      to="/dashboard/createTeam"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <IoCreateOutline className="w-6 h-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Create Team
-                      </span>
-                    </Link>
-                  </li>
-
                   <li>
                     <Link
                       to="/dashboard/team"
@@ -202,6 +154,40 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
+                  {isAdmin && (
+                    <>
+                      <li className="dropdown dropdown-bottom">
+                        <Link
+                          to={"#"}
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                        >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <RiAdminLine className="w-6 h-6" />
+                          </span>
+
+                          <div className="">
+                            <label tabIndex={0} className=" m-1">
+                              {" "}
+                              <span className="ml-2 text-sm tracking-wide truncate">
+                                Admin
+                              </span>
+                            </label>
+                            <ul
+                              tabIndex={0}
+                              className="dropdown-content menu p-2 shadow bg-base-100 text-gray-900 rounded-box w-52"
+                            >
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={"/dashboard/allUser"}>All User</Link>
+                              </li>
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={""}>Admin List</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
                 {user?.uid ? (
                   <>
