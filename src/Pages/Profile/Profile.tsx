@@ -11,7 +11,9 @@ const Profile = () => {
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
-        await fetch(`http://localhost:5000/user?email=${user?.email}`)
+        await fetch(
+          `http://localhost:5000/user?email=${user?.email}`
+        )
       ).json();
       setData(data);
     };
@@ -33,7 +35,7 @@ const Profile = () => {
           image,
           profession,
           about,
-          // name,
+          name,
         } = usr;
         return (
           <div className="pl-0 md:pl-40 lg:pl-0">
@@ -60,6 +62,7 @@ const Profile = () => {
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 text-center md:text-left">
                       {firstName} {lastName}
+                      {name}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
