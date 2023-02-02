@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import AllUser from "../../Dashboard/AllUser/AllUser";
 import Billing from "../../Dashboard/Dashboard/Billing/Billing";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
@@ -25,8 +24,8 @@ import Payment from "../../Dashboard/Dashboard/Billing/Payment";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Admin from "../../Dashboard/Dashboard/Admin/Admin";
 import Availability from "../../Pages/Availablity/Availablity/Availablity";
-
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
+import AllUser from "../../Dashboard/AllUser/AllUser";
 
 
 

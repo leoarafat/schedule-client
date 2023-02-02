@@ -9,7 +9,9 @@ const Profile = () => {
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
-        await fetch(`http://localhost:5000/user?email=${user?.email}`)
+        await fetch(
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+        )
       ).json();
       setData(data);
     };
@@ -31,7 +33,7 @@ const Profile = () => {
           image,
           profession,
           about,
-          name
+          name,
         } = usr;
         return (
           <div className="pl-0 md:pl-40 lg:pl-0">
@@ -57,7 +59,7 @@ const Profile = () => {
                       )}
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 text-center md:text-left">
-                    {name}
+                      {name}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
@@ -112,8 +114,7 @@ const Profile = () => {
                           <div className="px-4 py-2 font-semibold">
                             Contact No.
                           </div>
-                          <div className="px-4 py-2">
-                            {contactNumber}</div>
+                          <div className="px-4 py-2">{contactNumber}</div>
                         </div>
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
@@ -134,9 +135,7 @@ const Profile = () => {
                           <div className="px-4 py-2">{birthDate}</div>
                         </div>
                         <div className="grid grid-cols-2">
-                          <div className="px-4 py-2 font-semibold">
-                            
-                          </div>
+                          <div className="px-4 py-2 font-semibold"></div>
                           <div className="px-4 py-2"></div>
                         </div>
                         <div className="grid grid-cols-2">
@@ -147,7 +146,6 @@ const Profile = () => {
                             </a>
                           </div>
                         </div>
-                        
                       </div>
                     </div>
                   </div>
