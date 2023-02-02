@@ -12,6 +12,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const params = useParams();
   const id = params.id;
+  
   const { data: membership = [], refetch } = useQuery({
     queryKey: ["membership"],
     queryFn: async () => {
