@@ -17,7 +17,7 @@ const Team = () => {
     queryKey: ["team", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/team?email=${user?.email}`
+        `https://scheduplannr-server.vercel.app/team?email=${user?.email}`
       );
       const data = res.json();
       return data;
@@ -72,7 +72,9 @@ const Team = () => {
                 </div>
                 <div>
                   <p className="text-4xl font-bold text-center mb-5">{name}</p>
-                  <p className="text-center my-5">{description}Jala !!! jala !!! Antor jala!!!</p>
+                  <p className="text-center my-5">
+                    {description}Jala !!! jala !!! Antor jala!!!
+                  </p>
                 </div>
                 <div></div>
                 <table className="divide-y-2 divide-gray-200 text-sm">

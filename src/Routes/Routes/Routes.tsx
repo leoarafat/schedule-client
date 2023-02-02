@@ -26,6 +26,7 @@ import Admin from "../../Dashboard/Dashboard/Admin/Admin";
 import Availability from "../../Pages/Availablity/Availablity/Availablity";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 import AllUser from "../../Dashboard/AllUser/AllUser";
+import AddBlog from "../../Pages/Blog/AddBlog";
 
 
 
@@ -106,6 +107,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/billing",
         element: <Billing />,
+      },
+      {
+        path: "/dashboard/addBlog",
+        element: <AddBlog></AddBlog>
       },
       {
         path: "/dashboard/billing/membership/:id",

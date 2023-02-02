@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { toast } from "react-hot-toast";
-import { useQuery } from "react-query";
 import { MdOutlineVerifiedUser } from "react-icons/md";
+import { useQuery } from "react-query";
 
 // interface DataRow {
-  // name: string;
-  // email: string;
-  // role: string;
-  // _id: string
+// name: string;
+// email: string;
+// role: string;
+// _id: string
 // }
 type DataRow = {
   name: string;
   email: string;
   role: string;
-  _id: string
+  _id: string;
 };
 
 const AllUserTables: React.FC = () => {
@@ -24,7 +24,7 @@ const AllUserTables: React.FC = () => {
   const { data: userInfo = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("https://scheduplannr-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
@@ -32,7 +32,7 @@ const AllUserTables: React.FC = () => {
   console.log(userInfo);
 
   useEffect(() => {
-    const result = userInfo?.filter((user: { name: string; }) => {
+    const result = userInfo?.filter((user: { name: string }) => {
       return user?.name?.toLowerCase()?.match(search?.toLowerCase());
     });
     setFilterUser(result);
@@ -66,8 +66,8 @@ const AllUserTables: React.FC = () => {
         <>
           {row?.role === "admin" && (
             <p className="flex items-center">
-             {row.role} <MdOutlineVerifiedUser className="w-4 h-4 text-blue-400" />
-              
+              {row.role}{" "}
+              <MdOutlineVerifiedUser className="w-4 h-4 text-blue-400" />
             </p>
           )}
         </>
@@ -76,7 +76,7 @@ const AllUserTables: React.FC = () => {
   ];
 
   const handleAdmin = (id: string) => {
-    fetch(`http://localhost:5000/user/admin/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

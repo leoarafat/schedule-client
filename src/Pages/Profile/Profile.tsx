@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AddNote from "../../AddNote/AddNote";
-import { FaRegEdit } from "react-icons/fa";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 const Profile = () => {
@@ -12,7 +12,7 @@ const Profile = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
         )
       ).json();
       setData(data);

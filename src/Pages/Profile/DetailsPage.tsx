@@ -87,7 +87,7 @@ const DetailsPage = ({ singleUser }: any) => {
             about,
           };
 
-          fetch(`http://localhost:5000/user/${_id}`, {
+          fetch(`https://scheduplannr-server.vercel.app/user/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
