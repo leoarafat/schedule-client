@@ -7,12 +7,15 @@ import { SiAmazonpay } from "react-icons/si";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { useContext } from "react";
 import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
+import { FiUsers } from "react-icons/fi";
 
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin/useAdmin";
 
 const Dashboard = () => {
   const { user, logOut }: any = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
 
   const signOut = () => {
     logOut()
@@ -78,7 +81,9 @@ const Dashboard = () => {
                       className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                     >
                       <span className="inline-flex justify-center items-center ml-4">
-                        <MdOutlineEventAvailable size={"1.25rem"}></MdOutlineEventAvailable>
+                        <MdOutlineEventAvailable
+                          size={"1.25rem"}
+                        ></MdOutlineEventAvailable>
                       </span>
                       <span className="ml-2 text-sm tracking-wide truncate">
                         Availability
@@ -148,19 +153,22 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/dashboard/updateProfile"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <FiSettings className="h-6 w-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Settings
-                      </span>
-                    </Link>
-                  </li>
+
+                  {isAdmin && (
+                    <li>
+                      <Link
+                        to="/dashboard/users"
+                        className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                      >
+                        <span className="inline-flex justify-center items-center ml-4">
+                          <FiUsers className="h-6 w-6" />
+                        </span>
+                        <span className="ml-2 text-sm tracking-wide truncate">
+                          Users
+                        </span>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
                 {user?.uid ? (
                   <>

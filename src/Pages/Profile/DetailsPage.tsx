@@ -325,7 +325,7 @@ const DetailsPage = ({ singleUser }: any) => {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
+                className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100"
               >
                 Update Profile
               </button>
