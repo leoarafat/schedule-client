@@ -6,7 +6,9 @@ import {
   AiOutlineShareAlt,
 } from "react-icons/ai";
 import { FiCopy } from "react-icons/fi";
+import { IoCreateOutline } from "react-icons/io5";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
@@ -37,13 +39,27 @@ const MySchedule = () => {
   console.log(mySchedule);
 
   return (
-    <div className="flex justify-center">
-      <div className="grid md:grid-cols-2 gap-8 my-20">
+    <div className="pl-3 md:pl-48 lg:pl-0">
+      <Link to={"/schedule"}>
+          <div className="flex justify-end">
+          <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">
+            <div className="flex items-center gap-4">
+              <div>
+                <IoCreateOutline />
+              </div>
+              <div>
+                <p>Create Schedule</p>
+              </div>
+            </div>
+          </button>
+          </div>
+        </Link>
+      <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-20">
         {mySchedule.map((e: any) => {
           const { title, location, link, name, slot, organization, _id } = e;
           return (
             <div key={_id}>
-              <div className="w-96 border-t-8 border-primary flex flex-col gap-6 p-4 bg-white rounded-lg shadow-xl">
+              <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 bg-white rounded-lg shadow-xl">
                 <div className="flex justify-center gap-4">
                   <div className="form-control w-52">
                     <label className="cursor-pointer label">

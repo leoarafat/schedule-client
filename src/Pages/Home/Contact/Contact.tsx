@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const form = useRef();
+  const form:any = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
 
     emailjs
@@ -108,7 +108,6 @@ const Contact = () => {
             <label className="block">
               <span className="mb-1">Message</span>
               <textarea
-                rows="3"
                 className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-primary  border py-3 px-2border py-3 px-2 mt-2"
                 name="message"
                 required
