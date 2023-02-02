@@ -13,7 +13,6 @@ import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
 
   const {
     data: mySchedule = [],
@@ -48,9 +47,10 @@ const MySchedule = () => {
                   <div className="form-control w-52">
                     <label className="cursor-pointer label">
                       <input
+                        data-tip="ON | OFF"
                         type="checkbox"
-                        title="ON | OFF"
-                        className="toggle toggle-primary"
+                        defaultChecked={true}
+                        className="toggle toggle-primary tooltip"
                       />
                     </label>
                   </div>
@@ -58,28 +58,28 @@ const MySchedule = () => {
                   <button>
                     <label
                       htmlFor="my-modal-3"
-                      className="text-gray-500 hover:text-black cursor-pointer"
-                      title="Edit"
+                      className="tooltip text-gray-500 hover:text-black cursor-pointer"
+                      data-tip="Edit"
                     >
                       <AiOutlineEdit size={"2rem"} />
                     </label>
                   </button>
 
                   <button
-                    className="text-gray-500 hover:text-black"
-                    title="Delete"
+                    className="tooltip text-gray-500 hover:text-black"
+                    data-tip="Delete"
                   >
                     <AiOutlineDelete size={"2rem"} />
                   </button>
                   <button
-                    className="text-gray-500 hover:text-black"
-                    title="Share"
+                    className="tooltip text-gray-500 hover:text-black"
+                    data-tip="Share"
                   >
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
                   <button
-                    className="text-gray-500 hover:text-black"
-                    title="Copy"
+                    className="tooltip text-gray-500 hover:text-black"
+                    data-tip="Copy"
                   >
                     <AiOutlineCopy size={"2rem"} />
                   </button>

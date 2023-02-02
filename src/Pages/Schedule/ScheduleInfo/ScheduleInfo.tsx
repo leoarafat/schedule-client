@@ -3,17 +3,13 @@ import { useForm } from "react-hook-form";
 type UserSubmitForm = {
   name: string;
   email: string;
-  phone: number;
+  phone: string;
   organization: string;
   title: string;
   location: string;
   link: string;
   description: string;
 };
-
-interface timeDateType {
-  timeDate: object;
-}
 
 const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
   const {
@@ -45,7 +41,9 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
       slot,
       slotPm,
     };
+
     setScheduleInfo(info);
+
     fetch("https://scheduplannr-server.vercel.app/createSchedule", {
       method: "POST",
       headers: {
@@ -137,7 +135,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 })}
                 id="phone"
                 name="phone"
-                type="number"
+                type="text"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.phone && (
@@ -225,17 +223,17 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                   alt=""
                 />
                 <img
-                  className="w-20"
+                  className="w-20 hidden md:block"
                   src="https://img.icons8.com/clouds/2x/whatsapp.png"
                   alt=""
                 />
                 <img
-                  className="w-20"
+                  className="w-20 hidden md:block"
                   src="https://img.icons8.com/clouds/2x/youtube-play.png"
                   alt=""
                 />
                 <img
-                  className="w-20"
+                  className="w-20 hidden md:block"
                   src="https://img.icons8.com/clouds/2x/facebook-new.png"
                   alt=""
                 />
