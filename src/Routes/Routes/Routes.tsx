@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import Billing from "../../Dashboard/Dashboard/Billing/Billing";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
-import MyMeeting from "../../Dashboard/Meeting/MyMeeting/MyMeeting";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
@@ -24,6 +23,7 @@ import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 import Payment from "../../Dashboard/Dashboard/Billing/Payment";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Admin from "../../Dashboard/Dashboard/Admin/Admin";
+import Availability from "../../Pages/Availablity/Availablity/Availablity";
 
 export const router = createBrowserRouter([
   {
@@ -90,10 +90,6 @@ export const router = createBrowserRouter([
         element: <AllUser />,
       },
       {
-        path: "/dashboard/myMeeting",
-        element: <MyMeeting />,
-      },
-      {
         path: "/dashboard/profile",
         element: <Profile />,
       },
@@ -122,6 +118,14 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
+
+
+
+        path: '/dashboard/availability',
+        element: <Availability></Availability>,
+      },
+      {
+
         path: '/dashboard/admin',
         element: <AdminRoute><Admin /></AdminRoute>
     },

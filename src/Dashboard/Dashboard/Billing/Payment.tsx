@@ -12,16 +12,14 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const params = useParams();
   const id = params.id;
-
-  
-
-  const { data: membership = [] } = useQuery({
+  const { data: membership = [], refetch } = useQuery({
     queryKey: ["membership"],
     queryFn: async () => {
       const res = await fetch(
         `https://scheduplannr-server.vercel.app/membership/${id}`
       );
       const data = await res.json();
+      refetch();
       return data;
     },
   });
