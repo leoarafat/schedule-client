@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
+import DataTable, { TableColumn } from "react-data-table-component";
 import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 
-const AllUserTables = () => {
+// interface DataRow {
+  // name: string;
+  // email: string;
+  // role: string;
+  // _id: string
+// }
+type DataRow = {
+  name: string;
+  email: string;
+  role: string;
+  _id: string
+};
+
+const AllUserTables: React.FC = () => {
   const [search, setSearch] = useState("");
   const [filterUser, setFilterUser] = useState([]);
 
@@ -19,13 +32,13 @@ const AllUserTables = () => {
   console.log(userInfo);
 
   useEffect(() => {
-    const result = userInfo?.filter((user) => {
+    const result = userInfo?.filter((user: { name: string; }) => {
       return user?.name?.toLowerCase()?.match(search?.toLowerCase());
     });
     setFilterUser(result);
   }, [userInfo, search]);
 
-  const column = [
+  const columns: TableColumn<DataRow>[] = [
     {
       name: "User Name",
       selector: (row) => row.name,
@@ -49,7 +62,7 @@ const AllUserTables = () => {
     },
     {
       name: "Status",
-      selector: (row) => (
+      cell: (row) => (
         <>
           {row?.role === "admin" && (
             <p className="flex items-center">
@@ -62,7 +75,7 @@ const AllUserTables = () => {
     },
   ];
 
-  const handleAdmin = (id) => {
+  const handleAdmin = (id: string) => {
     fetch(`http://localhost:5000/user/admin/${id}`, {
       method: "PUT",
     })
@@ -78,7 +91,7 @@ const AllUserTables = () => {
   return (
     <DataTable
       title="User List"
-      columns={column}
+      columns={columns}
       data={filterUser}
       pagination
       fixedHeader
@@ -94,7 +107,7 @@ const AllUserTables = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       }
-      subHeaderAlign="left"
+      // subHeaderAlign="left"
     />
   );
 };
