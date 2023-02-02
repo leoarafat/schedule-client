@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useAdmin = (email: string) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -11,7 +11,7 @@ const useAdmin = (email: string) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          setIsAdmin(data.isAdmin);
+          setIsAdmin(data?.isAdmin);
           setIsAdminLoading(false);
         });
     }
