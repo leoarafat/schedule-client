@@ -4,13 +4,15 @@ import {
   AiOutlineEdit,
   AiOutlineShareAlt,
 } from "react-icons/ai";
+import { IoCreateOutline } from "react-icons/io5";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../Shared/Loading/Loading";
 
 const Team = () => {
-
-  const { user }: any = useContext(AuthContext)
+  const { user }: any = useContext(AuthContext);
 
   const {
     data: team = [],
@@ -19,7 +21,9 @@ const Team = () => {
   } = useQuery({
     queryKey: ["team", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/team?email=${user?.email}`);
+      const res = await fetch(
+        `http://localhost:5000/team?email=${user?.email}`
+      );
       const data = res.json();
       return data;
     },
@@ -32,176 +36,105 @@ const Team = () => {
   }
 
   return (
-    <>
-      {team.map((e: any, i: number) => {
-        const {
-          name,
-          name1,
-          name2,
-          name3,
-          name4,
-          email,
-          email1,
-          email2,
-          email3,
-          email4,
-        } = e;
-
-        return (
-          <div className="my-10 pl-10">
-            <h1 className="text-center text-4xl py-10 font-semibold">{name}</h1>
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
-                    <div className="flex flex-col gap-4">
-                      <h1 className="text-2xl">Member 1</h1>
-                      <div>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Name</span>: {name1}
-                        </p>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Email</span>:{email1}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-end gap-4 border-t-2 border-gray-400 py-2">
-                      <div></div>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Edit"
-                      >
-                        <AiOutlineEdit size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Delete"
-                      >
-                        <AiOutlineDelete size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Share"
-                      >
-                        <AiOutlineShareAlt size={"2rem"} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
-                    <div className="flex flex-col gap-4">
-                      <h1 className="text-2xl">Member 2</h1>
-                      <div>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Name</span>: {name2}
-                        </p>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Email</span>:{email2}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-end gap-4 border-t-2 border-gray-400 py-2">
-                      <div></div>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Edit"
-                      >
-                        <AiOutlineEdit size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Delete"
-                      >
-                        <AiOutlineDelete size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Share"
-                      >
-                        <AiOutlineShareAlt size={"2rem"} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
-                    <div className="flex flex-col gap-4">
-                      <h1 className="text-2xl">Member 3</h1>
-                      <div>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Name</span>: {name3}
-                        </p>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Email</span>:{email3}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-end gap-4 border-t-2 border-gray-400 py-2">
-                      <div></div>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Edit"
-                      >
-                        <AiOutlineEdit size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Delete"
-                      >
-                        <AiOutlineDelete size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Share"
-                      >
-                        <AiOutlineShareAlt size={"2rem"} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg shadow-xl">
-                  <div className="w-full border-t-8 border-primary rounded-lg flex flex-col gap-6 p-4">
-                    <div className="flex flex-col gap-4">
-                      <h1 className="text-2xl">Member 4</h1>
-                      <div>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Name</span>: {name4}
-                        </p>
-                        <p className="text-xl">
-                          <span className="text-gray-500">Email</span>:{email4}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-end gap-4 border-t-2 border-gray-400 py-2">
-                      <div></div>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Edit"
-                      >
-                        <AiOutlineEdit size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Delete"
-                      >
-                        <AiOutlineDelete size={"2rem"} />
-                      </button>
-                      <button
-                        className="text-gray-500 hover:text-black"
-                        title="Share"
-                      >
-                        <AiOutlineShareAlt size={"2rem"} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+    <div>
+      <div className="flex justify-end mb-5">
+        <Link to={"/dashboard/createTeam"}>
+          <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">
+            <div className="flex items-center gap-4">
+              <div>
+                <IoCreateOutline />
+              </div>
+              <div>
+                <p>Create Team</p>
               </div>
             </div>
-          </div>
-        );
-      })}
-    </>
+          </button>
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {team.map((e: any, i: number) => {
+          const {
+            name,
+            name1,
+            name2,
+            name3,
+            name4,
+            email1,
+            email2,
+            email3,
+            email4,
+            description,
+          } = e;
+
+          return (
+            <div className="shadow-lg p-10">
+              <div className="overflow-x-auto">
+                <div className="flex justify-end mb-5">
+                  <button className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                    <RiDeleteBin6Line />
+                  </button>
+                </div>
+                <div>
+                  <p className="text-4xl font-bold text-center mb-10">{name}</p>
+                  <p>{description}</p>
+                </div>
+                <div></div>
+                <table className="divide-y-2 divide-gray-200 text-sm">
+                  <thead>
+                    <tr>
+                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                        Name
+                      </th>
+                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                        Email
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody className="divide-y divide-gray-200">
+                    <tr>
+                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        {name1}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {email1}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        {name2}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {email2}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        {name3}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {email3}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        {name4}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {email4}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

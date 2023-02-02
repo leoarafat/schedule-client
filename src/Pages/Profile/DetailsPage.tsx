@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../Shared//Loading/Loading";
 interface dataProps {
   name: string;
@@ -19,7 +20,7 @@ interface dataProps {
 const DetailsPage = ({ singleUser }: any) => {
   const { _id, email } = singleUser;
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -95,9 +96,12 @@ const DetailsPage = ({ singleUser }: any) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
-              setIsLoading(false);
-              toast.success("Profile Update Successful");
+              if (data.acknowledged) {
+                console.log(data);
+                navigate("/dashboard/profile");
+                setIsLoading(false);
+                toast.success("Profile Update Successful");
+              }
             });
         }
       });

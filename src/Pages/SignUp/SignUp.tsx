@@ -16,6 +16,7 @@ type UserSubmitForm = {
   permanentAddress: string;
   birthDate: string;
   contactNumber: string;
+  role: string
 };
 interface dataProps {
   image: string;
@@ -29,6 +30,7 @@ interface dataProps {
   permanentAddress: string;
   birthDate: string;
   contactNumber: string;
+  role: string
 }
 
 const SignUp = () => {
@@ -59,6 +61,7 @@ const SignUp = () => {
         const permanentAddress = "";
         const contactNumber = "";
         const gender = "";
+        const role = "";
         const birthDate = "";
         const image = "";
         console.log(firstName, lastName);
@@ -73,6 +76,7 @@ const SignUp = () => {
           currentAddress,
           permanentAddress,
           contactNumber,
+          role,
           gender,
           birthDate,
           image
@@ -98,6 +102,7 @@ const SignUp = () => {
         const permanentAddress = "";
         const contactNumber = "";
         const gender = "";
+        const role = "";
         const birthDate = "";
         const image = "";
         navigate("/");
@@ -110,6 +115,7 @@ const SignUp = () => {
           permanentAddress,
           contactNumber,
           gender,
+          role,
           birthDate,
           image
         );
@@ -131,7 +137,8 @@ const SignUp = () => {
     contactNumber: string,
     gender: string,
     birthDate: string,
-    image: string
+    image: string,
+    role: string
   ) => {
     const user = {
       email,
@@ -142,6 +149,7 @@ const SignUp = () => {
       permanentAddress,
       contactNumber,
       gender,
+      role,
       birthDate,
       image
     };
