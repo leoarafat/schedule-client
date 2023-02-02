@@ -5,20 +5,19 @@ import DetailsPage from "./DetailsPage";
 const UpdateProfile = () => {
   const { user }: any = useContext(AuthContext);
 
-const [userInfo, setData] = useState([]);
+  const [userInfo, setData] = useState([]);
 
-useEffect(() => {
-  const dataFetch = async () => {
-    const data = await (
-      await fetch(
-        `http://localhost:5000/user?email=${user?.email}`
-      )
-    ).json();
-    setData(data);
-  };
+  useEffect(() => {
+    const dataFetch = async () => {
+      const data = await (
+        await fetch(`http://localhost:5000/user?email=${user?.email}`)
+      ).json();
 
-  dataFetch();
-}, [user?.email]);
+      setData(data);
+    };
+
+    dataFetch();
+  }, [user?.email]);
 
   return (
     <div>

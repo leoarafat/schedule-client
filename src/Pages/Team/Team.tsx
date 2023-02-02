@@ -1,9 +1,4 @@
 import { useContext } from "react";
-import {
-  AiOutlineDelete,
-  AiOutlineEdit,
-  AiOutlineShareAlt,
-} from "react-icons/ai";
 import { IoCreateOutline } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useQuery } from "react-query";

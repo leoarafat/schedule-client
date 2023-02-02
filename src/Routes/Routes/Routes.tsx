@@ -124,9 +124,6 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
-
-
-
         path: '/dashboard/availability',
         element: <Availability></Availability>,
       },
