@@ -16,7 +16,7 @@ const Billing = () => {
   }, []);
 
   return (
-    <div className="pl-12 md:pl-0">
+    <div>
       <h1 className="text-6xl font-bold text-center uppercase">
         Bill<span className="text-primary">ing</span>
       </h1>

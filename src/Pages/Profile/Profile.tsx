@@ -34,14 +34,14 @@ const Profile = () => {
           name
         } = usr;
         return (
-          <div className="pl-5 md:pl-0">
-            <h1 className="text-6xl font-bold text-center md:text-left">
+          <div className="pl-0 md:pl-40 lg:pl-0">
+            <h1 className="text-6xl font-bold text-center lg:text-left">
               Pro<span className="text-primary">file</span>
             </h1>
             <div className="container mx-auto my-5 p-5">
-              <div className="md:flex no-wrap md:-mx-2 ">
-                <div className="w-full md:w-3/12 md:mx-2">
-                  <div className=" p-3 border-t-4 border-primary">
+              <div className="lg:flex no-wrap md:-mx-2 ">
+                <div className="w-full lg:w-4/12 md:mx-2 md:pl-10 lg:pl-0">
+                  <div className=" p-2 border-t-4 border-primary">
                     <div className="image overflow-hidden">
                       {user ? (
                         <img
@@ -56,10 +56,10 @@ const Profile = () => {
                         />
                       )}
                     </div>
-                    <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
-                      {name}
+                    <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 text-center md:text-left">
+                    {name}
                     </h1>
-                    <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
+                    <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
                     </h3>
                     <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5 text-center md:text-left">
@@ -69,7 +69,7 @@ const Profile = () => {
                   <div className="my-4"></div>
                 </div>
 
-                <div className="w-full h-64">
+                <div className="w-full h-64 md:pl-10 xl:pl-0">
                   <div className=" p-5 rounded-sm">
                     <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                       <span className="text-primary">
@@ -91,7 +91,7 @@ const Profile = () => {
                       <span className="tracking-wide">About</span>
                     </div>
                     <div className="text-gray-700">
-                      <div className="grid md:grid-cols-2 text-sm">
+                      <div className="grid lg:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
                             First Name
@@ -112,7 +112,8 @@ const Profile = () => {
                           <div className="px-4 py-2 font-semibold">
                             Contact No.
                           </div>
-                          <div className="px-4 py-2">{contactNumber}</div>
+                          <div className="px-4 py-2">
+                            {contactNumber}</div>
                         </div>
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
@@ -127,6 +128,18 @@ const Profile = () => {
                           <div className="px-4 py-2">{permanentAddress}</div>
                         </div>
                         <div className="grid grid-cols-2">
+                          <div className="px-4 py-2 font-semibold">
+                            Birthday
+                          </div>
+                          <div className="px-4 py-2">{birthDate}</div>
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <div className="px-4 py-2 font-semibold">
+                            
+                          </div>
+                          <div className="px-4 py-2"></div>
+                        </div>
+                        <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">Email</div>
                           <div className="px-4 py-2">
                             <a className="text-blue-800" href={user?.email}>
@@ -134,12 +147,7 @@ const Profile = () => {
                             </a>
                           </div>
                         </div>
-                        <div className="grid grid-cols-2">
-                          <div className="px-4 py-2 font-semibold">
-                            Birthday
-                          </div>
-                          <div className="px-4 py-2">{birthDate}</div>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
