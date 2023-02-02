@@ -10,7 +10,7 @@ const Profile = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+          `http://localhost:5000/user?email=${user?.email}`
         )
       ).json();
       setData(data);
@@ -124,7 +124,7 @@ const Profile = () => {
                         </div>
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
-                            Permanant Address
+                            Permanent Address
                           </div>
                           <div className="px-4 py-2">{permanentAddress}</div>
                         </div>
