@@ -57,7 +57,7 @@ const Profile = () => {
                       )}
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
-                      {name}
+                    {name}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold">
                       {profession}
