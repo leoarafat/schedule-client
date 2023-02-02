@@ -307,7 +307,7 @@ const DetailsPage = ({ singleUser }: any) => {
             <div>
               <div>
                 <label htmlFor="img" className="block dark:text-gray-400">
-                  Product Image
+                  Image
                 </label>
                 <input
                   {...register("image", {

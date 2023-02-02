@@ -76,8 +76,8 @@ const Team = () => {
                   </button>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-center mb-10">{name}</p>
-                  <p>{description}</p>
+                  <p className="text-4xl font-bold text-center mb-5">{name}</p>
+                  <p className="text-center my-5">{description}Jala !!! jala !!! Antor jala!!!</p>
                 </div>
                 <div></div>
                 <table className="divide-y-2 divide-gray-200 text-sm">
