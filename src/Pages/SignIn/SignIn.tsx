@@ -15,21 +15,6 @@ interface dataProps {
   password: string;
 }
 
-// interface dataProps {
-//   image: string;
-//   email: string;
-//   password: string;
-//   displayName: string;
-//   gender: string;
-//   firstName: string;
-//   lastName: string;
-//   currentAddress: string;
-//   permanentAddress: string;
-//   birthDate: string;
-//   contactNumber: string;
-//   role: string
-// }
-
 const SignIn = () => {
   const { logInUser, googleSignIn, resetPassword, auth, user }: any =
     useContext(AuthContext);
@@ -66,7 +51,6 @@ const SignIn = () => {
         const permanentAddress = "";
         const contactNumber = "";
         const gender = "";
-        const role = "";
         const birthDate = "";
         const image = "";
         navigate("/");
@@ -79,7 +63,6 @@ const SignIn = () => {
           permanentAddress,
           contactNumber,
           gender,
-          role,
           birthDate,
           image
         );
@@ -137,49 +120,7 @@ const SignIn = () => {
         // setFirebaseError(err);
         console.log(err);
       });
-
-  }
-  const saveUserToDatabase = (
-    email: string,
-    name: string,
-    firstName: string,
-    lastName: string,
-    currentAddress: string,
-    permanentAddress: string,
-    contactNumber: string,
-    gender: string,
-    birthDate: string,
-    image: string,
-    role: string
-  ) => {
-    const user = {
-      email,
-      name,
-      firstName,
-      lastName,
-      currentAddress,
-      permanentAddress,
-      contactNumber,
-      gender,
-      role,
-      birthDate,
-      image
-    };
-    fetch(`https://scheduplannr-server.vercel.app/users`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
   };
-
-  };
-
 
   return (
     <>

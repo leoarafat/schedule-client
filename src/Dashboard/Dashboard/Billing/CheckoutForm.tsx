@@ -7,22 +7,7 @@ import { IoArrowDownCircleOutline } from "react-icons/io5";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
-
-  // const {
-  //   data: mySchedule = [],
-  //   isLoading,
-  //   refetch,
-  // } = useQuery({
-  //   queryKey: ["mySchedule", user?.email],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `http://localhost:5000/user?email=${user?.email}`
-  //     );
-  //     const data = res.json();
-  //     return data;
-  //   },
-  // });
-
+  
   const [userInfo, setData] = useState([]);
   useEffect(() => {
     const dataFetch = async () => {
@@ -54,8 +39,13 @@ const CheckoutForm = ({ membership }: any) => {
       body: JSON.stringify({ cost }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => {
+        console.log(data)
+        setClientSecret(data?.clientSecret);
+        
+      });
   }, [cost]);
+
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
