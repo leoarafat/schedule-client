@@ -27,17 +27,17 @@ const ThirtyMins = () => {
     },
   });
   if (isLoading) {
-    return <Loading />;
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (
     <div>
-      <div className="h-[25rem] lg:py-0 py-12 px-2">
+      <div className="h-[26rem] lg:py-0 py-12 px-2">
         <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
           Please select a time slot{" "}
         </h1>
         <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
             {thirtyMinsAm &&
               thirtyMinsAm[0].slots.map((thirtyAm: any) => (
                 <span
@@ -50,7 +50,7 @@ const ThirtyMins = () => {
               ))}
           </div>
           <div>
-            <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+            <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
               {thirtyMinsPm &&
                 thirtyMinsPm[0].slots.map((thirtyPm: any) => (
                   <span
