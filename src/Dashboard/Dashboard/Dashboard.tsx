@@ -1,8 +1,8 @@
 import { FiLogOut, FiSettings } from "react-icons/fi";
-import { RiLoginCircleLine } from "react-icons/ri";
+import { RiLoginCircleLine, RiAdminLine } from "react-icons/ri";
 import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineFolderAdd, AiOutlineHome } from "react-icons/ai";
 import { SiAmazonpay } from "react-icons/si";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { useContext } from "react";
@@ -10,9 +10,13 @@ import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
 
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin/useAdmin";
 
 const Dashboard = () => {
   const { user, logOut }: any = useContext(AuthContext);
+
+  const [isAdmin] = useAdmin(user?.email);
+  console.log(isAdmin);
 
   const signOut = () => {
     logOut()
@@ -59,6 +63,7 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
+
                   <li>
                     <Link
                       to="/dashboard/mySchedule"
@@ -78,28 +83,15 @@ const Dashboard = () => {
                       className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                     >
                       <span className="inline-flex justify-center items-center ml-4">
-                        <MdOutlineEventAvailable size={"1.25rem"}></MdOutlineEventAvailable>
+                        <MdOutlineEventAvailable
+                          size={"1.25rem"}
+                        ></MdOutlineEventAvailable>
                       </span>
                       <span className="ml-2 text-sm tracking-wide truncate">
                         Availability
                       </span>
                     </Link>
                   </li>
-
-                  <li>
-                    <Link
-                      to="/dashboard/createTeam"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <IoCreateOutline className="w-6 h-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Create Team
-                      </span>
-                    </Link>
-                  </li>
-
                   <li>
                     <Link
                       to="/dashboard/team"
@@ -113,6 +105,21 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
+                  {isAdmin && (
+                    <li>
+                      <Link
+                        to="/dashboard/addBlog"
+                        className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                      >
+                        <span className="inline-flex justify-center items-center ml-4">
+                          <AiOutlineFolderAdd className="h-6 w-6" />
+                        </span>
+                        <span className="ml-2 text-sm tracking-wide truncate">
+                          Add Blog
+                        </span>
+                      </Link>
+                    </li>
+                  )}
 
                   <li className="px-5 hidden md:block">
                     <div className="flex flex-row items-center mt-5 h-8">
@@ -121,7 +128,40 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </li>
+                  {isAdmin && (
+                    <>
+                      <li className="dropdown dropdown-bottom">
+                        <Link
+                          to={"#"}
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                        >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <RiAdminLine className="w-6 h-6" />
+                          </span>
 
+                          <div className="">
+                            <label tabIndex={0} className="dropdown dropdown-bottom dropdown-end m-1">
+                              {" "}
+                              <span className="ml-2 text-sm tracking-wide truncate">
+                                Admin
+                              </span>
+                            </label>
+                            <ul
+                              tabIndex={0}
+                              className="dropdown-content menu p-2 shadow bg-gray-200 text-gray-900 rounded-box w-52"
+                            >
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={"/dashboard/allUser"}>All User</Link>
+                              </li>
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={""}>Admin List</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </li>
+                    </>
+                  )}
                   <li>
                     <Link
                       to="/dashboard/profile"
@@ -148,19 +188,8 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/dashboard/updateProfile"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <FiSettings className="h-6 w-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Settings
-                      </span>
-                    </Link>
-                  </li>
+                  
+                  
                 </ul>
                 {user?.uid ? (
                   <>
