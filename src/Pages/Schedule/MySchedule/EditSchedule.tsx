@@ -12,7 +12,7 @@ type UserSubmitForm = {
     description: string;
 };
 
-const EditSchedule = ({ organization, name, link, location, title, description, phone, email, _id }: any) => {
+const EditSchedule = ({ organization, name, link, location, title, description, phone, email, _id, refetch }: any) => {
 
     const {
         register,
@@ -52,6 +52,7 @@ const EditSchedule = ({ organization, name, link, location, title, description, 
             .then((data) => {
                 if (data.acknowledged) {
                     console.log(data);
+                    refetch()
                     toast.success("Info Updated Successfully");
                 }
             });
@@ -202,7 +203,7 @@ const EditSchedule = ({ organization, name, link, location, title, description, 
                             >
                                 Schedule Location
                             </label>
-                            <div className="flex gap-4 flex-wrap py-2">
+                            <div className="flex justify-between items-center gap-4 flex-wrap py-2">
                                 <img
                                     className="w-20"
                                     src="https://img.icons8.com/clouds/2x/google-meet.png"
@@ -229,18 +230,8 @@ const EditSchedule = ({ organization, name, link, location, title, description, 
                                     alt=""
                                 />
                                 <img
-                                    className="w-20 hidden lg:block"
+                                    className="w-20"
                                     src="https://img.icons8.com/clouds/2x/whatsapp.png"
-                                    alt=""
-                                />
-                                <img
-                                    className="w-20 hidden lg:block"
-                                    src="https://img.icons8.com/clouds/2x/youtube-play.png"
-                                    alt=""
-                                />
-                                <img
-                                    className="w-20 hidden lg:block"
-                                    src="https://img.icons8.com/clouds/2x/facebook-new.png"
                                     alt=""
                                 />
                             </div>

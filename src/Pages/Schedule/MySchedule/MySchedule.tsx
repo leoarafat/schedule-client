@@ -1,4 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { toast } from "react-hot-toast";
+import Swal from 'sweetalert2'
 import {
   AiOutlineCopy,
   AiOutlineDelete,
@@ -14,6 +16,7 @@ import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
+
   const { user }: any = useContext(AuthContext);
 
   const {
@@ -32,7 +35,28 @@ const MySchedule = () => {
   });
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <div className="flex justify-center items-center h-screen"><Loading /></div>;
+  }
+
+  const handleDelete = (e: any) => {
+    Swal.fire({
+      title: 'Do you want to delete this schedule?',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              refetch()
+              toast.success("Schedule Deleted Successfully")
+            }
+          })
+      }
+    })
   }
 
   console.log(mySchedule);
@@ -82,6 +106,7 @@ const MySchedule = () => {
                   </button>
 
                   <button
+                    onClick={() => handleDelete(e)}
                     className="tooltip text-gray-500 hover:text-black"
                     data-tip="Delete"
                   >
@@ -110,7 +135,7 @@ const MySchedule = () => {
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <a className="text-primary underline" href={link}>
+                  <a className="text-primary underline" href={link} target="_blank">
                     /Schedule Link
                   </a>
                   <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
@@ -132,6 +157,7 @@ const MySchedule = () => {
                   phone={phone}
                   email={email}
                   _id={_id}
+                  refetch={refetch}
                 />
               }
             </div>
