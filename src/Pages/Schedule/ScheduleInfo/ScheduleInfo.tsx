@@ -94,7 +94,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 {...register("name", {
                   required: "Name is Required",
                 })}
-                defaultValue={user?.displayName}
+                value={user?.displayName}
                 id="name"
                 name="name"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
