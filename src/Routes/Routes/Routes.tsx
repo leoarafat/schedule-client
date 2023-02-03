@@ -21,10 +21,8 @@ import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 import Payment from "../../Dashboard/Dashboard/Billing/Payment";
-
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
-
-import Availability from "../../Pages/Availablity/Availablity/Availablity";
+import Availability from "../../Pages/Availablity/Availablity/Availability";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Admin from "../../Dashboard/Dashboard/Admin/Admin";
 
@@ -123,7 +121,6 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
-
         path: '/dashboard/availability',
         element: <Availability></Availability>,
       },

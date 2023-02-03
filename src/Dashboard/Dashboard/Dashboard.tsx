@@ -25,7 +25,6 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-
         <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:border-gray-700">
           <div>
             <div className="fixed flex flex-col left-0 w-14 hover:w-64 md:w-64 shadow-2xl h-full text-primary transition-all duration-300 border-none z-10 sidebar bg-white">
