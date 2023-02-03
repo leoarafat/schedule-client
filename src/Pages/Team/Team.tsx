@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { IoCreateOutline } from "react-icons/io5";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -27,7 +29,28 @@ const Team = () => {
   console.log(team);
 
   if (isLoading) {
-    return <Loading />;
+    return <div className="flex justify-center items-center h-screen"><Loading /></div>;
+  }
+
+  const handleDelete = (e: any) => {
+    Swal.fire({
+      title: 'Do you want to delete this team?',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/team/${e._id}`, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              refetch()
+              toast.success("Schedule Deleted Successfully")
+            }
+          })
+      }
+    })
   }
 
   return (
@@ -63,17 +86,22 @@ const Team = () => {
           } = e;
 
           return (
-            <div className="shadow-lg p-10">
+            <div key={i} className="shadow-lg p-10">
               <div className="overflow-x-auto">
-                <div className="flex justify-end mb-5">
+                <div className="flex justify-end mb-5 gap-4">
                   <button className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                    <RiEdit2Line />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(e)}
+                    className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                     <RiDeleteBin6Line />
                   </button>
                 </div>
                 <div>
                   <p className="text-4xl font-bold text-center mb-5">{name}</p>
                   <p className="text-center my-5">
-                    {description}Jala !!! jala !!! Antor jala!!!
+                    {description}
                   </p>
                 </div>
                 <div></div>
