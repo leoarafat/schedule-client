@@ -4,7 +4,7 @@ import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvi
 import Loading from "../../../Shared/Loading/Loading";
 
 const ThirtyMins = () => {
-  const { setSlot, setSlotPm }: any = useContext(AuthContext);
+  const { setSlot, setSlotPm, slot, slotPm }: any = useContext(AuthContext);
 
   const { data: thirtyMinsAm, isLoading } = useQuery({
     queryKey: ["thirtyMinsAm"],
@@ -33,9 +33,24 @@ const ThirtyMins = () => {
   return (
     <div>
       <div className="h-[25rem] lg:py-0 py-12 px-2">
-        <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
-          Please select a time slot{" "}
-        </h1>
+
+        {
+          !slot && !slotPm &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">Please Select A Time Slot</h1>
+        }
+        {
+          slot &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+            You have selected {slot}
+          </h1>
+        }
+        {
+          slotPm &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+            You have selected {slotPm}
+          </h1>
+        }
+
         <div className="flex justify-center gap-4">
           <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
             {thirtyMinsAm &&
