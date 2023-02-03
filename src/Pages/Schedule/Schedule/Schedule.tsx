@@ -16,7 +16,7 @@ const Schedule = () => {
     const [scheduleInfo, setScheduleInfo] = useState<any>('');
 
     // console.log(value, slot, slotPm, scheduleInfo);
-
+    // console.log(slot);
     return (
         <div>
             <Nav></Nav>

@@ -52,7 +52,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
 
     setScheduleInfo(info);
 
-    fetch("http://localhost:5000/createSchedule", {
+    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -121,6 +121,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                     message: "Invalid Email Address",
                   },
                 })}
+                disabled
                 value={user?.email}
                 id="email"
                 name="email"

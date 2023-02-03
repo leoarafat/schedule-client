@@ -6,9 +6,7 @@ import { Outlet } from 'react-router-dom';
 import ThirtyMins from '../ThirtyMins/ThirtyMins';
 
 const TimeAndDate = ({ handleForm, setSlot, onChange, value }: any) => {
-
-  // const [value, onChange] = useState(new Date());
-  console.log(value)
+  console.log(value?.toString().slice(0, 15));
   return (
     <>
       <form onSubmit={handleForm}>
@@ -16,7 +14,13 @@ const TimeAndDate = ({ handleForm, setSlot, onChange, value }: any) => {
           <div className='lg:flex justify-center gap-8'>
             <div className='px-2'>
               <Calendar className='md:w-[40rem] w-full h-[25rem] bg-sky-300 font-bold text-lg' onChange={onChange} value={value} />
-              <h1 className='text-2xl text-center -mt-14'>You select this date </h1>
+              {
+                value ?
+                  <h1 className='text-2xl text-center -mt-14'>{value.toString().slice(0, 15)}</h1>
+                  :
+                  <h1 className='text-2xl text-center -mt-14'>Please select a date</h1>
+              }
+
             </div>
             <Outlet></Outlet>
           </div>
