@@ -77,7 +77,7 @@ const Nav = () => {
             className="menu menu-compact dropdown-content right-1 mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to={"/dashboard"} className=" hover:bg-secondary pr-32">
+              <Link to={"/dashboard/mySchedule"} className=" hover:bg-secondary pr-32">
                 Dashboard
               </Link>
             </li>

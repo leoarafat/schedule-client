@@ -30,7 +30,7 @@ const Fifteen = () => {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (
@@ -55,22 +55,22 @@ const Fifteen = () => {
         }
 
         <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
             {fifteenMinsAm &&
-              fifteenMinsAm[0].slots.map((fifteenAm: any) => (
+              fifteenMinsAm[0].slots.map((fifteenAm: any, i: number) => (
                 <FifteenAmChild
-                  key={fifteenAm._id}
+                  key={i}
                   fifteenAMslots={fifteenAm}
                   setSlot={setSlot}
 
                 ></FifteenAmChild>
               ))}
           </div>
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2 ">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2 ">
             {fifteenMinsPm &&
-              fifteenMinsPm[0].slots.map((fifteenPm: any) => (
+              fifteenMinsPm[0].slots.map((fifteenPm: any, i: number) => (
                 <FifteenPmChild
-                  key={fifteenPm._id}
+                  key={i}
                   fifteenPMslots={fifteenPm}
                   setSlotPm={setSlotPm}
 

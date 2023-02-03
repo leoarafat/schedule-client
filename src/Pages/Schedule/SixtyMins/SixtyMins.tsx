@@ -30,7 +30,7 @@ const SixtyMins = () => {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (
@@ -55,7 +55,7 @@ const SixtyMins = () => {
         }
 
         <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
             {sixtyMinsAm &&
               sixtyMinsAm[0].slots.map((sixtyAm: any) => (
                 <span
@@ -68,12 +68,12 @@ const SixtyMins = () => {
               ))}
           </div>
           <div>
-            <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2 ">
+            <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2 ">
               {sixtyMinsPm &&
-                sixtyMinsPm[0].slots.map((sixtyPm: any) => (
+                sixtyMinsPm[0].slots.map((sixtyPm: any, i: number) => (
                   <span
                     onClick={() => setSlotPm(sixtyPm)}
-                    key={sixtyPm._id}
+                    key={i}
                     className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                   >
                     {sixtyPm}

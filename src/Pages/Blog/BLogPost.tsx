@@ -154,7 +154,7 @@ const BLogPost = () => {
 
             <div className="w-full bg-white shadow flex flex-col my-4 p-6">
                 <p className="text-xl font-semibold pb-5">About Us</p>
-                <p className="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
+                <p className="pb-2">In the hare and the tortoise fable we like to think of ourselves as the tortoise. Not in the sense of being slow, but in the sense of being consistent in the pursuit of our long-term goals. Here are some of the key traits that make us a good tortoise…</p>
                 <a href="#" className="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-blue-600 flex items-center justify-center px-2 py-3 mt-4">
                     Get to know us
                 </a>
@@ -174,7 +174,7 @@ const BLogPost = () => {
                     <img className="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9" alt=''/>
                 </div>
                 <a href="#" className="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-blue-600 flex items-center justify-center px-2 py-3 mt-6">
-                    <i className="fab fa-instagram mr-2"></i> Follow @dgrzyb
+                    <i className="fab fa-instagram mr-2"></i> Follow ScheduPlannr
                 </a>
             </div>
 

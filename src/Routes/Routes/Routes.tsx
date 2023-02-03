@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import AllUser from "../../Dashboard/AllUser/AllUser";
 import Billing from "../../Dashboard/Dashboard/Billing/Billing";
 import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
-import MyMeeting from "../../Dashboard/Meeting/MyMeeting/MyMeeting";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
@@ -22,11 +20,12 @@ import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MySchedule from "../../Pages/Schedule/MySchedule/MySchedule";
 import UpdateProfile from "../../Pages/Profile/UpdateProfile";
 import Payment from "../../Dashboard/Dashboard/Billing/Payment";
-import Availability from "../../Pages/Availablity/Availablity/Availablity";
-
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Admin from "../../Dashboard/Dashboard/Admin/Admin";
-
+import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
+import AllUser from "../../Dashboard/AllUser/AllUser";
+import AddBlog from "../../Pages/Blog/AddBlog";
+import Availability from "../../Pages/Availablity/Availablity/Availability";
 
 export const router = createBrowserRouter([
   {
@@ -85,16 +84,12 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "/dashboard/allUser",
         element: <AllUser />,
-      },
-      {
-        path: "/dashboard/myMeeting",
-        element: <MyMeeting />,
       },
       {
         path: "/dashboard/profile",
@@ -107,6 +102,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/billing",
         element: <Billing />,
+      },
+      {
+        path: "/dashboard/addBlog",
+        element: <AddBlog></AddBlog>
       },
       {
         path: "/dashboard/billing/membership/:id",
@@ -125,14 +124,14 @@ export const router = createBrowserRouter([
         element: <MySchedule></MySchedule>,
       },
       {
-
         path: '/dashboard/availability',
         element: <Availability></Availability>,
       },
       {
+
         path: '/dashboard/admin',
         element: <AdminRoute><Admin /></AdminRoute>
-    },
+      },
     ],
   },
 ]);

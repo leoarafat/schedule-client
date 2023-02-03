@@ -1,4 +1,3 @@
-import React from "react";
 import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 
@@ -6,16 +5,14 @@ const Admin = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        "http://localhost:5000/user"
-      );
+      const res = await fetch("https://scheduplannr-server.vercel.app/user");
       const data = await res.json();
       return data;
     },
   });
 
   const handleMakeAdmin = (id: number) => {
-    fetch(`http://localhost:5000/user/admin/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

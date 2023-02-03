@@ -27,7 +27,7 @@ const ThirtyMins = () => {
     },
   });
   if (isLoading) {
-    return <Loading />;
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (
@@ -52,12 +52,12 @@ const ThirtyMins = () => {
         }
 
         <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
             {thirtyMinsAm &&
-              thirtyMinsAm[0].slots.map((thirtyAm: any) => (
+              thirtyMinsAm[0].slots.map((thirtyAm: any, i: number) => (
                 <span
                   onClick={() => setSlot(thirtyAm)}
-                  key={thirtyAm._id}
+                  key={i}
                   className="cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                 >
                   {thirtyAm}
@@ -65,7 +65,7 @@ const ThirtyMins = () => {
               ))}
           </div>
           <div>
-            <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+            <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
               {thirtyMinsPm &&
                 thirtyMinsPm[0].slots.map((thirtyPm: any) => (
                   <span

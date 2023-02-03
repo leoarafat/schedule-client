@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../Shared//Loading/Loading";
 interface dataProps {
   name: string;
@@ -19,7 +20,7 @@ interface dataProps {
 const DetailsPage = ({ singleUser }: any) => {
   const { _id, email } = singleUser;
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -86,7 +87,7 @@ const DetailsPage = ({ singleUser }: any) => {
             about,
           };
 
-          fetch(`http://localhost:5000/user/${_id}`, {
+          fetch(`https://scheduplannr-server.vercel.app/user/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
@@ -95,9 +96,12 @@ const DetailsPage = ({ singleUser }: any) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
-              setIsLoading(false);
-              toast.success("Profile Update Successful");
+              if (data.acknowledged) {
+                console.log(data);
+                navigate("/dashboard/profile");
+                setIsLoading(false);
+                toast.success("Profile Update Successful");
+              }
             });
         }
       });
@@ -303,7 +307,7 @@ const DetailsPage = ({ singleUser }: any) => {
             <div>
               <div>
                 <label htmlFor="img" className="block dark:text-gray-400">
-                  Product Image
+                  Image
                 </label>
                 <input
                   {...register("image", {
@@ -318,11 +322,8 @@ const DetailsPage = ({ singleUser }: any) => {
                 />
               </div>
             </div>
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
-              >
+            <div className="flex justify-end mt-6">
+              <button type="submit" className="btn btn-primary text-white">
                 Update Profile
               </button>
             </div>

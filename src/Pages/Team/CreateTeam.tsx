@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface dataProps {
   name: string;
@@ -16,6 +17,7 @@ interface dataProps {
 }
 
 const Unique = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -71,6 +73,7 @@ const Unique = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        navigate("/dashboard/team");
         toast.success("Team Created Successful");
       });
   };
