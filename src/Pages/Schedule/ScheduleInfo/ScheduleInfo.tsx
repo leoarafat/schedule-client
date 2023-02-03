@@ -121,7 +121,6 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                     message: "Invalid Email Address",
                   },
                 })}
-                disabled
                 value={user?.email}
                 id="email"
                 name="email"
