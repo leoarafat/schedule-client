@@ -51,7 +51,7 @@ const Availability = () => {
 
                     {
                         sun ?
-                            <form className='flex items-center gap-4 w-[26rem]'>
+                            <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
                                     <input
                                         {...register("sunStart")}
@@ -65,7 +65,7 @@ const Availability = () => {
                                         {...register("sunEnd")}
                                         type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
-                            </form>
+                            </div>
                             :
                             <div className='w-[26rem] flex justify-center items-center py-2'>
                                 <p className='text-2xl'>Unavailable</p>

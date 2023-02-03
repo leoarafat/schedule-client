@@ -40,7 +40,7 @@ const MySchedule = () => {
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
       <Link to={"/schedule"}>
-          <div className="flex justify-end">
+        <div className="flex justify-end">
           <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">
             <div className="flex items-center gap-4">
               <div>
@@ -51,11 +51,11 @@ const MySchedule = () => {
               </div>
             </div>
           </button>
-          </div>
-        </Link>
+        </div>
+      </Link>
       <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-20">
         {mySchedule.map((e: any) => {
-          const { title, location, link, name, slot, organization, _id } = e;
+          const { title, location, link, name, slot, organization, _id, description, phone, email } = e;
           return (
             <div key={_id}>
               <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 bg-white rounded-lg shadow-xl">
@@ -71,7 +71,7 @@ const MySchedule = () => {
                     </label>
                   </div>
 
-                  <button>
+                  <button className="flex items-center">
                     <label
                       htmlFor="my-modal-3"
                       className="tooltip text-gray-500 hover:text-black cursor-pointer"
@@ -104,9 +104,7 @@ const MySchedule = () => {
                   <h1 className="text-2xl">{title}</h1>
                   <div className="flex flex-col gap-2">
                     <p className="text-gray-600">Host name: {name}</p>
-                    <p className="text-gray-600">
-                      Organization: {organization}
-                    </p>
+                    <p className="text-gray-600">Organization: {organization}</p>
                     <p className="text-gray-600">Location: {location}</p>
                     <p className="text-gray-600">Meeting time: {slot}</p>
                   </div>
@@ -130,6 +128,10 @@ const MySchedule = () => {
                   link={link}
                   location={location}
                   title={title}
+                  description={description}
+                  phone={phone}
+                  email={email}
+                  _id={_id}
                 />
               }
             </div>
