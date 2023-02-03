@@ -40,7 +40,7 @@ const MySchedule = () => {
 
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
-      <Link to={"/schedule"}>
+      <Link to={"/schedule/fifteen"}>
           <div className="flex justify-end">
           <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">
             <div className="flex items-center gap-4">
