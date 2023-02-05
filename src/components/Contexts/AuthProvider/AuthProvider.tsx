@@ -1,8 +1,4 @@
-import React, {
-  ReactNode,
-  useEffect,
-  useState,
-} from 'react'
+import React, { ReactNode, useEffect, useState } from "react";
 
 import {
   createUserWithEmailAndPassword,
@@ -14,40 +10,49 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-} from 'firebase/auth'
-import { app } from '../../../firebase/firebase.config'
+} from "firebase/auth";
+import { app } from "../../../firebase/firebase.config";
 
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 interface AuthProviderProps {
-  children?: ReactNode
+  children?: ReactNode;
 }
 
-export const AuthContext = React.createContext({})
+export const AuthContext = React.createContext({});
 
 const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
-
   const [user, setUser] = useState<{} | null>(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const [slot, setSlot] = useState<any>(null);
   const [slotPm, setSlotPm] = useState<any>(null);
   // Register User
-  const RegisterUser = async (email: string, password: string, displayName: string) => {
-    setLoading(true)
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+  const RegisterUser = async (
+    email: string,
+    password: string,
+    displayName: string
+  ) => {
+    setLoading(true);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
 
     const newUser = {
       email: email,
-      displayName: displayName
+      displayName: displayName,
     };
 
     setUser(newUser);
 
     updateProfile(userCredential.user, {
-      displayName: displayName
-    }).then(() => { }).catch((error) => { });
-  }
+      displayName: displayName,
+    })
+      .then(() => {})
+      .catch((error) => {});
+  };
 
   // google sign in
   const googleSignIn = () => {
@@ -57,16 +62,19 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
 
   // log in user
   const logInUser = async (email: string, password: string) => {
-    setLoading(true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // sign out
   const logOut = () => {
     setLoading(true);
+    localStorage.removeItem("accessToken");
     return signOut(auth)
-      .then(() => { })
-      .catch((err) => { console.error(err) });
+      .then(() => {})
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   // user observer
@@ -80,8 +88,8 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
 
   // Reset password
   const resetPassword = (email: string) => {
-    return sendPasswordResetEmail(auth, email)
-  }
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const values = {
     user,
@@ -95,11 +103,10 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     slot,
     setSlot,
     slotPm,
-    setSlotPm
-  }
+    setSlotPm,
+  };
 
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
-}
-
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
+};
 
 export default AuthProvider;
