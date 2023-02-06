@@ -72,7 +72,7 @@ const Nav = () => {
             </Link>
           </li>
 
-          <div className=" flex items-center mr-3" onClick={handleDark}>
+          <div className=" flex items-center mx-2" onClick={handleDark}>
             {dark ? (
               <BsSun className="h-6 w-6" />
             ) : (

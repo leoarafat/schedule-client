@@ -90,7 +90,7 @@ const Team = () => {
           } = e;
 
           return (
-            <div key={i} className="shadow-lg p-10">
+            <div key={i} className="shadow-2xl p-10">
               <div className="overflow-x-auto">
                 <div className="flex justify-end mb-5 gap-4">
                   <button className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
@@ -111,10 +111,10 @@ const Team = () => {
                 <table className="divide-y-2 divide-gray-200 text-sm">
                   <thead>
                     <tr>
-                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium ">
                         Name
                       </th>
-                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      <th className="whitespace-nowrap px-4 py-2 text-left font-medium ">
                         Email
                       </th>
                     </tr>
@@ -122,36 +122,36 @@ const Team = () => {
 
                   <tbody className="divide-y divide-gray-200">
                     <tr>
-                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name1}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      <td className="whitespace-nowrap px-4 py-2 ">
                         {email1}
                       </td>
                     </tr>
 
                     <tr>
-                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name2}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      <td className="whitespace-nowrap px-4 py-2 ">
                         {email2}
                       </td>
                     </tr>
 
                     <tr>
-                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name3}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      <td className="whitespace-nowrap px-4 py-2 ">
                         {email3}
                       </td>
                     </tr>
                     <tr>
-                      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name4}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      <td className="whitespace-nowrap px-4 py-2 ">
                         {email4}
                       </td>
                     </tr>

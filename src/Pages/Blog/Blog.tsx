@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../Shared/Loading/Loading";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
@@ -32,8 +31,9 @@ const Blog = () => {
           </div>
           {
             isLoading &&
-                <div className="flex justify-center items-center h-screen">
-                  <Loading />
+                <div className="flex justify-center items-center">
+                  {/* <Loading /> */}
+                  <img src="https://visme.co/blog/wp-content/uploads/2020/02/header-1200.gif" alt="" />
                 </div>
           }
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
