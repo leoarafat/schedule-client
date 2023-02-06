@@ -34,8 +34,7 @@ const Profile = () => {
           birthDate,
           image,
           profession,
-          about,
-          name,
+          about
         } = usr;
         return (
           <div className="pl-0 md:pl-40 lg:pl-0">

@@ -44,7 +44,7 @@ const Nav = () => {
             </Link>
           </li>
           <li className="li-style">
-            <Link to={"/blog"} className="noo-hover link-style">
+            <Link to={"/blogs"} className="noo-hover link-style">
               Blog
             </Link>
           </li>
@@ -95,7 +95,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/blog"} className=" hover:bg-secondary pr-36">
+              <Link to={"/blogs"} className=" hover:bg-secondary pr-36">
                 Blog
               </Link>
             </li>

@@ -4,7 +4,6 @@ import DashboardLayout from "../../Dashboard/DashboardLayout/DashboardLayout";
 import Main from "../../Layouts/Main/Main";
 import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
-import BLogPost from "../../Pages/Blog/BLogPost";
 import Home from "../../Pages/Home/Home";
 import Plans from "../../Pages/Home/Membership/Plan";
 import Profile from "../../Pages/Profile/Profile";
@@ -26,6 +25,7 @@ import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import AddBlog from "../../Pages/Blog/AddBlog";
 import Availability from "../../Pages/Availablity/Availablity/Availability";
+import SinglePost from "../../Pages/Blog/SinglePost";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +43,12 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/blog",
+        path: "/blogs",
         element: <Blog></Blog>,
       },
       {
-        path: "/blogPost",
-        element: <BLogPost></BLogPost>,
+        path: "blogs/blogPost/:id",
+        element: <SinglePost></SinglePost>,
       },
       {
         path: "/about",
@@ -105,7 +105,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/addBlog",
-        element: <AddBlog></AddBlog>
+        element: <AddBlog></AddBlog>,
       },
       {
         path: "/dashboard/billing/membership/:id",
