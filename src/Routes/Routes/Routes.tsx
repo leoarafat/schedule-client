@@ -26,6 +26,7 @@ import AllUser from "../../Dashboard/AllUser/AllUser";
 import AddBlog from "../../Pages/Blog/AddBlog";
 import Availability from "../../Pages/Availablity/Availablity/Availability";
 import SinglePost from "../../Pages/Blog/SinglePost";
+import Getuserinfo from "../../Pages/Blog/Getuserinfo";
 
 export const router = createBrowserRouter([
   {
@@ -105,7 +106,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/addBlog",
-        element: <AddBlog></AddBlog>,
+        element: <Getuserinfo/>,
       },
       {
         path: "/dashboard/billing/membership/:id",

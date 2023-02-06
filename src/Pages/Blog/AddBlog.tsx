@@ -13,7 +13,9 @@ interface dataProps {
   title: string;
   description: string;
 }
-const AddBlog = () => {
+const AddBlog = ({singleUser}:any) => {
+  const {firstName, lastName, image, about} = singleUser;
+  console.log(singleUser)
   const { user }: any = useContext(AuthContext);
 
 
@@ -81,7 +83,7 @@ const AddBlog = () => {
             .then((data) => {
               if (data.acknowledged) {
                 console.log(data);
-                navigate("/blog");
+                navigate("/blogs");
                 setIsLoading(false);
                 toast.success("Add Blog Successful");
               }
