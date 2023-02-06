@@ -27,9 +27,7 @@ const Blog = () => {
               Sharing is Caring
             </h2>
             <p className="lg:mx-auto lg:w-6/12 text-gray-60">
-              Quam hic dolore cumque voluptate rerum beatae et quae, tempore
-              sunt, debitis dolorum officia aliquid explicabo? Excepturi,
-              voluptate?
+            Sharing is the joint use of a resource or space. It is also the process of dividing and distributing. In its narrow sense, it refers to joint or alternating use of inherently finite goods, such as a common pasture or a shared residence.
             </p>
           </div>
           {

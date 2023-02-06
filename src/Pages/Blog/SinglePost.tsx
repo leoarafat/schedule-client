@@ -28,11 +28,11 @@ const SinglePost = () => {
         <section className="w-full md:w-2/3 flex flex-col items-center px-3">
           <article className="flex flex-col shadow my-4 w-full">
             <div className="hover:opacity-75 flex justify-center">
-              <img src={blogs?.cover} alt="" />
+              <img src={blogs?.image} alt="" />
             </div>
             <div className="bg-white flex flex-col justify-start p-6">
               <p className="text-blue-700 text-sm font-bold uppercase pb-4">
-                {blogs?.Technology}
+                {blogs?.category}
               </p>
               <p className="text-3xl font-bold hover:text-gray-700 pb-4">
                 {blogs?.title}
@@ -52,7 +52,7 @@ const SinglePost = () => {
           <div className="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
             <div className="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
               <img
-                src={blogs?.image}
+                src={blogs?.photoURL}
                 className="rounded-full shadow h-32 w-32"
                 alt=""
               />

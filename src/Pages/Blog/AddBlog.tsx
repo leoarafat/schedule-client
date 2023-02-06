@@ -12,10 +12,9 @@ interface dataProps {
   postDate: string;
   title: string;
   description: string;
+  photoURL: any;
 }
 const AddBlog = ({singleUser}:any) => {
-  const {firstName, lastName, image, about} = singleUser;
-  console.log(singleUser)
   const { user }: any = useContext(AuthContext);
 
 
@@ -31,18 +30,17 @@ const AddBlog = ({singleUser}:any) => {
 
   const handleAdd = (data: dataProps) => {
     saveToDatabase(
-      user.displayName,
       user.email,
       data.category,
       data.postDate,
       data.image,
       data.title,
-      data.description
+      data.description,
+      
     );
   };
 
   const saveToDatabase = (
-    name: string,
     email: string,
     category: string,
     postDate: string,
@@ -63,11 +61,13 @@ const AddBlog = ({singleUser}:any) => {
         console.log(imgData);
         if (imgData.success) {
           const userData = {
-            name,
+            name: singleUser.firstName +' '+ singleUser.lastName,
+            about: singleUser.about,
             email,
             category,
             postDate,
             image: imgData.data.url,
+            photoURL: singleUser.image,
             title,
             description,
           };
