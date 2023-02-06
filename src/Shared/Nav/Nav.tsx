@@ -116,7 +116,7 @@ const Nav = () => {
               )}
             </div>
             <li>
-              <Link to={"/dashboard"} className=" hover:bg-secondary pr-32">
+              <Link to={"/dashboard/mySchedule"} className=" hover:bg-secondary pr-32">
                 Dashboard
               </Link>
             </li>

@@ -1,4 +1,6 @@
 import { useContext, useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import AddNote from "../../AddNote/AddNote";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
@@ -59,7 +61,7 @@ const Profile = () => {
                       )}
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 text-center md:text-left">
-                      {name}
+                      {firstName} {lastName}
                     </h1>
                     <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
@@ -67,6 +69,14 @@ const Profile = () => {
                     <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5 text-center md:text-left">
                       {about}
                     </p>
+
+                    <Link
+                      className="btn btn-primary text-white font-thin gap-1"
+                      to="/dashboard/updateProfile"
+                    >
+                      <FaRegEdit className="h-6 w-6" />
+                      <span>Edit Profile</span>
+                    </Link>
                   </div>
                   <div className="my-4"></div>
                 </div>
@@ -124,7 +134,7 @@ const Profile = () => {
                         </div>
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
-                            Permanant Address
+                            Permanent Address
                           </div>
                           <div className="px-4 py-2">{permanentAddress}</div>
                         </div>

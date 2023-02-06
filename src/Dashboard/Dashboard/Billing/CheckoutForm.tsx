@@ -1,18 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useContext, useEffect, useRef, useState } from "react";
+import { IoArrowDownCircleOutline } from "react-icons/io5";
+import { useReactToPrint } from "react-to-print";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import PaymentTerms from "./PaymentTerms";
-import { useReactToPrint } from "react-to-print";
-import { IoArrowDownCircleOutline } from "react-icons/io5";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
-  
+
   const [userInfo, setData] = useState([]);
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
-        await fetch(`http://localhost:5000/user?email=${user?.email}`)
+        await fetch(
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+        )
       ).json();
       setData(data);
     };
@@ -28,10 +30,9 @@ const CheckoutForm = ({ membership }: any) => {
   const stripe = useStripe();
   const elements = useElements();
   const { cost, status } = membership;
-  
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://scheduplannr-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,12 +41,10 @@ const CheckoutForm = ({ membership }: any) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setClientSecret(data?.clientSecret);
-        
       });
   }, [cost]);
-
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -125,16 +124,16 @@ const CheckoutForm = ({ membership }: any) => {
           </button>
         </div>
       </form>
-      
+
       <p className="text-red-500">{cardError}</p>
       {success && (
         <div>
           <div className="flex justify-end">
-        <button onClick={handlePrint} className="btn btn-primary">
-          Download PDF
-          <IoArrowDownCircleOutline className="h-6 w-6 text-white" />
-        </button>
-      </div>
+            <button onClick={handlePrint} className="btn btn-primary">
+              Download PDF
+              <IoArrowDownCircleOutline className="h-6 w-6 text-white" />
+            </button>
+          </div>
           <div ref={componentRef} className=" shadow-lg p-10  md:mx-auto">
             <div className="text-center">
               <svg

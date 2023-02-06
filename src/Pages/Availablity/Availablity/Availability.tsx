@@ -5,19 +5,6 @@ import { AiOutlineDelete, AiOutlineSave } from 'react-icons/ai'
 type UserSubmitForm = {
     sunStart: string;
     sunEnd: string;
-    monStart: string;
-    monEnd: string;
-    tueStart: string;
-    tueEnd: string;
-    wedStart: string;
-    wedEnd: string;
-    thuStart: string;
-    thuEnd: string;
-    friStart: string;
-    friEnd: string;
-    satStart: string;
-    satEnd: string;
-    unavailable: string;
 };
 
 const Availability = () => {
@@ -38,13 +25,9 @@ const Availability = () => {
     const handleInfo = (data: UserSubmitForm) => {
         const sunStart = data.sunStart;
         const sunEnd = data.sunEnd;
-        const un = data.unavailable;
 
-        // console.log(sunStart)
-        // console.log(sunEnd)
-        console.log(data);
-
-        console.log(un);
+        console.log(sunStart)
+        console.log(sunEnd)
     };
 
     return (
@@ -54,7 +37,6 @@ const Availability = () => {
             </h1>
 
             <form onSubmit={handleSubmit(handleInfo)}>
-
                 {/* sunday */}
                 <div className='flex align-center gap-8 py-4'>
                     <div className='w-28 flex gap-4 items-center'>
@@ -69,13 +51,11 @@ const Availability = () => {
 
                     {
                         sun ?
-                            <form className='flex items-center gap-4 w-[26rem]'>
+                            <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
                                     <input
                                         {...register("sunStart")}
-                                        defaultValue="00:00"
-                                        type="time"
-                                        className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                        type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
@@ -83,13 +63,12 @@ const Availability = () => {
                                 <div className='tooltip' data-tip="End Time">
                                     <input
                                         {...register("sunEnd")}
-                                        type="time" defaultValue="00:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                        type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
-                            </form>
+                            </div>
                             :
                             <div className='w-[26rem] flex justify-center items-center py-2'>
                                 <p className='text-2xl'>Unavailable</p>
-                                <input {...register("unavailable")} type="hidden" value={"unavailable"} />
                             </div>
                     }
 
@@ -129,15 +108,13 @@ const Availability = () => {
                         mon ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("monStart")} defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("monEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :
@@ -182,15 +159,13 @@ const Availability = () => {
                         tue ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("tueStart")} defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("tueEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :
@@ -235,15 +210,13 @@ const Availability = () => {
                         wed ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("wedStart")} defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("wedEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :
@@ -288,15 +261,13 @@ const Availability = () => {
                         thu ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("thuStart")} defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("thuEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :
@@ -316,7 +287,7 @@ const Availability = () => {
                             </button>
 
                             <button
-                                onClick={() => setThu(!thu)}
+                                onClick={() => setThu(!fri)}
                                 className="text-gray-500 hover:text-black tooltip"
                                 data-tip="Delete"
                             >
@@ -341,16 +312,13 @@ const Availability = () => {
                         fri ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("friStart")}
-                                        defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("friEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :
@@ -395,15 +363,13 @@ const Availability = () => {
                         sat ?
                             <div className='flex items-center gap-4 w-[26rem]'>
                                 <div className='tooltip' data-tip="Start Time">
-                                    <input type="time"
-                                        {...register("satStart")} defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
 
                                 <div className='border w-8 border-primary'></div>
 
                                 <div className='tooltip' data-tip="End Time">
-                                    <input type="time"
-                                        {...register("satEnd")} defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                 </div>
                             </div>
                             :

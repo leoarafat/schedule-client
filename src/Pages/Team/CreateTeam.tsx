@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
 interface dataProps {
   name: string;
@@ -16,8 +18,12 @@ interface dataProps {
   email4: string;
 }
 
-const Unique = () => {
+const CreateTeam = () => {
+
+  const { user }: any = useContext(AuthContext)
+
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -35,7 +41,8 @@ const Unique = () => {
       data.name3,
       data.email3,
       data.name4,
-      data.email4
+      data.email4,
+      data.description
     );
   };
 
@@ -49,7 +56,8 @@ const Unique = () => {
     name3: string,
     email3: string,
     name4: string,
-    email4: string
+    email4: string,
+    description: string
   ) => {
     const TeamData = {
       name,
@@ -62,6 +70,7 @@ const Unique = () => {
       email3,
       name4,
       email4,
+      description
     };
     fetch(`https://scheduplannr-server.vercel.app/team`, {
       method: "POST",
@@ -95,7 +104,7 @@ const Unique = () => {
                 htmlFor="name"
                 className="inline-block text-gray-800 text-sm sm:text-base mb-2"
               >
-                Team/Organization Name
+                Team Name
               </label>
               <input
                 {...register("name", {
@@ -117,7 +126,7 @@ const Unique = () => {
                 htmlFor="email"
                 className="inline-block text-gray-800 text-sm sm:text-base mb-2"
               >
-                Team/Organization Email
+                Email
               </label>
               <input
                 {...register("email", {
@@ -127,6 +136,7 @@ const Unique = () => {
                     message: "Invalid Email Address",
                   },
                 })}
+                value={user?.email}
                 id="email"
                 name="email"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -304,6 +314,7 @@ const Unique = () => {
               </label>
               <textarea
                 {...register("description")}
+                defaultValue="Respectfully About Meeting"
                 id="description"
                 name="description"
                 className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -325,4 +336,4 @@ const Unique = () => {
   );
 };
 
-export default Unique;
+export default CreateTeam;

@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import { IoConstructOutline } from "react-icons/io5";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 
 const SixtyMins = () => {
-  const { setSlot, }: any = useContext(AuthContext);
+  const { setSlot, setSlotPm, slot, slotPm }: any = useContext(AuthContext);
   const { data: sixtyMinsAm, isLoading } = useQuery({
     queryKey: ["sixtyMinsAm"],
     queryFn: async () => {
@@ -15,6 +16,7 @@ const SixtyMins = () => {
       return data;
     },
   });
+  console.log(slotPm);
 
   const { data: sixtyMinsPm } = useQuery({
     queryKey: ["sixtyMinsPm"],
@@ -28,17 +30,32 @@ const SixtyMins = () => {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (
     <>
       <div className="h-[25rem] lg:py-0 py-12 px-2">
-        <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
-          Please select a time slot{" "}
-        </h1>
+
+        {
+          !slot && !slotPm &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">Please Select A Time Slot</h1>
+        }
+        {
+          slot &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+            You have selected {slot}
+          </h1>
+        }
+        {
+          slotPm &&
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+            You have selected {slotPm}
+          </h1>
+        }
+
         <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2">
+          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
             {sixtyMinsAm &&
               sixtyMinsAm[0].slots.map((sixtyAm: any) => (
                 <span
@@ -51,11 +68,12 @@ const SixtyMins = () => {
               ))}
           </div>
           <div>
-            <div className="flex flex-col gap-4 h-[22rem] overflow-y-auto pr-2 ">
+            <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2 ">
               {sixtyMinsPm &&
-                sixtyMinsPm[0].slots.map((sixtyPm: any) => (
+                sixtyMinsPm[0].slots.map((sixtyPm: any, i: number) => (
                   <span
-                    key={sixtyPm._id}
+                    onClick={() => setSlotPm(sixtyPm)}
+                    key={i}
                     className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
                   >
                     {sixtyPm}

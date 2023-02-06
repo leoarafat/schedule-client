@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 
 type UserSubmitForm = {
   name: string;
   email: string;
-  phone: number;
+  phone: string;
   organization: string;
   title: string;
   location: string;
@@ -11,11 +15,11 @@ type UserSubmitForm = {
   description: string;
 };
 
-interface timeDateType {
-  timeDate: object;
-}
-
 const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
+
+  const { user }: any = useContext(AuthContext)
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -45,7 +49,9 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
       slot,
       slotPm,
     };
+
     setScheduleInfo(info);
+
     fetch("https://scheduplannr-server.vercel.app/createSchedule", {
       method: "POST",
       headers: {
@@ -56,9 +62,10 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Successfully addeded");
+          toast.success("Schedule Created Successfully")
+          navigate("/dashboard/mySchedule");
         } else {
-          alert(data.message);
+          toast.error("Schedule Created Failed")
         }
       })
       .catch((error) => console.error(error));
@@ -87,6 +94,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 {...register("name", {
                   required: "Name is Required",
                 })}
+                value={user?.displayName}
                 id="name"
                 name="name"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -113,6 +121,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                     message: "Invalid Email Address",
                   },
                 })}
+                value={user?.email}
                 id="email"
                 name="email"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -137,7 +146,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 })}
                 id="phone"
                 name="phone"
-                type="number"
+                type="text"
                 className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.phone && (
@@ -198,7 +207,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
               >
                 Schedule Location
               </label>
-              <div className="flex gap-4 flex-wrap py-2">
+              <div className="flex justify-between items-center gap-4 flex-wrap py-2">
                 <img
                   className="w-20"
                   src="https://img.icons8.com/clouds/2x/google-meet.png"
@@ -225,18 +234,8 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                   alt=""
                 />
                 <img
-                  className="w-20"
+                  className="w-20 hidden md:block"
                   src="https://img.icons8.com/clouds/2x/whatsapp.png"
-                  alt=""
-                />
-                <img
-                  className="w-20"
-                  src="https://img.icons8.com/clouds/2x/youtube-play.png"
-                  alt=""
-                />
-                <img
-                  className="w-20"
-                  src="https://img.icons8.com/clouds/2x/facebook-new.png"
                   alt=""
                 />
               </div>
@@ -256,8 +255,6 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 <option className="text-xl">Microsoft Team</option>
                 <option className="text-xl">Google Hangouts</option>
                 <option className="text-xl">WhatsApp</option>
-                <option className="text-xl">Youtube</option>
-                <option className="text-xl">Facebook</option>
               </select>
               {errors.location && (
                 <p className="text-sm text-red-600 mt-2">
@@ -297,6 +294,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
               </label>
               <textarea
                 {...register("description")}
+                defaultValue="Thanks for joining the meeting on time"
                 id="description"
                 name="description"
                 className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -308,7 +306,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
                 type="submit"
                 className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
               >
-                Done
+                Create Schedule
               </button>
             </div>
           </form>

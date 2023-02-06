@@ -2,7 +2,7 @@ import { FiLogOut, FiSettings } from "react-icons/fi";
 import { RiLoginCircleLine, RiAdminLine } from "react-icons/ri";
 import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineFolderAdd, AiOutlineHome } from "react-icons/ai";
 import { SiAmazonpay } from "react-icons/si";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { useContext } from "react";
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const signOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error: any) => {
         console.error(error);
       });
@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="bg-gray-100">
+      <div>
         <aside className="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between px-6 pb-3 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] dark:border-gray-700">
           <div>
             <div className="fixed flex flex-col left-0 w-14 hover:w-64 md:w-64 shadow-2xl h-full text-primary transition-all duration-300 border-none z-10 sidebar bg-white">
@@ -63,40 +63,6 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-                  {isAdmin && (
-                    <>
-                      <li className="dropdown dropdown-bottom">
-                        <Link
-                          to={"#"}
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                        >
-                          <span className="inline-flex justify-center items-center ml-4">
-                            <RiAdminLine className="w-6 h-6" />
-                          </span>
-
-                          <div className="">
-                            <label tabIndex={0} className=" m-1">
-                              {" "}
-                              <span className="ml-2 text-sm tracking-wide truncate">
-                                Admin
-                              </span>
-                            </label>
-                            <ul
-                              tabIndex={0}
-                              className="dropdown-content menu p-2 shadow bg-base-100 text-gray-900 rounded-box w-52"
-                            >
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={"/dashboard/allUser"}>All User</Link>
-                              </li>
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={""}>Admin List</Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </Link>
-                      </li>
-                    </>
-                  )}
 
                   <li>
                     <Link
@@ -126,21 +92,6 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-
-                  <li>
-                    <Link
-                      to="/dashboard/createTeam"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <IoCreateOutline className="w-6 h-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Create Team
-                      </span>
-                    </Link>
-                  </li>
-
                   <li>
                     <Link
                       to="/dashboard/team"
@@ -154,6 +105,21 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
+                  {isAdmin && (
+                    <li>
+                      <Link
+                        to="/dashboard/addBlog"
+                        className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                      >
+                        <span className="inline-flex justify-center items-center ml-4">
+                          <AiOutlineFolderAdd className="h-6 w-6" />
+                        </span>
+                        <span className="ml-2 text-sm tracking-wide truncate">
+                          Add Blog
+                        </span>
+                      </Link>
+                    </li>
+                  )}
 
                   <li className="px-5 hidden md:block">
                     <div className="flex flex-row items-center mt-5 h-8">
@@ -162,7 +128,40 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </li>
+                  {isAdmin && (
+                    <>
+                      <li className="dropdown dropdown-bottom">
+                        <Link
+                          to={"#"}
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                        >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <RiAdminLine className="w-6 h-6" />
+                          </span>
 
+                          <div className="">
+                            <label tabIndex={0} className="dropdown dropdown-bottom dropdown-end m-1">
+                              {" "}
+                              <span className="ml-2 text-sm tracking-wide truncate">
+                                Admin
+                              </span>
+                            </label>
+                            <ul
+                              tabIndex={0}
+                              className="dropdown-content menu p-2 shadow bg-gray-200 text-gray-900 rounded-box w-52"
+                            >
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={"/dashboard/allUser"}>All User</Link>
+                              </li>
+                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
+                                <Link to={""}>Admin List</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </li>
+                    </>
+                  )}
                   <li>
                     <Link
                       to="/dashboard/profile"
@@ -189,19 +188,8 @@ const Dashboard = () => {
                       </span>
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/dashboard/updateProfile"
-                      className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
-                    >
-                      <span className="inline-flex justify-center items-center ml-4">
-                        <FiSettings className="h-6 w-6" />
-                      </span>
-                      <span className="ml-2 text-sm tracking-wide truncate">
-                        Settings
-                      </span>
-                    </Link>
-                  </li>
+                  
+                  
                 </ul>
                 {user?.uid ? (
                   <>

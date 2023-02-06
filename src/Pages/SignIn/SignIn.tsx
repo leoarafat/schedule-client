@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useToken from "../../hooks/useToken/useToken";
 
 type UserSubmitForm = {
   displayName: string;
@@ -16,8 +16,11 @@ interface dataProps {
 }
 
 const SignIn = () => {
-  const { logInUser, googleSignIn, resetPassword, auth, user }: any =
+  const { logInUser, googleSignIn, resetPassword, auth }: any =
     useContext(AuthContext);
+
+  const [createdUserEmail, setCreatedUserEmail] = useState<any>("");
+  const [token] = useToken(createdUserEmail);
 
   const {
     register,
@@ -25,15 +28,19 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<UserSubmitForm>();
   const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
+
   const handleLogIn = (data: dataProps) => {
     logInUser(data.email, data.password)
       .then((result: any) => {
         toast.success("Sign In Successfully");
-        navigate("/");
-        console.log(result.user);
+
+        setCreatedUserEmail(result.user.email);
       })
       .catch((err: string) => {
-        // setFirebaseError(err);
         console.log(err);
       });
   };
@@ -53,7 +60,7 @@ const SignIn = () => {
         const gender = "";
         const birthDate = "";
         const image = "";
-        navigate("/");
+
         saveUserToDatabase(
           email,
           name,
@@ -68,6 +75,7 @@ const SignIn = () => {
         );
 
         console.log(result);
+        setCreatedUserEmail(result.user.email);
       })
       .catch((err: any) => {
         console.log(err);
@@ -98,7 +106,7 @@ const SignIn = () => {
       birthDate,
       image,
     };
-    fetch(`https://scheduplannr-server.vercel.app/users`, {
+    fetch(`http://localhost:5000/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -107,6 +115,7 @@ const SignIn = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setCreatedUserEmail(email);
         console.log(data);
       });
   };
@@ -117,7 +126,6 @@ const SignIn = () => {
         console.log(result.user);
       })
       .catch((err: string) => {
-        // setFirebaseError(err);
         console.log(err);
       });
   };
