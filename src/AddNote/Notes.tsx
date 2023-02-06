@@ -19,17 +19,16 @@ const Notes = () => {
   });
 
   const handleDelete = (id: any) => {
-    fetch(`http://localhost:5000/notes/${id}`, {
-      method: 'DELETE'
+    fetch(`https://scheduplannr-server.vercel.app/notes/${id}`, {
+      method: "DELETE",
     })
-      .then(res => res.json())
-      .then(data => {
-
+      .then((res) => res.json())
+      .then((data) => {
         if (data.deletedCount > 0) {
-          toast.success(`deleted successfully`)
+          toast.success(`deleted successfully`);
         }
-      })
-  }
+      });
+  };
   refetch();
   if (isLoading) {
     return <p>loading...</p>;
@@ -49,7 +48,6 @@ const Notes = () => {
   //     .then(res => res.json())
   //     .then(data => console.log(data));
   // }, []);
-
 
   // const arr: any = [];
   // for (let i = 0; i < notes.length; i++) {
@@ -74,7 +72,10 @@ const Notes = () => {
                 </label>
                 <span className="flex items-center text-lg">
                   {/* 11/12/2023{" "} */}
-                  <RiDeleteBin6Line onClick={() => handleDelete(note._id)} className="text-3xl ml-5 hover:text-red-700" />
+                  <RiDeleteBin6Line
+                    onClick={() => handleDelete(note._id)}
+                    className="text-3xl ml-5 hover:text-red-700"
+                  />
                 </span>
               </div>
             </div>

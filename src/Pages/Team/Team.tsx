@@ -29,29 +29,33 @@ const Team = () => {
   console.log(team);
 
   if (isLoading) {
-    return <div className="flex justify-center items-center h-screen"><Loading /></div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
   }
 
   const handleDelete = (e: any) => {
     Swal.fire({
-      title: 'Do you want to delete this team?',
+      title: "Do you want to delete this team?",
       showCancelButton: true,
-      confirmButtonText: 'Delete',
+      confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/team/${e._id}`, {
-          method: "DELETE"
+        fetch(`https://scheduplannr-server.vercel.app/team/${e._id}`, {
+          method: "DELETE",
         })
-          .then(res => res.json())
-          .then(data => {
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
-              refetch()
-              toast.success("Schedule Deleted Successfully")
+              refetch();
+              toast.success("Schedule Deleted Successfully");
             }
-          })
+          });
       }
-    })
-  }
+    });
+  };
 
   return (
     <div>
@@ -94,15 +98,14 @@ const Team = () => {
                   </button>
                   <button
                     onClick={() => handleDelete(e)}
-                    className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                    className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                  >
                     <RiDeleteBin6Line />
                   </button>
                 </div>
                 <div>
                   <p className="text-4xl font-bold text-center mb-5">{name}</p>
-                  <p className="text-center my-5">
-                    {description}
-                  </p>
+                  <p className="text-center my-5">{description}</p>
                 </div>
                 <div></div>
                 <table className="divide-y-2 divide-gray-200 text-sm">

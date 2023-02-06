@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
-import Swal from 'sweetalert2'
 import {
   AiOutlineCopy,
   AiOutlineDelete,
@@ -11,12 +10,12 @@ import { FiCopy } from "react-icons/fi";
 import { IoCreateOutline } from "react-icons/io5";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
-
   const { user }: any = useContext(AuthContext);
 
   const {
@@ -35,29 +34,36 @@ const MySchedule = () => {
   });
 
   if (isLoading) {
-    return <div className="flex justify-center items-center h-screen"><Loading /></div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
   }
 
   const handleDelete = (e: any) => {
     Swal.fire({
-      title: 'Do you want to delete this schedule?',
+      title: "Do you want to delete this schedule?",
       showCancelButton: true,
-      confirmButtonText: 'Delete',
+      confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
-          method: "DELETE"
-        })
-          .then(res => res.json())
-          .then(data => {
+        fetch(
+          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
-              refetch()
-              toast.success("Schedule Deleted Successfully")
+              refetch();
+              toast.success("Schedule Deleted Successfully");
             }
-          })
+          });
       }
-    })
-  }
+    });
+  };
 
   console.log(mySchedule);
 
@@ -79,7 +85,18 @@ const MySchedule = () => {
       </Link>
       <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-20">
         {mySchedule.map((e: any) => {
-          const { title, location, link, name, slot, organization, _id, description, phone, email } = e;
+          const {
+            title,
+            location,
+            link,
+            name,
+            slot,
+            organization,
+            _id,
+            description,
+            phone,
+            email,
+          } = e;
           return (
             <div key={_id}>
               <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 bg-white rounded-lg shadow-xl">
@@ -129,13 +146,19 @@ const MySchedule = () => {
                   <h1 className="text-2xl">{title}</h1>
                   <div className="flex flex-col gap-2">
                     <p className="text-gray-600">Host name: {name}</p>
-                    <p className="text-gray-600">Organization: {organization}</p>
+                    <p className="text-gray-600">
+                      Organization: {organization}
+                    </p>
                     <p className="text-gray-600">Location: {location}</p>
                     <p className="text-gray-600">Meeting time: {slot}</p>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <a className="text-primary underline" href={link} target="_blank">
+                  <a
+                    className="text-primary underline"
+                    href={link}
+                    target="_blank"
+                  >
                     /Schedule Link
                   </a>
                   <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
