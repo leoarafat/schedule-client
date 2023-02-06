@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useToken from "../../hooks/useToken/useToken";
 
 type UserSubmitForm = {
   displayName: string;
@@ -16,7 +17,7 @@ type UserSubmitForm = {
   permanentAddress: string;
   birthDate: string;
   contactNumber: string;
-  role: string
+  role: string;
 };
 interface dataProps {
   image: string;
@@ -30,11 +31,10 @@ interface dataProps {
   permanentAddress: string;
   birthDate: string;
   contactNumber: string;
-  role: string
+  role: string;
 }
 
 const SignUp = () => {
-
   const { RegisterUser, googleSignIn }: any = useContext(AuthContext);
 
   const {
@@ -46,13 +46,16 @@ const SignUp = () => {
   const [firebaseError, setFirebaseError] = useState<any>("");
   const navigate = useNavigate();
 
-  const handleRegister = (data: dataProps) => {
-   
+  const [createdUserEmail, setCreatedUserEmail] = useState<any>("");
+  const [token] = useToken(createdUserEmail);
 
+  if (token) {
+    navigate("/");
+  }
+
+  const handleRegister = (data: dataProps) => {
     RegisterUser(data.email, data.password, data.displayName)
       .then((result: any) => {
-        // const user = result.user
-        // console.log(user)
         const email = data?.email;
         const name = data?.displayName;
         const firstName = "";
@@ -66,8 +69,7 @@ const SignUp = () => {
         const image = "";
         console.log(firstName, lastName);
         toast.success("Sign Up Successfully");
-        navigate("/");
-        // saveUserToDatabase(data?.email, data?.displayName);
+
         saveUserToDatabase(
           email,
           name,
@@ -105,7 +107,7 @@ const SignUp = () => {
         const role = "";
         const birthDate = "";
         const image = "";
-        navigate("/");
+
         saveUserToDatabase(
           email,
           name,
@@ -120,7 +122,7 @@ const SignUp = () => {
           image
         );
 
-        console.log(result);
+        setCreatedUserEmail(result.user.email);
       })
       .catch((err: any) => {
         console.log(err);
@@ -151,9 +153,9 @@ const SignUp = () => {
       gender,
       role,
       birthDate,
-      image
+      image,
     };
-    fetch(`https://scheduplannr-server.vercel.app/users`, {
+    fetch(`http://localhost:5000/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -163,6 +165,7 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setCreatedUserEmail(email);
       });
   };
 
