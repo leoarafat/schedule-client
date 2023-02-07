@@ -1,6 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+// import React, { useEffect, useRef, useState } from 'react'
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineDelete, AiOutlineSave } from 'react-icons/ai'
+import { useQuery } from 'react-query';
+import Loading from '../../../Shared/Loading/Loading';
 
 type UserSubmitForm = {
     sunStart: string;
@@ -17,18 +20,51 @@ const Availability = () => {
     const [fri, setFri] = useState(true);
     const [sat, setSat] = useState(true);
 
+    const [isBool, setIsBool] = useState("");
+
+    const {
+        data = [],
+        isLoading,
+        refetch,
+    } = useQuery({
+        queryKey: ["availability"],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/availability`);
+            const data = res.json();
+            return data;
+        },
+    });
+
+
+    const handleStatus = (e: any) => {
+        const checked = e.target.checked;
+        // setIsBool(checked);
+
+        // if (!checked) {
+
+        // }
+        setIsBool(checked);
+
+    }
+    console.log(isBool);
     const {
         register,
         handleSubmit
     } = useForm<UserSubmitForm>();
 
-    const handleInfo = (data: UserSubmitForm) => {
-        const sunStart = data.sunStart;
-        const sunEnd = data.sunEnd;
+    const handleInfo = (e: any) => {
+        // const start_time = e.target.start_time.value
+        // const end_time = e.target.end_time.value
 
-        console.log(sunStart)
-        console.log(sunEnd)
+        console.log(e.target.value);
+        // console.log(end_time)
+
     };
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
 
     return (
         <div className='py-8'>
@@ -37,367 +73,66 @@ const Availability = () => {
             </h1>
 
             <form onSubmit={handleSubmit(handleInfo)}>
-                {/* sunday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setSun(!sun)}
-                            // onClick={handleSun}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Sun</span>
-                    </div>
+                {
+                    data.map((e: any, i: number) => {
+                        const { day, start_time, end_time, status, _id } = e;
 
-                    {
-                        sun ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
+                        return (
+                            <div className='flex align-center gap-8 py-4'>
+                                <div className='w-28 flex gap-4 items-center'>
                                     <input
-                                        {...register("sunStart")}
-                                        type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                        onClick={handleStatus}
+                                        type="checkbox"
+                                        // defaultChecked={true}
+                                        className="checkbox checkbox-primary" />
+                                    <span className='text-3xl'>{day}</span>
                                 </div>
 
-                                <div className='border w-8 border-primary'></div>
+                                {
+                                    isBool ?
+                                        <div className='flex items-center gap-4 w-[26rem]'>
+                                            <div className='tooltip' data-tip="Start Time">
+                                                <input
 
-                                <div className='tooltip' data-tip="End Time">
-                                    <input
-                                        {...register("sunEnd")}
-                                        type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                                    onChange={handleInfo}
+
+                                                    type="time" defaultValue={start_time} className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                            </div>
+
+                                            <div className='border w-8 border-primary'></div>
+
+                                            <div className='tooltip' data-tip="End Time">
+                                                <input
+                                                    onChange={handleInfo}
+                                                    name="end_time" type="time" defaultValue={end_time} className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                            </div>
+                                        </div>
+                                        :
+                                        <div className='w-[26rem] flex justify-center items-center py-2'>
+                                            <p className='text-2xl'>Unavailable</p>
+                                        </div>
+                                }
+
+
+                                <div className='flex gap-6 items-center justify-end w-40'>
+                                    <button
+                                        className="text-gray-500 hover:text-black tooltip"
+                                        data-tip="Save"
+                                    >
+                                        <AiOutlineSave size={"2rem"} />
+                                    </button>
+
+                                    <button
+                                        className="text-gray-500 hover:text-black tooltip"
+                                        data-tip="Delete"
+                                    >
+                                        <AiOutlineDelete size={"2rem"} />
+                                    </button>
                                 </div>
                             </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        sun &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setSun(!sun)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* monday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setMon(!mon)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Mon</span>
-                    </div>
-
-                    {
-                        mon ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        mon &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setMon(!mon)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* tuesday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setTue(!tue)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Tue</span>
-                    </div>
-
-                    {
-                        tue ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        tue &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setTue(!tue)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* wednesday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setWed(!wed)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Wed</span>
-                    </div>
-
-                    {
-                        wed ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        wed &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setTue(!tue)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* thursday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setThu(!thu)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Thu</span>
-                    </div>
-
-                    {
-                        thu ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        thu &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setThu(!fri)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* friday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setFri(!fri)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Fri</span>
-                    </div>
-
-                    {
-                        fri ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        fri &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setFri(!fri)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
-
-                {/* Saturday */}
-                <div className='flex align-center gap-8 py-4'>
-                    <div className='w-28 flex gap-4 items-center'>
-                        <input
-                            onClick={() => setSat(!sat)}
-                            type="checkbox"
-                            defaultChecked={true}
-                            className="checkbox checkbox-primary" />
-                        <span className='text-3xl'>Sat</span>
-                    </div>
-
-                    {
-                        sat ?
-                            <div className='flex items-center gap-4 w-[26rem]'>
-                                <div className='tooltip' data-tip="Start Time">
-                                    <input type="time" defaultValue="10:15" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-
-                                <div className='border w-8 border-primary'></div>
-
-                                <div className='tooltip' data-tip="End Time">
-                                    <input type="time" defaultValue="20:00" className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                </div>
-                            </div>
-                            :
-                            <div className='w-[26rem] flex justify-center items-center py-2'>
-                                <p className='text-2xl'>Unavailable</p>
-                            </div>
-                    }
-
-                    {
-                        sat &&
-                        <div className='flex gap-6 items-center justify-end w-40'>
-                            <button
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Save"
-                            >
-                                <AiOutlineSave size={"2rem"} />
-                            </button>
-
-                            <button
-                                onClick={() => setSat(!sat)}
-                                className="text-gray-500 hover:text-black tooltip"
-                                data-tip="Delete"
-                            >
-                                <AiOutlineDelete size={"2rem"} />
-                            </button>
-                        </div>
-                    }
-                </div>
+                        )
+                    })
+                }
                 <div className="flex justify-center py-4">
                     <button type='submit' className="btn text-white">Submit Save</button>
                 </div>
