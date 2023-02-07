@@ -16,6 +16,7 @@ import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
+
   const { user }: any = useContext(AuthContext);
 
   const {
@@ -23,6 +24,7 @@ const MySchedule = () => {
     isLoading,
     refetch,
   } = useQuery({
+
     queryKey: ["mySchedule", user?.email],
     queryFn: async () => {
       const res = await fetch(

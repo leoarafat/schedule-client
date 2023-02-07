@@ -25,7 +25,7 @@ import Admin from "../../Dashboard/Dashboard/Admin/Admin";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import AddBlog from "../../Pages/Blog/AddBlog";
-import Availability from "../../Pages/Availablity/Availablity/Availability";
+import Availability from "../../Pages/Availability/Availablity/Availability";
 
 export const router = createBrowserRouter([
   {
