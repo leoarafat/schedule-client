@@ -51,7 +51,7 @@ const Nav = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ul-style text-primary">
           <li className="li-style">
-            <Link to={"/dashboard"} className="noo-hover link-style">
+            <Link to={"/dashboard/mySchedule"} className="noo-hover link-style">
               Dashboard
             </Link>
           </li>

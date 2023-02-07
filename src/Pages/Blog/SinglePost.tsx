@@ -30,16 +30,16 @@ const SinglePost = () => {
             <div className="hover:opacity-75 flex justify-center">
               <img src={blogs?.image} alt="" />
             </div>
-            <div className="bg-white flex flex-col justify-start p-6">
+            <div className="flex flex-col justify-start p-6">
               <p className="text-blue-700 text-sm font-bold uppercase pb-4">
                 {blogs?.category}
               </p>
-              <p className="text-3xl font-bold hover:text-gray-700 pb-4">
+              <p className="text-3xl font-bold hover:text-primary pb-4">
                 {blogs?.title}
               </p>
               <p className="text-sm pb-8">
                 By{" "}
-                <span className="font-semibold hover:text-gray-800">
+                <span className="font-semibold hover:text-primary">
                   {blogs?.name}
                 </span>
                 , Published on {blogs?.postDate}
@@ -49,7 +49,7 @@ const SinglePost = () => {
             </div>
           </article>
 
-          <div className="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
+          <div className="w-full flex flex-col text-center md:text-left md:flex-row shadow mt-10 mb-10 p-6">
             <div className="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
               <img
                 src={blogs?.photoURL}
@@ -66,7 +66,7 @@ const SinglePost = () => {
           </div>
         </section>
         <aside className="w-full md:w-1/3 flex flex-col items-center px-3">
-          <div className="w-full bg-white shadow flex flex-col my-4 p-6">
+          <div className="w-full shadow flex flex-col my-4 p-6">
             <p className="text-xl font-semibold pb-5">About Us</p>
             <p className="pb-2">
               In the hare and the tortoise fable we like to think of ourselves
@@ -82,7 +82,7 @@ const SinglePost = () => {
             </a>
           </div>
 
-          <div className="w-full bg-white shadow flex flex-col my-4 p-6">
+          <div className="w-full shadow flex flex-col my-4 p-6">
             <p className="text-xl font-semibold pb-5">Instagram</p>
             <div className="grid grid-cols-3 gap-3">
               <img
