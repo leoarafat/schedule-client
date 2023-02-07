@@ -28,7 +28,7 @@ const BillingCard = ({ plan }: any) => {
           <div className="text-xl font-bold">{status}</div>
         </div>
 
-        <h3 className="mt-0.5 text-lg font-medium text-gray-900">
+        <h3 className="mt-0.5 text-lg font-medium ">
           <span className="text-2xl font-bold">${cost}</span> USD/month
         </h3>
         <div className="my-5 flex justify-center ">
@@ -62,7 +62,7 @@ const BillingCard = ({ plan }: any) => {
           </Link>
         </div>
 
-        <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
+        <p className="mt-2 text-sm leading-relaxed line-clamp-3">
           <div className="flex items-center gap-4">
             <div>
               <FaRegArrowAltCircleRight></FaRegArrowAltCircleRight>{" "}

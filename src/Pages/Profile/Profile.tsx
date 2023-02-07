@@ -59,13 +59,13 @@ const Profile = () => {
                         />
                       )}
                     </div>
-                    <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 text-center md:text-left">
+                    <h1 className=" font-bold text-xl leading-8 my-1 text-center md:text-left">
                       {firstName} {lastName}
                     </h1>
-                    <h3 className="text-gray-600 font-lg text-semibold leading-6 text-bold text-center md:text-left">
+                    <h3 className=" font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
                     </h3>
-                    <p className="text-sm text-gray-500 hover:text-gray-600 leading-6 py-5 text-center md:text-left">
+                    <p className="text-sm  hover: leading-6 py-5 text-center md:text-left">
                       {about}
                     </p>
 
@@ -82,7 +82,7 @@ const Profile = () => {
 
                 <div className="w-full h-64 md:pl-10 xl:pl-0">
                   <div className=" p-5 rounded-sm">
-                    <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                    <div className="flex items-center space-x-2 font-semibold leading-8">
                       <span className="text-primary">
                         <svg
                           className="h-5"
@@ -101,7 +101,7 @@ const Profile = () => {
                       </span>
                       <span className="tracking-wide">About</span>
                     </div>
-                    <div className="text-gray-700">
+                    <div className="">
                       <div className="grid lg:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
@@ -161,9 +161,9 @@ const Profile = () => {
 
                   <div className="my-4"></div>
 
-                  <div className="bg-white p-3 shadow-sm rounded-sm">
+                  <div className=" p-3 shadow-sm rounded-sm">
                     <div>
-                      <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                      <div className="flex items-center space-x-2 font-semibold  leading-8 mb-3">
                         <span className="text-primary">
                           <svg
                             className="h-5"
@@ -188,6 +188,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+            
           </div>
         );
       })}

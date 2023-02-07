@@ -99,7 +99,7 @@ const MySchedule = () => {
           } = e;
           return (
             <div key={_id}>
-              <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 bg-white rounded-lg shadow-xl">
+              <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 rounded-lg shadow-xl">
                 <div className="flex justify-center gap-4">
                   <div className="form-control w-52">
                     <label className="cursor-pointer label">
@@ -115,7 +115,7 @@ const MySchedule = () => {
                   <button className="flex items-center">
                     <label
                       htmlFor="my-modal-3"
-                      className="tooltip text-gray-500 hover:text-black cursor-pointer"
+                      className="tooltip  hover:text-black cursor-pointer"
                       data-tip="Edit"
                     >
                       <AiOutlineEdit size={"2rem"} />
@@ -124,19 +124,19 @@ const MySchedule = () => {
 
                   <button
                     onClick={() => handleDelete(e)}
-                    className="tooltip text-gray-500 hover:text-black"
+                    className="tooltip  hover:text-black"
                     data-tip="Delete"
                   >
                     <AiOutlineDelete size={"2rem"} />
                   </button>
                   <button
-                    className="tooltip text-gray-500 hover:text-black"
+                    className="tooltip  hover:text-black"
                     data-tip="Share"
                   >
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
                   <button
-                    className="tooltip text-gray-500 hover:text-black"
+                    className="tooltip  hover:text-black"
                     data-tip="Copy"
                   >
                     <AiOutlineCopy size={"2rem"} />
@@ -145,12 +145,12 @@ const MySchedule = () => {
                 <div className="flex flex-col gap-4">
                   <h1 className="text-2xl">{title}</h1>
                   <div className="flex flex-col gap-2">
-                    <p className="text-gray-600">Host name: {name}</p>
-                    <p className="text-gray-600">
+                    <p className="">Host name: {name}</p>
+                    <p className="">
                       Organization: {organization}
                     </p>
-                    <p className="text-gray-600">Location: {location}</p>
-                    <p className="text-gray-600">Meeting time: {slot}</p>
+                    <p className="">Location: {location}</p>
+                    <p className="">Meeting time: {slot}</p>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">

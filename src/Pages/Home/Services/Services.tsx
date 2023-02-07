@@ -5,10 +5,10 @@ const Services = () => {
     <div className="max-w-[1400px] px-10 mt-20 mx-auto py-10">
       <h1 className="font-bold text-4xl text-center mb-10">Our <span className="text-primary">Services</span></h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mx-auto mb-10">
-        <div className="card w-full mx-auto bg-white shadow-2xl">
+        <div className="card w-full mx-auto shadow-4xl">
           <figure className="pt-5 ">
             <img
-              className="w-40 rounded-full bg-white"
+              className="w-40 rounded-full"
               src="https://i.ibb.co/FwMNWCj/Online-calendar-cuate.png"
               alt=""
             />
@@ -22,10 +22,10 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="card w-full mx-auto bg-white shadow-2xl">
+        <div className="card w-full mx-auto  shadow-2xl">
           <figure className="pt-5 ">
             <img
-              className="w-40 rounded-full bg-white"
+              className="w-40 rounded-full "
               src="https://i.ibb.co/yn5dfTk/Customer-Survey-rafiki.png"
               alt=""
             />
@@ -39,10 +39,10 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="card w-full mx-auto bg-white shadow-2xl">
+        <div className="card w-full mx-auto  shadow-2xl">
           <figure className="pt-5 ">
             <img
-              className="w-40 rounded-full bg-white"
+              className="w-40 rounded-full "
               src="https://i.ibb.co/smhKkQp/Messaging-amico.png"
               alt=""
             />
@@ -57,10 +57,10 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="card w-full mx-auto bg-white shadow-2xl">
+        <div className="card w-full mx-auto  shadow-2xl">
           <figure className="pt-5 ">
             <img
-              className="w-40 rounded-full bg-white"
+              className="w-40 rounded-full "
               src="https://i.ibb.co/JRX4gch/Chat-rafiki-1.png"
               alt=""
             />

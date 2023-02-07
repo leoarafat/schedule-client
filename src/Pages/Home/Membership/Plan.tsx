@@ -15,10 +15,10 @@ const Plans = () => {
   console.log(membership);
   return (
     <div>
-      <div className="bg-gradient-to-b from-blue-100 to-purple-200">
+      <div className="">
         <div className="container m-auto px-6 py-20 md:px-12 lg:px-20">
           <div className="m-auto text-center">
-            <h2 className="text-2xl text-pink-900 font-bold md:text-6xl">
+            <h2 className="text-2xl text-primary font-bold md:text-6xl">
               Pick the perfect plan for your team
             </h2>
           </div>

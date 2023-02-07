@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../Shared/Loading/Loading";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
@@ -27,15 +26,14 @@ const Blog = () => {
               Sharing is Caring
             </h2>
             <p className="lg:mx-auto lg:w-6/12 text-gray-60">
-              Quam hic dolore cumque voluptate rerum beatae et quae, tempore
-              sunt, debitis dolorum officia aliquid explicabo? Excepturi,
-              voluptate?
+            Sharing is the joint use of a resource or space. It is also the process of dividing and distributing. In its narrow sense, it refers to joint or alternating use of inherently finite goods, such as a common pasture or a shared residence.
             </p>
           </div>
           {
             isLoading &&
-                <div className="flex justify-center items-center h-screen">
-                  <Loading />
+                <div className="flex justify-center items-center">
+                  {/* <Loading /> */}
+                  <img src="https://visme.co/blog/wp-content/uploads/2020/02/header-1200.gif" alt="" />
                 </div>
           }
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

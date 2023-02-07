@@ -143,7 +143,7 @@ const AllUserTables: React.FC = () => {
         <input
           type="text"
           placeholder="Search User"
-          className="w-[250px] bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+          className="w-[250px]  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
