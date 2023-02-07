@@ -37,19 +37,19 @@ const Reviews = () => {
         className="mySwiper"
       >
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  dark:text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md ">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu8EQ-FamWdIrg_1tjAHb7PgUpHu8JNec99hqTzB-g=w60-h60-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Rich Forsen</h4>
-                    <span className="text-xs text-black">2 days ago</span>
+                    <span className="text-xs">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -63,7 +63,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   I rarely like to write reviews, but the Marketify team truly
                   deserve a standing ovation for their customer support,
@@ -75,19 +75,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu8LY_Jf6cpFo8-FCPbPUTcyRhxa77JFes319J7V=w36-h36-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Doug Newton</h4>
-                    <span className="text-xs text-black">2 days ago</span>
+                    <span className="text-xs ">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -101,7 +101,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   Really the Code Quality, Customer Support, and design are
                   awesome and its good support they are giving. They give an
@@ -113,19 +113,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu-MDro-vrWl2jD_EVstpAHHUJbsrSXMnrGR_1pbqw=w60-h60-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Bill Scott</h4>
-                    <span className="text-xs text-black">4 days ago</span>
+                    <span className="text-xs ">4 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -139,7 +139,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   Loved the template design, documentation, customizability and
                   the customer support from Marketify team! I am a noob in
@@ -151,19 +151,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  ">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu8e2GsH7h1nFRaev9zT8mw1so1_eOMD6XURjdKw=w40-h40-p-rp-mo-br40"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Lindsey C.</h4>
-                    <span className="text-xs text-black">2 days ago</span>
+                    <span className="text-xs ">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -177,7 +177,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   Loved the template design, documentation, customizability and
                   the customer support from Marketify team! I am a noob in
@@ -189,19 +189,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  ">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu90JHMwE5un3NE81Wf24hTPCbGoE47ebsulm-n8UA=w60-h60-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Thomas L. Archambault</h4>
-                    <span className="text-xs text-black">6 days ago</span>
+                    <span className="text-xs ">6 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -215,7 +215,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   I rarely like to write reviews, but the Marketify team truly
                   deserve a standing ovation for their customer support,
@@ -227,19 +227,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  ">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu9T1BeKVEc2T9MGBPhL8fhVzxdtz6iKxUBE-r-bWA=w60-h60-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Chris Brockhurst</h4>
-                    <span className="text-xs text-black">7 days ago</span>
+                    <span className="text-xs ">7 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -253,7 +253,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   Really the Code Quality, Customer Support, and design are
                   awesome and its good support they are giving. They give an
@@ -265,19 +265,19 @@ const Reviews = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  bg-white text-black">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md  ">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
                       src="https://lh3.googleusercontent.com/a-/ACNPEu-7UHlTgOxc7vCb5fyCIBUTWOKdyPD9LSXQsONr=w60-h60-p-rp-mo-br100"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
                     <h4 className="font-bold">Brandon Johnson</h4>
-                    <span className="text-xs text-black">2 days ago</span>
+                    <span className="text-xs ">2 days ago</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -291,7 +291,7 @@ const Reviews = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm text-black">
+              <div className="p-4 space-y-2 text-sm ">
                 <p>
                   Loved the template design, documentation, customizability and
                   the customer support from Marketify team! I am a noob in

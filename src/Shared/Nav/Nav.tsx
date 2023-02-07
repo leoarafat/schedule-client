@@ -1,18 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BsSun, BsMoonStars } from "react-icons/bs";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import "./Nav.css";
 
 const Nav = () => {
   const { user, logOut }: any = useContext(AuthContext);
-
+  const [dark, setDark] = useState<boolean>(false);
   const signOut = () => {
     logOut()
       .then(() => {})
-      .catch((error: any) => {
+      .catch((error: string) => {
         console.error(error);
       });
   };
+
+  const handleDark = () => {
+    setDark(!dark);
+    localStorage.setItem("darkMode", String(!dark));
+  };
+
+  useEffect(() => {
+    const localDark = JSON.parse(localStorage.getItem("darkMode") || "{}");
+    setDark(localDark);
+  }, []);
+  useEffect(() => {
+    if (dark) {
+      document
+        .querySelector<HTMLElement | any>("html")
+        .setAttribute("data-theme", "dark");
+    } else {
+      document
+        .querySelector<HTMLElement | any>("html")
+        .setAttribute("data-theme", "mytheme");
+    }
+  }, [dark]);
   return (
     <nav className="navbar bg-base-100 flex items-center mt-5 max-w-[1300px] mx-auto">
       <div className="navbar-start">
@@ -29,7 +51,7 @@ const Nav = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ul-style text-primary">
           <li className="li-style">
-            <Link to={"/dashboard"} className="noo-hover link-style">
+            <Link to={"/dashboard/mySchedule"} className="noo-hover link-style">
               Dashboard
             </Link>
           </li>
@@ -43,11 +65,21 @@ const Nav = () => {
               Schedule
             </Link>
           </li>
+
           <li className="li-style">
-            <Link to={"/blog"} className="noo-hover link-style">
+            <Link to={"/blogs"} className="noo-hover link-style">
               Blog
             </Link>
           </li>
+
+          <div className=" flex items-center mx-2" onClick={handleDark}>
+            {dark ? (
+              <BsSun className="h-6 w-6" />
+            ) : (
+              <BsMoonStars className="h-6 w-6" />
+            )}
+          </div>
+
           <div className="animation start-home"></div>
         </ul>
       </div>
@@ -76,6 +108,13 @@ const Nav = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content right-1 mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <div className="ml-3" onClick={handleDark}>
+              {dark ? (
+                <BsSun className="h-6 w-6" />
+              ) : (
+                <BsMoonStars className="h-6 w-6" />
+              )}
+            </div>
             <li>
               <Link to={"/dashboard/mySchedule"} className=" hover:bg-secondary pr-32">
                 Dashboard
@@ -95,7 +134,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/blog"} className=" hover:bg-secondary pr-36">
+              <Link to={"/blogs"} className=" hover:bg-secondary pr-36">
                 Blog
               </Link>
             </li>

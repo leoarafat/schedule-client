@@ -25,7 +25,7 @@ const Sponsorship = () => {
                                     return (
                                         <div
                                             key={i}
-                                            className="group rounded-xl border border-gray-200 dark:border-gray-600 bg-white bg-opacity-5 py-2 px-4 hover:bg-opacity-10 cursor-pointer"
+                                            className="group rounded-xl border border-gray-200 dark:border-gray-600 bg-opacity-5 py-2 px-4 hover:bg-opacity-10 cursor-pointer"
                                         >
                                             <img
                                                 src={src}

@@ -15,6 +15,7 @@ type DataRow = {
   email: string;
   role: string;
   _id: string;
+  delete: string;
 };
 
 const AllUserTables: React.FC = () => {
@@ -29,7 +30,6 @@ const AllUserTables: React.FC = () => {
       return data;
     },
   });
-  console.log(userInfo);
 
   useEffect(() => {
     const result = userInfo?.filter((user: { name: string }) => {
@@ -73,16 +73,57 @@ const AllUserTables: React.FC = () => {
         </>
       ),
     },
+    {
+      name: "Delete User",
+      cell: (row) => (
+        <>
+          {row?.role === "admin" ? (
+            <button
+              onClick={() => handleDelete(row._id)}
+              className="btn btn-xs"
+            >
+              Delete
+            </button>
+          ) : (
+            <button
+              onClick={() => handleDelete(row._id)}
+              className="btn btn-xs"
+            >
+              Delete
+            </button>
+          )}
+        </>
+      ),
+    },
   ];
 
   const handleAdmin = (id: string) => {
     fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
       method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Make admin successful");
+          refetch();
+        }
+      });
+  };
+
+  const handleDelete = (id: string) => {
+    fetch(`http://localhost:5000/user/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast.success("User Deleted successful");
           refetch();
         }
       });
@@ -102,7 +143,7 @@ const AllUserTables: React.FC = () => {
         <input
           type="text"
           placeholder="Search User"
-          className="w-[250px] bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+          className="w-[250px]  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
