@@ -28,6 +28,7 @@ import Availability from "../../Pages/Availablity/Availablity/Availability";
 import SinglePost from "../../Pages/Blog/SinglePost";
 import Getuserinfo from "../../Pages/Blog/Getuserinfo";
 import InputBox from "../../Pages/videoChat/InputBox";
+import Room from "../../Pages/videoChat/Room";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/supports",
         element: <InputBox></InputBox>,
+      },
+      {
+        path: "/room/:id",
+        element: <Room></Room>,
       },
 
       {

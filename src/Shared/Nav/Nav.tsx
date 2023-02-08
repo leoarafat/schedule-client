@@ -135,6 +135,11 @@ const Nav = () => {
               </Link>
             </li>
             <li>
+              <Link to={"/supports"} className=" hover:bg-secondary pr-32">
+                Support
+              </Link>
+            </li>
+            <li>
               <Link
                 to={"/schedule/fifteen"}
                 className=" hover:bg-secondary pr-28"

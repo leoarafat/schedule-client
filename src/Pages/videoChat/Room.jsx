@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { usePeer } from "../../context/Peer";
 import { useSocket } from "../../context/Providers/Providers";
-
+import ReactPlayer from "react-player";
 const Room = () => {
   const { socket } = useSocket();
   const [myStream, setMyStream] = useState(null);
@@ -87,12 +87,12 @@ const Room = () => {
       <h1 className="text-3xl text-purple-500 mb-3">
         You Connected With {remoteEmailId}
       </h1>
-      <button className="btn" onClick={(e) => sendStream(myStream)}>
+      {/* <button className="btn" onClick={(e) => sendStream(myStream)}>
         send My Video
-      </button>
+      </button> */}
       <div className="player-wrapper">
-        {/* <ReactPlayer
-        className='react-player'
+        <ReactPlayer
+          className="react-player"
           width="100%"
           height="100%"
           url={myStream}
@@ -100,7 +100,7 @@ const Room = () => {
           muted
           controls
         />
-        <ReactPlayer url={remoteStream} playing /> */}
+        <ReactPlayer url={remoteStream} playing />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useSocket from '../../context/Providers/Providers'
+import { useSocket } from "../../context/Providers/Providers";
+import service from '../../Assets/service.png'
 
 const InputBox = () => {
   const { socket } = useSocket();
@@ -28,8 +29,12 @@ const InputBox = () => {
 
   // console.log(socket)
   return (
-    <div className="flex flex-col w-[300px] mx-auto">
-      <input
+    <div className="flex flex-col w-[450px] mx-auto ">
+      <h1 className="text-3xl text-center underline">Support Box</h1>
+        <span className="text-center">You can contact us for any problem.</span>
+      <div className="flex flex-col">      
+        <img src={service} alt="" />
+        <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className="p-2 rounded-md bg-gray-100 text-gray-900 mb-2"
@@ -53,6 +58,8 @@ const InputBox = () => {
       >
         Enter Room
       </button>
+      </div>
+
     </div>
   );
 };

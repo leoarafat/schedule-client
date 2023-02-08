@@ -5,6 +5,8 @@ import App from "./App";
 import "./index.css";
 import AuthProvider from "./components/Contexts/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { SocketProvider } from "./context/Providers/Providers";
+import { PeerProvider } from "./context/Peer";
 
 const queryClient = new QueryClient();
 
@@ -13,11 +15,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <App />
-        <Toaster />
-      </AuthProvider>
-    </QueryClientProvider>
+    <SocketProvider>
+      <PeerProvider>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <App />
+            <Toaster />
+          </AuthProvider>
+        </QueryClientProvider>
+      </PeerProvider>
+    </SocketProvider>
   </React.StrictMode>
 );
