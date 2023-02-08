@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 const BlogCard = ({ allBlogs, refetch }: any) => {
   const { title, description, image, _id } = allBlogs;
 
-
   const handleDelete = (_id :any) => {
     Swal.fire({
       title: "Do you want to delete this schedule?",
