@@ -69,6 +69,7 @@ const Profile = () => {
                       {about}
                     </p>
 
+                    <div className="flex justify-center">
                     <Link
                       className="btn btn-primary text-white font-thin gap-1"
                       to="/dashboard/updateProfile"
@@ -76,6 +77,7 @@ const Profile = () => {
                       <FaRegEdit className="h-6 w-6" />
                       <span>Edit Profile</span>
                     </Link>
+                    </div>
                   </div>
                   <div className="my-4"></div>
                 </div>
