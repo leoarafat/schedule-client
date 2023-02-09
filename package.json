@@ -6,6 +6,7 @@
     "@emailjs/browser": "^3.10.0",
     "@heroicons/react": "^2.0.14",
     "@iconscout/react-unicons": "^1.1.6",
+    "@kommunicate/kommunicate-chatbot-plugin": "^0.0.5",
     "@react-icons/all-files": "^4.1.0",
     "@stripe/react-stripe-js": "^1.16.4",
     "@stripe/stripe-js": "^1.46.0",
