@@ -16,9 +16,8 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
-
-  const { user }: any = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user }: any = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -50,7 +49,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       slotPm,
     };
 
-    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
+    fetch("http://localhost:5000/createSchedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",

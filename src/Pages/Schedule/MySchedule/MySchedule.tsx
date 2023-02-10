@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import {
@@ -14,10 +15,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
-import axios from "axios"
 
 const MySchedule = () => {
-
   const { user }: any = useContext(AuthContext);
 
   // const {
@@ -29,17 +28,22 @@ const MySchedule = () => {
   //   queryKey: ["mySchedule", user?.email],
   //   queryFn: async () => {
   //     const res = await fetch(
-  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+  //       `http://localhost:5000/mySchedule?email=${user?.email}`
   //     );
   //     const data = res.json();
   //     return data;
   //   },
   // });
 
-  const { data: mySchedule, isLoading, refetch } = useQuery(["mySchedule"], () => {
-    return axios.get(`https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`).then(res => res.data)
-  }
-  )
+  const {
+    data: mySchedule,
+    isLoading,
+    refetch,
+  } = useQuery(["mySchedule"], () => {
+    return axios
+      .get(`http://localhost:5000/mySchedule?email=${user?.email}`)
+      .then((res) => res.data);
+  });
 
   if (isLoading) {
     return (
@@ -56,12 +60,9 @@ const MySchedule = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `http://localhost:5000/createSchedule/${e._id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -137,16 +138,10 @@ const MySchedule = () => {
                   >
                     <AiOutlineDelete size={"2rem"} />
                   </button>
-                  <button
-                    className="tooltip hover:text-black"
-                    data-tip="Share"
-                  >
+                  <button className="tooltip hover:text-black" data-tip="Share">
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <button
-                    className="tooltip hover:text-black"
-                    data-tip="Copy"
-                  >
+                  <button className="tooltip hover:text-black" data-tip="Copy">
                     <AiOutlineCopy size={"2rem"} />
                   </button>
                 </div>

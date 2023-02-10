@@ -114,7 +114,7 @@ const AllUserTables: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    fetch(`https://scheduplannr-server.vercel.app/user/${id}`, {
+    fetch(`http://localhost:5000/user/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -148,7 +148,7 @@ const AllUserTables: React.FC = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       }
-    // subHeaderAlign="left"
+      // subHeaderAlign="left"
     />
   );
 };
