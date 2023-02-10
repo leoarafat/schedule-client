@@ -137,35 +137,27 @@ const Team = () => {
                       <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name1}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 ">
-                        {email1}
-                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 ">{email1}</td>
                     </tr>
 
                     <tr>
                       <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name2}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 ">
-                        {email2}
-                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 ">{email2}</td>
                     </tr>
 
                     <tr>
                       <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name3}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 ">
-                        {email3}
-                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 ">{email3}</td>
                     </tr>
                     <tr>
                       <td className="whitespace-nowrap px-4 py-2 font-medium ">
                         {name4}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-2 ">
-                        {email4}
-                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 ">{email4}</td>
                     </tr>
                   </tbody>
                 </table>

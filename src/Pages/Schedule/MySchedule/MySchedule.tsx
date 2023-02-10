@@ -57,7 +57,7 @@ const MySchedule = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          `http://localhost:5000/createSchedule/${e._id}`,
           {
             method: "DELETE",
           }
