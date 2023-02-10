@@ -1,9 +1,7 @@
-// import React, { useEffect, useRef, useState } from 'react'
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { AiOutlineDelete, AiOutlineSave } from 'react-icons/ai'
 import { useQuery } from 'react-query';
-import Loading from '../../../Shared/Loading/Loading';
 
 type UserSubmitForm = {
     sunStart: string;
@@ -11,16 +9,7 @@ type UserSubmitForm = {
 };
 
 const Availability = () => {
-
-    const [sun, setSun] = useState(true);
-    const [mon, setMon] = useState(true);
-    const [tue, setTue] = useState(true);
-    const [wed, setWed] = useState(true);
-    const [thu, setThu] = useState(true);
-    const [fri, setFri] = useState(true);
-    const [sat, setSat] = useState(true);
-
-    const [isBool, setIsBool] = useState("");
+    const [availabilityList, setAvailabilityList] = useState([])
 
     const {
         data = [],
@@ -30,42 +19,60 @@ const Availability = () => {
         queryKey: ["availability"],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/availability`);
-            const data = res.json();
+            const data = await res.json();
+            setAvailabilityList(data)
             return data;
         },
     });
 
 
-    const handleStatus = (e: any) => {
-        const checked = e.target.checked;
-        // setIsBool(checked);
+    // console.log(availabilityList);
 
-        // if (!checked) {
-
-        // }
-        setIsBool(checked);
-
+    const handleStatus = (e: any, id: string) => {
+        setAvailabilityList((list: any) => list.map((el: any) => {
+            if (el._id === id) {
+                return { ...el, status: el.status === 'available' ? 'unavailable' : 'available' }
+            } else {
+                return el;
+            }
+        }))
     }
-    console.log(isBool);
+
     const {
         register,
         handleSubmit
     } = useForm<UserSubmitForm>();
 
-    const handleInfo = (e: any) => {
+    const handleInfo = (e: any, id: any) => {
+        // e.preventDefault();
+        // const checked = e.target.value;
+        const ab = e.target.value;
+        const ee = {
+            start_time: ab,
+            // end_time: checked,
+            // role: ab
+        }
+        console.log(ab);
+        // fetch(`http://localhost:5000/availability/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(ee)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
         // const start_time = e.target.start_time.value
         // const end_time = e.target.end_time.value
 
-        console.log(e.target.value);
+
         // console.log(end_time)
 
     };
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
-
-
+    // refetch();
     return (
         <div className='py-8'>
             <h1 className="text-center text-4xl pb-8 font-semibold">
@@ -73,48 +80,54 @@ const Availability = () => {
             </h1>
 
             <form onSubmit={handleSubmit(handleInfo)}>
-                {
-                    data.map((e: any, i: number) => {
-                        const { day, start_time, end_time, status, _id } = e;
 
+                {
+                    !isLoading && availabilityList.map((e: any, i: number) => {
+                        const { day, start_time, end_time, status, _id } = e;
                         return (
-                            <div className='flex align-center gap-8 py-4'>
+                            <div className='flex align-center gap-8 py-4' key={_id}>
+
                                 <div className='w-28 flex gap-4 items-center'>
                                     <input
-                                        onClick={handleStatus}
+                                        // onClick={handleStatus}
+                                        onChange={(e) => handleStatus(e, _id)}
                                         type="checkbox"
-                                        // defaultChecked={true}
+                                        checked={status === 'available'}
                                         className="checkbox checkbox-primary" />
                                     <span className='text-3xl'>{day}</span>
                                 </div>
 
-                                {
-                                    isBool ?
-                                        <div className='flex items-center gap-4 w-[26rem]'>
-                                            <div className='tooltip' data-tip="Start Time">
-                                                <input
 
-                                                    onChange={handleInfo}
+                                <div className='flex items-center justify-center gap-4 w-[26rem]'>
+                                    {
+                                        status === 'available' ? (
+                                            <div className='flex gap-2 justify-center items-center'>
+                                                <div className='tooltip' data-tip="Start Time">
+                                                    <input
+                                                        {...register("sunStart")}
+                                                        onChange={(e) => handleInfo(e, _id)}
+                                                        type="time" defaultValue={end_time}
+                                                        className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                                </div>
 
-                                                    type="time" defaultValue={start_time} className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                                <div className='border w-8 border-primary'></div>
+
+                                                <div className='tooltip' data-tip="End Time">
+                                                    <input
+                                                        {...register("sunEnd")}
+                                                        onChange={(e) => handleInfo(e, _id)}
+                                                        type="time"
+                                                        defaultValue={end_time}
+                                                        className="input input-bordered input-primary w-full max-w-xs text-2xl" />
+                                                </div>
                                             </div>
-
-                                            <div className='border w-8 border-primary'></div>
-
-                                            <div className='tooltip' data-tip="End Time">
-                                                <input
-                                                    onChange={handleInfo}
-                                                    name="end_time" type="time" defaultValue={end_time} className="input input-bordered input-primary w-full max-w-xs text-2xl" />
-                                            </div>
-                                        </div>
-                                        :
-                                        <div className='w-[26rem] flex justify-center items-center py-2'>
-                                            <p className='text-2xl'>Unavailable</p>
-                                        </div>
-                                }
+                                        ) : <p className='text-3xl'>unavailable</p>
+                                    }
+                                </div>
 
 
-                                <div className='flex gap-6 items-center justify-end w-40'>
+
+                                {/* <div className='flex gap-6 items-center justify-end w-40'>
                                     <button
                                         className="text-gray-500 hover:text-black tooltip"
                                         data-tip="Save"
@@ -128,7 +141,7 @@ const Availability = () => {
                                     >
                                         <AiOutlineDelete size={"2rem"} />
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         )
                     })
@@ -141,4 +154,4 @@ const Availability = () => {
     )
 }
 
-export default Availability
+export default Availability;
