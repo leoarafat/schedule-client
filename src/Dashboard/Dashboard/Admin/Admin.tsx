@@ -5,14 +5,14 @@ const Admin = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://scheduplannr-server.vercel.app/user");
+      const res = await fetch("http://localhost:5000/user");
       const data = await res.json();
       return data;
     },
   });
 
   const handleMakeAdmin = (id: number) => {
-    fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
+    fetch(`http://localhost:5000/user/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
