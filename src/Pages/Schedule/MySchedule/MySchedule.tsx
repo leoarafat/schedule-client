@@ -14,26 +14,32 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
+import axios from "axios"
 
 const MySchedule = () => {
 
   const { user }: any = useContext(AuthContext);
 
-  const {
-    data: mySchedule = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  // const {
+  //   data: mySchedule = [],
+  //   isLoading,
+  //   refetch,
+  // } = useQuery({
 
-    queryKey: ["mySchedule", user?.email],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
-      );
-      const data = res.json();
-      return data;
-    },
-  });
+  //   queryKey: ["mySchedule", user?.email],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+  //     );
+  //     const data = res.json();
+  //     return data;
+  //   },
+  // });
+
+  const { data: mySchedule, isLoading, refetch } = useQuery(["mySchedule"], () => {
+    return axios.get(`https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`).then(res => res.data)
+  }
+  )
 
   if (isLoading) {
     return (

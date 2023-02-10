@@ -9,6 +9,7 @@ import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider
 import Loading from "../../Shared/Loading/Loading";
 
 const Team = () => {
+
   const { user }: any = useContext(AuthContext);
 
   const {
@@ -37,24 +38,26 @@ const Team = () => {
   }
 
   const handleDelete = (e: any) => {
+
     Swal.fire({
       title: "Do you want to delete this team?",
       showCancelButton: true,
       confirmButtonText: "Delete",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://scheduplannr-server.vercel.app/team/${e._id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              refetch();
-              toast.success("Schedule Deleted Successfully");
-            }
-          });
-      }
-    });
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          fetch(`https://scheduplannr-server.vercel.app/team/${e._id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                refetch();
+                toast.success("Schedule Deleted Successfully");
+              }
+            });
+        }
+      });
   };
 
   return (
