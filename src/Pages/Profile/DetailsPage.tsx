@@ -32,7 +32,7 @@ const DetailsPage = ({ singleUser }: any) => {
   const handleAdd = (data: dataProps) => {
     saveToDatabase(
       data.name,
-      data.email, 
+      data.email,
       // data.firstName,
       data.lastName,
       data.currentAddress,
@@ -89,7 +89,7 @@ const DetailsPage = ({ singleUser }: any) => {
 
           fetch(`http://localhost:5000/user/${email}`, {
             method: "PATCH",
-            
+
             headers: {
               "content-type": "application/json",
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -131,8 +131,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="name"
                 name="name"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
-                placeholder="First Name"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.name && (
                 <p className="text-sm text-red-600 mt-2">
@@ -148,7 +147,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="lastName"
                 name="lastName"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Last Name"
               />
               {errors.lastName && (
@@ -161,7 +160,7 @@ const DetailsPage = ({ singleUser }: any) => {
             <div>
               <label
                 htmlFor="email"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Your Email
               </label>
@@ -173,7 +172,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 readOnly
                 id="email"
                 name="email"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-2">
@@ -189,7 +188,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="currentAddress"
                 name="currentAddress"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Address"
               />
               {errors.currentAddress && (
@@ -206,7 +205,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="permanentAddress"
                 name="permanentAddress"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Address"
               />
               {errors.permanentAddress && (
@@ -224,7 +223,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="contactNumber"
                 name="contactNumber"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Number"
               />
               {errors.contactNumber && (
@@ -242,7 +241,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 })}
                 id="profession"
                 name="profession"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Profession"
               />
               {errors.profession && (
@@ -297,7 +296,7 @@ const DetailsPage = ({ singleUser }: any) => {
                 type="date"
                 id="birthDate"
                 name="birthDate"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Email"
               />
               {errors.birthDate && (
@@ -320,7 +319,7 @@ const DetailsPage = ({ singleUser }: any) => {
                   id="image"
                   accept="image/*"
                   placeholder="Enter Your img"
-                  className="w-full px-4 py-3 rounded-md border-2 border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-300"
+                  className="w-full px-4 py-3 rounded-md border-2 border-gray-300 bg-transparent  focus:dark:border-violet-300"
                 />
               </div>
             </div>

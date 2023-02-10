@@ -148,7 +148,6 @@ const AllUserTables: React.FC = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       }
-      // subHeaderAlign="left"
     />
   );
 };

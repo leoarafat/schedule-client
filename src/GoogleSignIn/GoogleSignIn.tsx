@@ -6,8 +6,8 @@ import useToken from "../hooks/useToken/useToken";
 
 const GoogleSignIn = () => {
   const { googleSignIn }: any = useContext(AuthContext);
-  const [userEmail, setUserEmail] = useState("");
-  const [token] = useToken(userEmail);
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -19,10 +19,8 @@ const GoogleSignIn = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result: any) => {
-        toast.success("Google Sign Up Successfully");
-        const user = result?.user;
-        const email = user?.email;
-        const name = user?.displayName;
+        const name = result?.user?.email;
+        const email = result?.user?.displayName;
         const lastName = "";
         const currentAddress = "";
         const permanentAddress = "";
@@ -31,6 +29,7 @@ const GoogleSignIn = () => {
         const birthDate = "";
         const image = "";
         const role = "";
+        toast.success("Google Sign Up Successfully");
 
         saveUser(
           email,
@@ -45,7 +44,7 @@ const GoogleSignIn = () => {
           role
         );
 
-        setUserEmail(result.user.email);
+        setCreatedUserEmail(result.user.email);
       })
       .catch((err: any) => {
         console.log(err);
@@ -82,12 +81,13 @@ const GoogleSignIn = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((data) => {
-        setUserEmail(user.email);
+        setCreatedUserEmail(user.email);
       });
   };
 
