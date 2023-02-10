@@ -9,7 +9,9 @@ const SinglePost = () => {
   const { data: blogs = [id], isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blogPost/${id}`);
+      const res = await fetch(
+        `https://scheduplannr-server.vercel.app/blogPost/${id}`
+      );
       const data = await res.json();
       console.log(blogs);
       return data;
@@ -59,9 +61,7 @@ const SinglePost = () => {
             </div>
             <div className="flex-1 flex flex-col justify-center md:justify-start">
               <p className="font-semibold text-2xl">{blogs?.name}</p>
-              <p className="pt-2">
-                {blogs?.about}
-              </p>
+              <p className="pt-2">{blogs?.about}</p>
             </div>
           </div>
         </section>

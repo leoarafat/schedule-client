@@ -114,7 +114,7 @@ const AllUserTables: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/user/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

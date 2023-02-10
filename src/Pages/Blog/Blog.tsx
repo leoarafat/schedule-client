@@ -1,13 +1,12 @@
+import axios from "axios";
 import { useQuery } from "react-query";
 import BlogCard from "./BlogCard";
-import axios from "axios";
 
 const Blog = () => {
-
   const { data, isLoading, refetch } = useQuery("blogs", () =>
-    axios(`http://localhost:5000/blogs`)
+    axios(`https://scheduplannr-server.vercel.app/blogs`)
   );
-  console.log(data)
+  console.log(data);
 
   return (
     <div>

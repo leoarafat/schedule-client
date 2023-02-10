@@ -135,10 +135,7 @@ const MySchedule = () => {
                   >
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <button
-                    className="tooltip  hover:text-black"
-                    data-tip="Copy"
-                  >
+                  <button className="tooltip  hover:text-black" data-tip="Copy">
                     <AiOutlineCopy size={"2rem"} />
                   </button>
                 </div>
@@ -146,9 +143,7 @@ const MySchedule = () => {
                   <h1 className="text-2xl">{title}</h1>
                   <div className="flex flex-col gap-2">
                     <p className="">Host name: {name}</p>
-                    <p className="">
-                      Organization: {organization}
-                    </p>
+                    <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
                     <p className="">Meeting time: {slot}</p>
                   </div>
@@ -158,6 +153,7 @@ const MySchedule = () => {
                     className="text-primary underline"
                     href={link}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     /Schedule Link
                   </a>

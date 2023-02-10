@@ -30,29 +30,31 @@ const Fifteen = () => {
   });
 
   if (isLoading) {
-    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
+    return (
+      <div className="w-[33rem] flex items-center justify-center">
+        <Loading />
+      </div>
+    );
   }
 
   return (
     <div>
       <div className="h-[25rem] lg:py-0 py-12 px-2">
-
-        {
-          !slot && !slotPm &&
-          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">Please Select A Time Slot</h1>
-        }
-        {
-          slot &&
+        {!slot && !slotPm && (
+          <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+            Please Select A Time Slot
+          </h1>
+        )}
+        {slot && (
           <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
             You have selected {slot}
           </h1>
-        }
-        {
-          slotPm &&
+        )}
+        {slotPm && (
           <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
             You have selected {slotPm}
           </h1>
-        }
+        )}
 
         <div className="flex justify-center gap-4">
           <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
@@ -62,7 +64,6 @@ const Fifteen = () => {
                   key={i}
                   fifteenAMslots={fifteenAm}
                   setSlot={setSlot}
-
                 ></FifteenAmChild>
               ))}
           </div>
@@ -73,7 +74,6 @@ const Fifteen = () => {
                   key={i}
                   fifteenPMslots={fifteenPm}
                   setSlotPm={setSlotPm}
-
                 ></FifteenPmChild>
               ))}
           </div>
