@@ -34,7 +34,7 @@ const BillingCard = ({ plan }: any) => {
         <div className="my-5 flex justify-center ">
         <Link to={`membership/${_id}`}>
           <label
-            className="group relative inline-flex items-center overflow-hidden rounded-full border border-current px-8 py-3 text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+            className="group relative inline-flex items-center overflow-hidden rounded-full border border-current px-8 py-3 text-primary focus:outline-none focus:ring active:text-Primary cursor-pointer"
             htmlFor="my-modal-4"
             
           >
