@@ -123,7 +123,7 @@ const MySchedule = () => {
                   <button className="flex items-center">
                     <label
                       htmlFor="my-modal-3"
-                      className="tooltip  hover:text-black cursor-pointer"
+                      className="tooltip hover:text-black cursor-pointer"
                       data-tip="Edit"
                     >
                       <AiOutlineEdit size={"2rem"} />
@@ -132,19 +132,19 @@ const MySchedule = () => {
 
                   <button
                     onClick={() => handleDelete(e)}
-                    className="tooltip  hover:text-black"
+                    className="tooltip hover:text-black"
                     data-tip="Delete"
                   >
                     <AiOutlineDelete size={"2rem"} />
                   </button>
                   <button
-                    className="tooltip  hover:text-black"
+                    className="tooltip hover:text-black"
                     data-tip="Share"
                   >
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
                   <button
-                    className="tooltip  hover:text-black"
+                    className="tooltip hover:text-black"
                     data-tip="Copy"
                   >
                     <AiOutlineCopy size={"2rem"} />

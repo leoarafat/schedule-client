@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { IoCreateOutline } from "react-icons/io5";
 import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
 import { useQuery } from "react-query";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../Shared/Loading/Loading";
+import UpdateTeam from "./UpdateTeam";
 
 const Team = () => {
 
@@ -80,11 +82,13 @@ const Team = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {team.map((e: any, i: number) => {
           const {
+            _id,
             name,
             name1,
             name2,
             name3,
             name4,
+            email,
             email1,
             email2,
             email3,
@@ -96,14 +100,20 @@ const Team = () => {
             <div key={i} className="shadow-2xl p-10">
               <div className="overflow-x-auto">
                 <div className="flex justify-end mb-5 gap-4">
-                  <button className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                    <RiEdit2Line />
+                  <button className="flex items-center">
+                    <label
+                      htmlFor="my-modal-3"
+                      className=" hover:text-black cursor-pointer"
+                    >
+                      <AiOutlineEdit size={"1.5rem"} />
+                    </label>
                   </button>
+
                   <button
                     onClick={() => handleDelete(e)}
-                    className="inline-block rounded bg-primary px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                    className=" hover:text-black"
                   >
-                    <RiDeleteBin6Line />
+                    <AiOutlineDelete size={"1.5rem"} />
                   </button>
                 </div>
                 <div>
@@ -161,6 +171,24 @@ const Team = () => {
                   </tbody>
                 </table>
               </div>
+              {/* this is modal */}
+              {
+                <UpdateTeam
+                  name={name}
+                  name1={name1}
+                  name2={name2}
+                  name3={name3}
+                  name4={name4}
+                  email={email}
+                  email1={email1}
+                  email2={email2}
+                  email3={email3}
+                  email4={email4}
+                  description={description}
+                  _id={_id}
+                  refetch={refetch}
+                />
+              }
             </div>
           );
         })}
