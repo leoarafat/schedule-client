@@ -26,7 +26,7 @@ const MySchedule = () => {
     queryKey: ["mySchedule", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+        `http://localhost:5000/mySchedule?email=${user?.email}`
       );
       const data = res.json();
       return data;
@@ -49,7 +49,7 @@ const MySchedule = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          `http://localhost:5000/createSchedule/${e._id}`,
           {
             method: "DELETE",
           }

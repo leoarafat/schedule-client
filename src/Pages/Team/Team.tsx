@@ -19,7 +19,7 @@ const Team = () => {
     queryKey: ["team", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://scheduplannr-server.vercel.app/team?email=${user?.email}`
+        `http://localhost:5000/team?email=${user?.email}`
       );
       const data = res.json();
       return data;
@@ -43,7 +43,7 @@ const Team = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://scheduplannr-server.vercel.app/team/${e._id}`, {
+        fetch(`http://localhost:5000/team/${e._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -52,7 +52,7 @@ const ScheduleInfo = ({ setScheduleInfo, value, slot, slotPm }: any) => {
 
     setScheduleInfo(info);
 
-    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
+    fetch("http://localhost:5000/createSchedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
