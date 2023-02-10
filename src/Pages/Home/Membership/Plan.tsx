@@ -7,7 +7,7 @@ const Plans = () => {
   //   queryKey: ["membership"],
   //   queryFn: async () => {
   //     const res = await fetch(
-  //       "https://scheduplannr-server.vercel.app/membership"
+  //       "http://localhost:5000/membership"
   //     );
   //     const data = await res.json();
   //     return data;
@@ -15,7 +15,7 @@ const Plans = () => {
   // });
 
   const { data, isLoading, refetch } = useQuery("blogs", () =>
-    axios(`https://scheduplannr-server.vercel.app/membership`)
+    axios(`http://localhost:5000/membership`)
   );
   console.log(data);
   return (

@@ -7,7 +7,7 @@ const Billing = () => {
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
-        await fetch(`https://scheduplannr-server.vercel.app/membership`)
+        await fetch(`http://localhost:5000/membership`)
       ).json();
       setData(data);
     };

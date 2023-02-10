@@ -17,7 +17,7 @@ const Payment = () => {
     queryKey: ["membership"],
     queryFn: async () => {
       const res = await fetch(
-        `https://scheduplannr-server.vercel.app/membership/${id}`
+        `http://localhost:5000/membership/${id}`
       );
       const data = await res.json();
       refetch();
