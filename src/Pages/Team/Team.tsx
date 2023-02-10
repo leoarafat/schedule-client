@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { IoCreateOutline } from "react-icons/io5";
-import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
