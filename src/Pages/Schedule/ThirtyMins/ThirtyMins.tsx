@@ -73,11 +73,7 @@ const ThirtyMins = () => {
 
   //loading
   if (isLoading) {
-    return (
-      <div className="w-[33rem] flex items-center justify-center">
-        <Loading />
-      </div>
-    );
+    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
   }
 
   return (

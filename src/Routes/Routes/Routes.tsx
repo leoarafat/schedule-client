@@ -24,11 +24,11 @@ import Admin from "../../Dashboard/Dashboard/Admin/Admin";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 import AllUser from "../../Dashboard/AllUser/AllUser";
 import AddBlog from "../../Pages/Blog/AddBlog";
-import Availability from "../../Pages/Availability/Availability";
 import SinglePost from "../../Pages/Blog/SinglePost";
 import Getuserinfo from "../../Pages/Blog/Getuserinfo";
 import InputBox from "../../Pages/videoChat/InputBox";
 import Room from "../../Pages/videoChat/Room";
+import Availability from "../../Pages/Availability/Availability";
 
 export const router = createBrowserRouter([
   {
@@ -136,7 +136,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/availability',
-        element: <Availability></Availability>,
+        element: <Availability/>
       },
       {
 
