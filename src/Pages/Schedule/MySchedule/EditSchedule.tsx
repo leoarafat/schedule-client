@@ -71,8 +71,8 @@ const EditSchedule = ({
   return (
     <>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+      <label htmlFor="my-modal-3" className="modal">
+        <label htmlFor="" className="modal-box w-11/12 max-w-5xl">
           <label
             htmlFor="my-modal-3"
             className="btn btn-md btn-circle absolute right-4 top-4"
@@ -322,8 +322,8 @@ const EditSchedule = ({
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </label>
+      </label>
     </>
   );
 };
