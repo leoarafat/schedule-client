@@ -35,7 +35,7 @@ interface dataProps {
 }
 
 const SignUp = () => {
-  const { RegisterUser, googleSignIn }: any = useContext(AuthContext);
+  const { RegisterUser, googleSignIn, user }: any = useContext(AuthContext);
 
   const {
     register,
@@ -59,34 +59,33 @@ const SignUp = () => {
   const handleRegister = (data: dataProps) => {
     RegisterUser(data.email, data.password, data.displayName)
       .then((result: any) => {
-        const email = data?.email;
-        const name = data?.displayName;
-        const firstName = "";
+        toast.success("Google Sign Up Successfully");
+        const user = result?.user;
+        const email = user?.email;
+        const name = user?.displayName;
         const lastName = "";
         const currentAddress = "";
         const permanentAddress = "";
         const contactNumber = "";
         const gender = "";
-        const role = "";
         const birthDate = "";
         const image = "";
-        console.log(firstName, lastName);
+        const role = "";
+        console.log();
         toast.success("Sign Up Successfully");
 
         saveUserToDatabase(
           email,
           name,
-          firstName,
           lastName,
           currentAddress,
           permanentAddress,
           contactNumber,
-          role,
           gender,
           birthDate,
-          image
+          image,
+          role
         );
-        console.log();
       })
       .catch((err: any) => {
         setFirebaseError(err.message);
@@ -101,31 +100,30 @@ const SignUp = () => {
         const user = result?.user;
         const email = user?.email;
         const name = user?.displayName;
-        const firstName = "";
         const lastName = "";
         const currentAddress = "";
         const permanentAddress = "";
         const contactNumber = "";
         const gender = "";
-        const role = "";
         const birthDate = "";
         const image = "";
+        const role = "";
+        setCreatedUserEmail(result.user.email);
 
         saveUserToDatabase(
           email,
           name,
-          firstName,
           lastName,
           currentAddress,
           permanentAddress,
           contactNumber,
           gender,
-          role,
           birthDate,
-          image
+          image,
+          role
         );
 
-        setCreatedUserEmail(result.user.email);
+        
       })
       .catch((err: any) => {
         console.log(err);
@@ -133,9 +131,8 @@ const SignUp = () => {
   };
 
   const saveUserToDatabase = (
-    email: string,
     name: string,
-    firstName: string,
+    email: string,
     lastName: string,
     currentAddress: string,
     permanentAddress: string,
@@ -146,29 +143,31 @@ const SignUp = () => {
     role: string
   ) => {
     const user = {
-      email,
       name,
-      firstName,
+      email,
       lastName,
       currentAddress,
       permanentAddress,
       contactNumber,
       gender,
-      role,
       birthDate,
       image,
+      role,
     };
-    fetch(`http://localhost:5000/users`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(user),
-    })
+
+    fetch(
+      "https://used-product-seller-assignment-server-side.vercel.app/users",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(user),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCreatedUserEmail(email);
       });
   };

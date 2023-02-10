@@ -16,7 +16,7 @@ interface dataProps {
 }
 
 const SignIn = () => {
-  const { logInUser, googleSignIn, resetPassword, auth }: any =
+  const { logInUser, googleSignIn, resetPassword, auth, user }: any =
     useContext(AuthContext);
 
   const [createdUserEmail, setCreatedUserEmail] = useState<any>("");
@@ -39,9 +39,9 @@ const SignIn = () => {
   const handleLogIn = (data: dataProps) => {
     logInUser(data.email, data.password)
       .then((result: any) => {
+        const user = result.user;
         toast.success("Sign In Successfully");
-
-        setCreatedUserEmail(result.user.email);
+        setCreatedUserEmail(user.email);
       })
       .catch((err: string) => {
         console.log(err);
@@ -52,32 +52,33 @@ const SignIn = () => {
     googleSignIn()
       .then((result: any) => {
         toast.success("Google Sign Up Successfully");
-        const user = result?.user;
-        const email = user?.email;
-        const name = user?.displayName;
-        const firstName = "";
-        const lastName = "";
-        const currentAddress = "";
-        const permanentAddress = "";
-        const contactNumber = "";
-        const gender = "";
-        const birthDate = "";
-        const image = "";
+        // const user = result?.user;
+        const name = result?.user?.email;
+        const email = result?.user?.displayName;
+        
+        // const lastName = "";
+        // const currentAddress = "";
+        // const permanentAddress = "";
+        // const contactNumber = "";
+        // const gender = "";
+        // const birthDate = "";
+        // const image = "";
+        // const role = "";
+        console.log(email, name);
 
         saveUserToDatabase(
           email,
           name,
-          firstName,
-          lastName,
-          currentAddress,
-          permanentAddress,
-          contactNumber,
-          gender,
-          birthDate,
-          image
+          // lastName,
+          // currentAddress,
+          // permanentAddress,
+          // contactNumber,
+          // gender,
+          // birthDate,
+          // image,
+          // role
         );
 
-        console.log(result);
         setCreatedUserEmail(result.user.email);
       })
       .catch((err: any) => {
@@ -86,43 +87,47 @@ const SignIn = () => {
   };
 
   const saveUserToDatabase = (
-    email: string,
     name: string,
-    firstName: string,
-    lastName: string,
-    currentAddress: string,
-    permanentAddress: string,
-    contactNumber: string,
-    gender: string,
-    birthDate: string,
-    image: string
+    email: string,
+    // lastName: string,
+    // currentAddress: string,
+    // permanentAddress: string,
+    // contactNumber: string,
+    // gender: string,
+    // birthDate: string,
+    // image: string,
+    // role: string
   ) => {
     const user = {
-      email,
       name,
-      firstName,
-      lastName,
-      currentAddress,
-      permanentAddress,
-      contactNumber,
-      gender,
-      birthDate,
-      image,
+      email,
+      // lastName,
+      // currentAddress,
+      // permanentAddress,
+      // contactNumber,
+      // gender,
+      // birthDate,
+      // image,
+      // role,
     };
-    fetch(`http://localhost:5000/users`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(user),
-    })
+
+    fetch(
+      "http://localhost:5000/users",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(user),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setCreatedUserEmail(email);
-        console.log(data);
       });
   };
+
   const handleForgotPassword = (data: any) => {
     resetPassword(auth, data.email)
       .then((result: any) => {
