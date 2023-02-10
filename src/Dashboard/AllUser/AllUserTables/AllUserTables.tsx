@@ -15,6 +15,7 @@ type DataRow = {
   email: string;
   role: string;
   _id: string;
+  delete: string;
 };
 
 const AllUserTables: React.FC = () => {
@@ -24,12 +25,11 @@ const AllUserTables: React.FC = () => {
   const { data: userInfo = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://scheduplannr-server.vercel.app/users");
+      const res = await fetch("http://localhost:5000/users");
       const data = await res.json();
       return data;
     },
   });
-  console.log(userInfo);
 
   useEffect(() => {
     const result = userInfo?.filter((user: { name: string }) => {
@@ -73,16 +73,57 @@ const AllUserTables: React.FC = () => {
         </>
       ),
     },
+    {
+      name: "Delete User",
+      cell: (row) => (
+        <>
+          {row?.role === "admin" ? (
+            <button
+              onClick={() => handleDelete(row._id)}
+              className="btn btn-xs"
+            >
+              Delete
+            </button>
+          ) : (
+            <button
+              onClick={() => handleDelete(row._id)}
+              className="btn btn-xs"
+            >
+              Delete
+            </button>
+          )}
+        </>
+      ),
+    },
   ];
 
   const handleAdmin = (id: string) => {
-    fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
+    fetch(`http://localhost:5000/user/admin/${id}`, {
       method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Make admin successful");
+          refetch();
+        }
+      });
+  };
+
+  const handleDelete = (id: string) => {
+    fetch(`http://localhost:5000/user/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast.success("User Deleted successful");
           refetch();
         }
       });
@@ -107,7 +148,7 @@ const AllUserTables: React.FC = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       }
-      // subHeaderAlign="left"
+    // subHeaderAlign="left"
     />
   );
 };

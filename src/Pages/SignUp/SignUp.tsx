@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import useToken from "../../hooks/useToken/useToken";
 
@@ -44,13 +44,16 @@ const SignUp = () => {
   } = useForm<UserSubmitForm>();
 
   const [firebaseError, setFirebaseError] = useState<any>("");
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const [createdUserEmail, setCreatedUserEmail] = useState<any>("");
   const [token] = useToken(createdUserEmail);
 
   if (token) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
 
   const handleRegister = (data: dataProps) => {
@@ -159,6 +162,7 @@ const SignUp = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(user),
     })

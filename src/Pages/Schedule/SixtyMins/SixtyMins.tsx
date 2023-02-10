@@ -12,7 +12,7 @@ const SixtyMins = () => {
     queryKey: ["sixtyMinsAm"],
     queryFn: async () => {
       const res = await fetch(
-        "https://scheduplannr-server.vercel.app/sixtyMinsAM"
+        "http://localhost:5000/sixtyMinsAM"
       );
       const data = res.json();
       return data;
@@ -28,7 +28,7 @@ const SixtyMins = () => {
     queryKey: ["sixtyMinsPm"],
     queryFn: async () => {
       const res = await fetch(
-        "https://scheduplannr-server.vercel.app/sixtyMinsPM"
+        "http://localhost:5000/sixtyMinsPM"
       );
       const data = res.json();
       return data;

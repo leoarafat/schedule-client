@@ -51,13 +51,18 @@ const Nav = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ul-style text-primary">
           <li className="li-style">
-            <Link to={"/dashboard"} className="noo-hover link-style">
+            <Link to={"/dashboard/mySchedule"} className="noo-hover link-style">
               Dashboard
             </Link>
           </li>
           <li className="li-style">
             <Link to={"/about"} className="noo-hover link-style">
               About
+            </Link>
+          </li>
+          <li className="li-style">
+            <Link to={"/supports"} className="noo-hover link-style">
+              Support
             </Link>
           </li>
           <li className="li-style">
@@ -71,6 +76,7 @@ const Nav = () => {
               Blog
             </Link>
           </li>
+          
 
           <div className=" flex items-center mx-2" onClick={handleDark}>
             {dark ? (
@@ -116,13 +122,21 @@ const Nav = () => {
               )}
             </div>
             <li>
-              <Link to={"/dashboard/mySchedule"} className=" hover:bg-secondary pr-32">
+              <Link
+                to={"/dashboard/mySchedule"}
+                className=" hover:bg-secondary pr-32"
+              >
                 Dashboard
               </Link>
             </li>
             <li>
               <Link to={"/about"} className=" hover:bg-secondary pr-32">
                 About
+              </Link>
+            </li>
+            <li>
+              <Link to={"/supports"} className=" hover:bg-secondary pr-32">
+                Support
               </Link>
             </li>
             <li>

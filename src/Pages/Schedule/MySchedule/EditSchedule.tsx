@@ -51,7 +51,7 @@ const EditSchedule = ({
       description,
     };
 
-    fetch(`https://scheduplannr-server.vercel.app/createSchedule/${_id}`, {
+    fetch(`http://localhost:5000/createSchedule/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -71,8 +71,8 @@ const EditSchedule = ({
   return (
     <>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+      <label htmlFor="my-modal-3" className="modal">
+        <label htmlFor="" className="modal-box w-11/12 max-w-5xl">
           <label
             htmlFor="my-modal-3"
             className="btn btn-md btn-circle absolute right-4 top-4"
@@ -89,7 +89,7 @@ const EditSchedule = ({
             <div>
               <label
                 htmlFor="name"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Name
               </label>
@@ -100,7 +100,7 @@ const EditSchedule = ({
                 defaultValue={name}
                 id="name"
                 name="name"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.name && (
                 <p className="text-sm text-red-600 mt-2">
@@ -112,7 +112,7 @@ const EditSchedule = ({
             <div>
               <label
                 htmlFor="email"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block 0 text-sm sm:text-base mb-2"
               >
                 Email
               </label>
@@ -127,7 +127,7 @@ const EditSchedule = ({
                 defaultValue={email}
                 id="email"
                 name="email"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-2">
@@ -139,7 +139,7 @@ const EditSchedule = ({
             <div>
               <label
                 htmlFor="phone"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Phone Number
               </label>
@@ -151,7 +151,7 @@ const EditSchedule = ({
                 id="phone"
                 name="phone"
                 type="text"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.phone && (
                 <p className="text-sm text-red-600 mt-2">
@@ -163,7 +163,7 @@ const EditSchedule = ({
             <div>
               <label
                 htmlFor="organization"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Organization Name
               </label>
@@ -174,7 +174,7 @@ const EditSchedule = ({
                 defaultValue={organization}
                 id="organization"
                 name="organization"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.organization && (
                 <p className="text-sm text-red-600 mt-2">
@@ -186,7 +186,7 @@ const EditSchedule = ({
             <div className="sm:col-span-2">
               <label
                 htmlFor="title"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Schedule Title
               </label>
@@ -197,7 +197,7 @@ const EditSchedule = ({
                 defaultValue={title}
                 id="title"
                 name="title"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.title && (
                 <p className="text-sm text-red-600 mt-2">
@@ -209,7 +209,7 @@ const EditSchedule = ({
             <div className="sm:col-span-2">
               <label
                 htmlFor="location"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Schedule Location
               </label>
@@ -251,19 +251,17 @@ const EditSchedule = ({
                 })}
                 defaultValue={location}
                 id="location"
-                className="select w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="select w-full bg-transparent border ring focus:ring ring-sky-300 rounded transition duration-100 px-3 py-2"
               >
-                <option className="text-xl" disabled>
+                <option className="text-xl bg-transparent" disabled>
                   Select Your Location
                 </option>
-                <option className="text-xl">Google Meet</option>
-                <option className="text-xl">Skype</option>
-                <option className="text-xl">Zoom</option>
-                <option className="text-xl">Microsoft Team</option>
-                <option className="text-xl">Google Hangouts</option>
-                <option className="text-xl">WhatsApp</option>
-                <option className="text-xl">Youtube</option>
-                <option className="text-xl">Facebook</option>
+                <option className="text-xl bg-transparent">Google Meet</option>
+                <option className="text-xl bg-transparent">Skype</option>
+                <option className="text-xl bg-transparent">Zoom</option>
+                <option className="text-xl bg-transparent">Microsoft Team</option>
+                <option className="text-xl bg-transparent">Google Hangouts</option>
+                <option className="text-xl bg-transparent">WhatsApp</option>
               </select>
               {errors.location && (
                 <p className="text-sm text-red-600 mt-2">
@@ -275,7 +273,7 @@ const EditSchedule = ({
             <div className="sm:col-span-2">
               <label
                 htmlFor="link"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Schedule Link
               </label>
@@ -286,7 +284,7 @@ const EditSchedule = ({
                 defaultValue={link}
                 id="link"
                 name="link"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.link && (
                 <p className="text-sm text-red-600 mt-2">
@@ -298,7 +296,7 @@ const EditSchedule = ({
             <div className="sm:col-span-2">
               <label
                 htmlFor="description"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block text-sm sm:text-base mb-2"
               >
                 Description
               </label>
@@ -307,7 +305,7 @@ const EditSchedule = ({
                 defaultValue={description}
                 id="description"
                 name="description"
-                className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full h-40 bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               ></textarea>
             </div>
             <div></div>
@@ -320,8 +318,8 @@ const EditSchedule = ({
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </label>
+      </label>
     </>
   );
 };

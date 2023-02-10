@@ -12,7 +12,7 @@ const Profile = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+          `http://localhost:5000/user?email=${user?.email}`
         )
       ).json();
       setData(data);
@@ -69,13 +69,15 @@ const Profile = () => {
                       {about}
                     </p>
 
-                    <Link
-                      className="btn btn-primary text-white font-thin gap-1"
-                      to="/dashboard/updateProfile"
-                    >
-                      <FaRegEdit className="h-6 w-6" />
-                      <span>Edit Profile</span>
-                    </Link>
+                    <div className="flex justify-center">
+                      <Link
+                        className="btn btn-primary text-white font-thin gap-1"
+                        to="/dashboard/updateProfile"
+                      >
+                        <FaRegEdit className="h-6 w-6" />
+                        <span>Edit Profile</span>
+                      </Link>
+                    </div>
                   </div>
                   <div className="my-4"></div>
                 </div>
@@ -188,7 +190,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         );
       })}

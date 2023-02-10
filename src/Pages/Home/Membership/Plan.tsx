@@ -1,18 +1,23 @@
+import axios from "axios";
 import { useQuery } from "react-query";
 import PricingCard from "./PricingCard";
 
 const Plans = () => {
-  const { data: membership = [] } = useQuery({
-    queryKey: ["membership"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://scheduplannr-server.vercel.app/membership"
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
-  console.log(membership);
+  // const { data: membership = [] } = useQuery({
+  //   queryKey: ["membership"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       "http://localhost:5000/membership"
+  //     );
+  //     const data = await res.json();
+  //     return data;
+  //   },
+  // });
+
+  const { data, isLoading, refetch } = useQuery("blogs", () =>
+    axios(`http://localhost:5000/membership`)
+  );
+  console.log(data)
   return (
     <div>
       <div className="">
@@ -24,10 +29,10 @@ const Plans = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 
-            {membership.map((plan: any) => (
+            {data?.data?.map((plan: any) => (
               <PricingCard plan={plan} key={plan._id}></PricingCard>
             ))}
-            
+
           </div>
         </div>
 

@@ -72,7 +72,7 @@ const CreateTeam = () => {
       email4,
       description
     };
-    fetch(`https://scheduplannr-server.vercel.app/team`, {
+    fetch(`http://localhost:5000/team`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -97,12 +97,12 @@ const CreateTeam = () => {
 
           <form
             onSubmit={handleSubmit(handleAdd)}
-            className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto text-black"
+            className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
           >
             <div>
               <label
                 htmlFor="name"
-                className="inline-block  text-sm mb-2"
+                className="inline-block text-sm mb-2"
               >
                 Team Name
               </label>
@@ -112,7 +112,7 @@ const CreateTeam = () => {
                 })}
                 id="name"
                 name="name"
-                className="w-full  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.name && (
                 <p className="text-sm text-red-600 mt-2">
@@ -124,7 +124,7 @@ const CreateTeam = () => {
             <div>
               <label
                 htmlFor="email"
-                className="inline-block  text-sm sm:text-base mb-2"
+                className="inline-block  text-sm  mb-2"
               >
                 Email
               </label>
@@ -139,7 +139,7 @@ const CreateTeam = () => {
                 value={user?.email}
                 id="email"
                 name="email"
-                className="w-full  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-2">
@@ -156,7 +156,7 @@ const CreateTeam = () => {
                 })}
                 id="name1"
                 name="name1"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Name"
               />
               {errors.name1 && (
@@ -178,7 +178,7 @@ const CreateTeam = () => {
                 })}
                 id="email1"
                 name="email1"
-                className="w-full border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Email"
               />
               {errors.email1 && (
@@ -195,7 +195,7 @@ const CreateTeam = () => {
                 })}
                 id="name2"
                 name="name2"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Name"
               />
               {errors.name2 && (
@@ -217,7 +217,7 @@ const CreateTeam = () => {
                 })}
                 id="email2"
                 name="email2"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Email"
               />
               {errors.email2 && (
@@ -234,7 +234,7 @@ const CreateTeam = () => {
                 })}
                 id="name3"
                 name="name3"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Name"
               />
               {errors.name3 && (
@@ -256,7 +256,7 @@ const CreateTeam = () => {
                 })}
                 id="email3"
                 name="email3"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Email"
               />
               {errors.email3 && (
@@ -273,7 +273,7 @@ const CreateTeam = () => {
                 })}
                 id="name4"
                 name="name4"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Name"
               />
               {errors.name4 && (
@@ -295,7 +295,7 @@ const CreateTeam = () => {
                 })}
                 id="email4"
                 name="email4"
-                className="w-full   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
                 placeholder="Email"
               />
               {errors.email4 && (
@@ -308,7 +308,7 @@ const CreateTeam = () => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="description"
-                className="inline-block  text-sm sm:text-base mb-2"
+                className="inline-block  text-sm  mb-2"
               >
                 Description
               </label>
@@ -317,7 +317,7 @@ const CreateTeam = () => {
                 defaultValue="Respectfully About Meeting"
                 id="description"
                 name="description"
-                className="w-full h-40   border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full h-28 border bg-transparent focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               ></textarea>
             </div>
             <div></div>
