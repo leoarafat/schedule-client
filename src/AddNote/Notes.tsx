@@ -13,7 +13,7 @@ const Notes = () => {
   } = useQuery({
     queryKey: ["notes"],
     queryFn: async () => {
-      const res = await fetch("https://scheduplannr-server.vercel.app/notes");
+      const res = await fetch("http://localhost:5000/notes");
       const data = res.json();
       return data;
     },

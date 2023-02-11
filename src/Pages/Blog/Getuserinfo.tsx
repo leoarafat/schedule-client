@@ -3,7 +3,7 @@ import { AuthContext } from '../../components/Contexts/AuthProvider/AuthProvider
 import AddBlog from './AddBlog';
 
 const Getuserinfo = () => {
-    const { user }: any = useContext(AuthContext);
+  const { user }: any = useContext(AuthContext);
 
   const [userInfo, setData] = useState([]);
 
@@ -11,7 +11,7 @@ const Getuserinfo = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+          `http://localhost:5000/user?email=${user?.email}`
         )
       ).json();
 
@@ -20,13 +20,13 @@ const Getuserinfo = () => {
 
     dataFetch();
   }, [user?.email]);
-    return (
-        <div>
-            {userInfo?.map((singleUser: any) => (
+  return (
+    <div>
+      {userInfo?.map((singleUser: any) => (
         <AddBlog key={singleUser?._id} singleUser={singleUser} />
       ))}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Getuserinfo;

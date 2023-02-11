@@ -12,12 +12,12 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const params = useParams();
   const id = params.id;
-  
+
   const { data: membership = [], refetch } = useQuery({
     queryKey: ["membership"],
     queryFn: async () => {
       const res = await fetch(
-        `https://scheduplannr-server.vercel.app/membership/${id}`
+        `http://localhost:5000/membership/${id}`
       );
       const data = await res.json();
       refetch();
@@ -37,8 +37,8 @@ const Payment = () => {
 
       <div className="my-10">
         <Elements stripe={stripePromise}>
-          <CheckoutForm 
-          membership={membership}/>
+          <CheckoutForm
+            membership={membership} />
         </Elements>
       </div>
     </div>
