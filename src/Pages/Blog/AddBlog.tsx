@@ -59,7 +59,7 @@ const AddBlog = ({ singleUser }: any) => {
         console.log(imgData);
         if (imgData.success) {
           const userData = {
-            name: singleUser.firstName + " " + singleUser.lastName,
+            name: singleUser.name + " " + singleUser.lastName,
             about: singleUser.about,
             email,
             category,
