@@ -53,6 +53,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })

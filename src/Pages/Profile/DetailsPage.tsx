@@ -6,7 +6,6 @@ import Loading from "../../Shared//Loading/Loading";
 interface dataProps {
   name: string;
   email: string;
-  // firstName: string;
   lastName: string;
   currentAddress: string;
   permanentAddress: string;
@@ -33,7 +32,6 @@ const DetailsPage = ({ singleUser }: any) => {
     saveToDatabase(
       data.name,
       data.email,
-      // data.firstName,
       data.lastName,
       data.currentAddress,
       data.permanentAddress,
@@ -49,7 +47,6 @@ const DetailsPage = ({ singleUser }: any) => {
   const saveToDatabase = (
     name: string,
     email: string,
-    // firstName: string,
     lastName: string,
     currentAddress: string,
     permanentAddress: string,
@@ -75,7 +72,6 @@ const DetailsPage = ({ singleUser }: any) => {
           const userData = {
             name,
             email,
-            // firstName,
             lastName,
             currentAddress,
             permanentAddress,
@@ -89,7 +85,6 @@ const DetailsPage = ({ singleUser }: any) => {
 
           fetch(`https://scheduplannr-server.vercel.app/users/${email}`, {
             method: "PATCH",
-
             headers: {
               "content-type": "application/json",
               authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -62,12 +62,13 @@ const MySchedule = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
-          {
-            method: "DELETE",
+        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
+          method: "DELETE",
+          headers:{
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
           }
-        )
+        })
+
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

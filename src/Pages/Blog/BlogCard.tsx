@@ -14,6 +14,9 @@ const BlogCard = ({ allBlogs, refetch }: any) => {
       if (result.isConfirmed) {
         fetch(`https://scheduplannr-server.vercel.app/blogs/${_id}`, {
           method: "DELETE",
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         })
           .then((res) => res.json())
           .then((data) => {
