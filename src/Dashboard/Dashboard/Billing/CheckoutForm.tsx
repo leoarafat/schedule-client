@@ -13,7 +13,7 @@ const CheckoutForm = ({ membership }: any) => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
         )
       ).json();
       setData(data);
@@ -32,7 +32,7 @@ const CheckoutForm = ({ membership }: any) => {
   const { cost, status } = membership;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://scheduplannr-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

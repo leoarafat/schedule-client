@@ -13,14 +13,14 @@ const Notes = () => {
   } = useQuery({
     queryKey: ["notes"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/notes");
+      const res = await fetch("https://scheduplannr-server.vercel.app/notes");
       const data = res.json();
       return data;
     },
   });
 
   const handleDelete = (id: any) => {
-    fetch(`http://localhost:5000/notes/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/notes/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const Notes = () => {
   // const { data: note }: any = useQuery({
   //   queryKey: ['note'],
   //   queryFn: async () => {
-  //     const res = await fetch(`http://localhost:5000/notes/${note._id}`);
+  //     const res = await fetch(`https://scheduplannr-server.vercel.app/notes/${note._id}`);
   //     const data = res.json();
   //     return data;
   //   }
@@ -45,7 +45,7 @@ const Notes = () => {
 
   // const [bd, setBd] = useState<any>(null);
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/notes/${notes.id}`)
+  //   fetch(`https://scheduplannr-server.vercel.app/notes/${notes.id}`)
   //     .then(res => res.json())
   //     .then(data => console.log(data));
   // }, []);

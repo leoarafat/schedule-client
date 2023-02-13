@@ -25,7 +25,7 @@ const AllUserTables: React.FC = () => {
   const { data: userInfo = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("https://scheduplannr-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
@@ -98,7 +98,7 @@ const AllUserTables: React.FC = () => {
   ];
 
   const handleAdmin = (id: string) => {
-    fetch(`http://localhost:5000/user/admin/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -114,7 +114,7 @@ const AllUserTables: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/user/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

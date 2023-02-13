@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 
 const Blog = () => {
   const { data, isLoading, refetch } = useQuery("blogs", () =>
-    axios(`http://localhost:5000/blogs`)
+    axios(`https://scheduplannr-server.vercel.app/blogs`)
   );
   console.log(data);
 

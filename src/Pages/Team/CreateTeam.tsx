@@ -71,7 +71,7 @@ const CreateTeam = () => {
       email4,
       description,
     };
-    fetch(`http://localhost:5000/team`, {
+    fetch(`https://scheduplannr-server.vercel.app/team`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

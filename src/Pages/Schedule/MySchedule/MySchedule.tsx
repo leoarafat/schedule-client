@@ -28,7 +28,7 @@ const MySchedule = () => {
   //   queryKey: ["mySchedule", user?.email],
   //   queryFn: async () => {
   //     const res = await fetch(
-  //       `http://localhost:5000/mySchedule?email=${user?.email}`
+  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
   //     );
   //     const data = res.json();
   //     return data;
@@ -41,7 +41,9 @@ const MySchedule = () => {
     refetch,
   } = useQuery(["mySchedule"], () => {
     return axios
-      .get(`http://localhost:5000/mySchedule?email=${user?.email}`)
+      .get(
+        `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+      )
       .then((res) => res.data);
   });
 
@@ -60,9 +62,12 @@ const MySchedule = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

@@ -12,7 +12,7 @@ const BlogCard = ({ allBlogs, refetch }: any) => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/blogs/${_id}`, {
+        fetch(`https://scheduplannr-server.vercel.app/blogs/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

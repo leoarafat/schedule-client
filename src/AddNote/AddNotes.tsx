@@ -14,7 +14,7 @@ const AddNotes = () => {
       note: data.note,
     };
 
-    fetch("http://localhost:5000/notes", {
+    fetch("https://scheduplannr-server.vercel.app/notes", {
       method: "POST",
       headers: {
         "content-type": "application/json",
