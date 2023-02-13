@@ -59,9 +59,7 @@ const SinglePost = () => {
             </div>
             <div className="flex-1 flex flex-col justify-center md:justify-start">
               <p className="font-semibold text-2xl">{blogs?.name}</p>
-              <p className="pt-2">
-                {blogs?.about}
-              </p>
+              <p className="pt-2">{blogs?.about}</p>
             </div>
           </div>
         </section>

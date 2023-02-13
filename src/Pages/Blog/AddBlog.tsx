@@ -14,9 +14,8 @@ interface dataProps {
   description: string;
   photoURL: any;
 }
-const AddBlog = ({singleUser}:any) => {
+const AddBlog = ({ singleUser }: any) => {
   const { user }: any = useContext(AuthContext);
-
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -35,8 +34,7 @@ const AddBlog = ({singleUser}:any) => {
       data.postDate,
       data.image,
       data.title,
-      data.description,
-      
+      data.description
     );
   };
 
@@ -61,7 +59,7 @@ const AddBlog = ({singleUser}:any) => {
         console.log(imgData);
         if (imgData.success) {
           const userData = {
-            name: singleUser.firstName +' '+ singleUser.lastName,
+            name: singleUser.firstName + " " + singleUser.lastName,
             about: singleUser.about,
             email,
             category,
@@ -76,6 +74,7 @@ const AddBlog = ({singleUser}:any) => {
             method: "POST",
             headers: {
               "content-type": "application/json",
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(userData),
           })

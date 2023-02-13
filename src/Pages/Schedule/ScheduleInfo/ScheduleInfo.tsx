@@ -16,9 +16,8 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
-
-  const { user }: any = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user }: any = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -50,20 +49,21 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       slotPm,
     };
 
-    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
+    fetch("http://localhost:5000/createSchedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Schedule Created Successfully")
+          toast.success("Schedule Created Successfully");
           navigate("/dashboard/mySchedule");
         } else {
-          toast.error("Schedule Created Failed")
+          toast.error("Schedule Created Failed");
         }
       })
       .catch((error) => console.error(error));

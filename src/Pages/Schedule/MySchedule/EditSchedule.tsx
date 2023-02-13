@@ -55,6 +55,7 @@ const EditSchedule = ({
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })
@@ -259,8 +260,12 @@ const EditSchedule = ({
                 <option className="text-xl bg-transparent">Google Meet</option>
                 <option className="text-xl bg-transparent">Skype</option>
                 <option className="text-xl bg-transparent">Zoom</option>
-                <option className="text-xl bg-transparent">Microsoft Team</option>
-                <option className="text-xl bg-transparent">Google Hangouts</option>
+                <option className="text-xl bg-transparent">
+                  Microsoft Team
+                </option>
+                <option className="text-xl bg-transparent">
+                  Google Hangouts
+                </option>
                 <option className="text-xl bg-transparent">WhatsApp</option>
               </select>
               {errors.location && (

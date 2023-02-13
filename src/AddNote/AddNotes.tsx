@@ -18,13 +18,14 @@ const AddNotes = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(addNotes),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success('Saved your note!')
+          toast.success("Saved your note!");
           reset();
         } else {
           alert(data.message);
@@ -34,12 +35,8 @@ const AddNotes = () => {
   };
 
   return (
-
     <div className="mb-5 rounded-2xl">
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="  border-gray-500 py-5 lg:px-16 px-5 text-2xl text-primary font-bold">
         <h2 className="mb-5 font-semibold lg:text-3xl text-2xl">
           Take your note

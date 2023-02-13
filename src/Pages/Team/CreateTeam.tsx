@@ -19,8 +19,7 @@ interface dataProps {
 }
 
 const CreateTeam = () => {
-
-  const { user }: any = useContext(AuthContext)
+  const { user }: any = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -70,12 +69,13 @@ const CreateTeam = () => {
       email3,
       name4,
       email4,
-      description
+      description,
     };
     fetch(`http://localhost:5000/team`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(TeamData),
     })
@@ -100,10 +100,7 @@ const CreateTeam = () => {
             className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
           >
             <div>
-              <label
-                htmlFor="name"
-                className="inline-block text-sm mb-2"
-              >
+              <label htmlFor="name" className="inline-block text-sm mb-2">
                 Team Name
               </label>
               <input
@@ -122,10 +119,7 @@ const CreateTeam = () => {
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="inline-block  text-sm  mb-2"
-              >
+              <label htmlFor="email" className="inline-block  text-sm  mb-2">
                 Email
               </label>
               <input

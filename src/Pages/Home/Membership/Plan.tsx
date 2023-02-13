@@ -17,7 +17,7 @@ const Plans = () => {
   const { data, isLoading, refetch } = useQuery("blogs", () =>
     axios(`http://localhost:5000/membership`)
   );
-  console.log(data)
+  console.log(data);
   return (
     <div>
       <div className="">
@@ -28,11 +28,9 @@ const Plans = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
             {data?.data?.map((plan: any) => (
               <PricingCard plan={plan} key={plan._id}></PricingCard>
             ))}
-
           </div>
         </div>
 
