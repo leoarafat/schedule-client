@@ -1,13 +1,13 @@
-import React from "react";
-import { BsFillCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-const Zoom = () => {
-  return (
-    <div className="">
-      <div className="flex justify-center">
+const Meet = () => {
+    return (
+        <div>
+            <div className="flex justify-center">
         <img
-          src="https://i.ibb.co/tpr2dTK/Zoom-Integration-Desktop.png"
+          src="https://i.ibb.co/QrcWDhM/meet-Integration-Desktop.png"
           alt=""
           width={"640px"}
         />
@@ -26,7 +26,7 @@ const Zoom = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Connect securely to your Zoom account</p>
+              <p>Connect securely to your Google Meet account</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -34,7 +34,7 @@ const Zoom = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Automatically schedule private Zoom sessions</p>
+              <p>Automatically schedule private Google Meet sessions</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -50,7 +50,7 @@ const Zoom = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Configure your Zoom settings from ScheduPlannr</p>
+              <p>Configure your Google Meet settings from ScheduPlannr</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -81,19 +81,18 @@ const Zoom = () => {
             <div className="relative h-64 rounded-lg sm:h-80 lg:order-last lg:h-full flex justify-center">
               <img
                 alt="Party"
-                src="https://www.howtogeek.com/wp-content/uploads/2020/03/Zoom-logo-on-a-smartphone-with-a-video-call-in-the-background.jpeg?height=200p&trim=2,2,2,2"
+                src="https://imgs.hipertextual.com/wp-content/uploads/2022/08/Google-Meet.jpg"
                 className="w-full rounded-2xl"
               />
             </div>
 
             <div className="lg:py-24">
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Create Zoom video calls from smart forms
+                Create Google Meet video calls from smart forms
               </h2>
-
               <p className="mt-4">
                 Create a smart form that automates your lead qualification for
-                Zoom meetings.
+                Google Meet meetings.
               </p>
               <p className="mt-4">
                 Use conditional routing to personalize the qualification
@@ -169,8 +168,8 @@ const Zoom = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default Zoom;
+export default Meet;

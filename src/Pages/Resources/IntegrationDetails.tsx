@@ -83,7 +83,7 @@ const IntegrationDetails = () => {
               </p>
 
               <Link
-                to={'/'}
+                to={'/meet'}
                 className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
               >
                 Find out more

@@ -32,6 +32,7 @@ import Availability from "../../Pages/Availability/Availability";
 import Resources from "../../Pages/Resources/Resources";
 import IntegrationDetails from "../../Pages/Resources/IntegrationDetails";
 import Zoom from "../../Pages/Resources/Zoom";
+import Meet from "../../Pages/Resources/Meet";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
       {
         path: "/zoom",
         element: <Zoom/>
+      },
+      {
+        path: "/meet",
+        element: <Meet/>
       },
       {
         path: "blogs/blogPost/:id",
