@@ -1,102 +1,105 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 
-interface dataProps {
+type UserSubmitForm = {
   name: string;
   email: string;
-  description: string;
   name1: string;
-  email1: string;
   name2: string;
-  email2: string;
   name3: string;
-  email3: string;
   name4: string;
+  email1: string;
+  email2: string;
+  email3: string;
   email4: string;
-}
+  description: string;
+  _id: Number;
+};
 
-const CreateTeam = () => {
-  const { user }: any = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
+const UpdateTeam = ({
+  name,
+  name1,
+  name2,
+  name3,
+  name4,
+  email,
+  email1,
+  email2,
+  email3,
+  email4,
+  description,
+  _id,
+  refetch,
+}: any) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<dataProps>();
+  } = useForm<UserSubmitForm>();
 
-  const handleAdd = (data: dataProps) => {
-    saveToDatabase(
-      data.name,
-      data.email,
-      data.name1,
-      data.email1,
-      data.name2,
-      data.email2,
-      data.name3,
-      data.email3,
-      data.name4,
-      data.email4,
-      data.description
-    );
-  };
+    const handleEdit = (data: UserSubmitForm) => {
+        const name = data.name;
+        const email = data.email;
+        const name1 = data.name1;
+        const name2 = data.name2;
+        const name3 = data.name3;
+        const name4 = data.name4;
+        const email1 = data.email1;
+        const email2 = data.email2;
+        const email3 = data.email3;
+        const email4 = data.email4;
+        const description = data.description;
 
-  const saveToDatabase = (
-    name: string,
-    email: string,
-    name1: string,
-    email1: string,
-    name2: string,
-    email2: string,
-    name3: string,
-    email3: string,
-    name4: string,
-    email4: string,
-    description: string
-  ) => {
-    const TeamData = {
-      name,
-      email,
-      name1,
-      email1,
-      name2,
-      email2,
-      name3,
-      email3,
-      name4,
-      email4,
-      description,
-    };
-    fetch(`https://scheduplannr-server.vercel.app/team`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(TeamData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        navigate("/dashboard/team");
-        toast.success("Team Created Successful");
-      });
+        const info = {
+            name,
+            email,
+            name1,
+            email1,
+            name2,
+            email2,
+            name3,
+            email3,
+            name4,
+            email4,
+            description
+        };
+
+        fetch(`http://localhost:5000/team/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(info),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.acknowledged) {
+                    console.log(data);
+                    refetch();
+                    toast.success("Team Updated Successfully");
+                }
+            });
+
   };
 
   return (
     <>
-      <div className="my-10 pl-10">
-        <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <label htmlFor="my-modal-3" className="modal">
+        <label htmlFor="" className="modal-box w-11/12 max-w-5xl">
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-md btn-circle absolute right-4 top-4"
+          >
+            ✕
+          </label>
           <h1 className="text-center text-4xl py-10 font-semibold">
-            Create Your <span className="text-primary">Team/Organization</span>
+            Update Your <span className="text-primary">Team/Organization</span>
           </h1>
 
           <form
-            onSubmit={handleSubmit(handleAdd)}
+            onSubmit={handleSubmit(handleEdit)}
             className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
           >
             <div>
@@ -107,6 +110,7 @@ const CreateTeam = () => {
                 {...register("name", {
                   required: "Name is Required",
                 })}
+                defaultValue={name}
                 id="name"
                 name="name"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -130,7 +134,7 @@ const CreateTeam = () => {
                     message: "Invalid Email Address",
                   },
                 })}
-                value={user?.email}
+                defaultValue={email}
                 id="email"
                 name="email"
                 className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -148,6 +152,7 @@ const CreateTeam = () => {
                 {...register("name1", {
                   required: "Name is Required",
                 })}
+                defaultValue={name1}
                 id="name1"
                 name="name1"
                 className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -170,6 +175,7 @@ const CreateTeam = () => {
                     message: "Invalid Email Address",
                   },
                 })}
+                defaultValue={email1}
                 id="email1"
                 name="email1"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -187,6 +193,7 @@ const CreateTeam = () => {
                 {...register("name2", {
                   required: "Name is Required",
                 })}
+                defaultValue={name2}
                 id="name2"
                 name="name2"
                 className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -209,6 +216,7 @@ const CreateTeam = () => {
                     message: "Invalid Email Address",
                   },
                 })}
+                defaultValue={email2}
                 id="email2"
                 name="email2"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -226,6 +234,7 @@ const CreateTeam = () => {
                 {...register("name3", {
                   required: "Name is Required",
                 })}
+                defaultValue={name3}
                 id="name3"
                 name="name3"
                 className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -248,6 +257,7 @@ const CreateTeam = () => {
                     message: "Invalid Email Address",
                   },
                 })}
+                defaultValue={email3}
                 id="email3"
                 name="email3"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -265,6 +275,7 @@ const CreateTeam = () => {
                 {...register("name4", {
                   required: "Name is Required",
                 })}
+                defaultValue={name4}
                 id="name4"
                 name="name4"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -287,6 +298,7 @@ const CreateTeam = () => {
                     message: "Invalid Email Address",
                   },
                 })}
+                defaultValue={email4}
                 id="email4"
                 name="email4"
                 className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -308,7 +320,7 @@ const CreateTeam = () => {
               </label>
               <textarea
                 {...register("description")}
-                defaultValue="Respectfully About Meeting"
+                defaultValue={description}
                 id="description"
                 name="description"
                 className="w-full h-28 border bg-transparent focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -320,14 +332,14 @@ const CreateTeam = () => {
                 type="submit"
                 className="bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus-visible:ring ring-sky-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
               >
-                Create Team
+                Update Team
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </label>
+      </label>
     </>
   );
 };
 
-export default CreateTeam;
+export default UpdateTeam;

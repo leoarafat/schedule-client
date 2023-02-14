@@ -22,6 +22,9 @@ const Notes = () => {
   const handleDelete = (id: any) => {
     fetch(`https://scheduplannr-server.vercel.app/notes/${id}`, {
       method: "DELETE",
+      headers:{
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      }
     })
       .then((res) => res.json())
       .then((data) => {

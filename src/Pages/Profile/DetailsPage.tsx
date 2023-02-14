@@ -6,7 +6,6 @@ import Loading from "../../Shared//Loading/Loading";
 interface dataProps {
   name: string;
   email: string;
-  firstName: string;
   lastName: string;
   currentAddress: string;
   permanentAddress: string;
@@ -18,7 +17,7 @@ interface dataProps {
   about: string;
 }
 const DetailsPage = ({ singleUser }: any) => {
-  const { _id, email } = singleUser;
+  const { email } = singleUser;
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const {
@@ -33,7 +32,6 @@ const DetailsPage = ({ singleUser }: any) => {
     saveToDatabase(
       data.name,
       data.email,
-      data.firstName,
       data.lastName,
       data.currentAddress,
       data.permanentAddress,
@@ -49,7 +47,6 @@ const DetailsPage = ({ singleUser }: any) => {
   const saveToDatabase = (
     name: string,
     email: string,
-    firstName: string,
     lastName: string,
     currentAddress: string,
     permanentAddress: string,
@@ -75,7 +72,6 @@ const DetailsPage = ({ singleUser }: any) => {
           const userData = {
             name,
             email,
-            firstName,
             lastName,
             currentAddress,
             permanentAddress,
@@ -87,10 +83,11 @@ const DetailsPage = ({ singleUser }: any) => {
             about,
           };
 
-          fetch(`https://scheduplannr-server.vercel.app/user/${_id}`, {
-            method: "PUT",
+          fetch(`http://localhost:5000/user/${email}`, {
+            method: "PATCH",
             headers: {
               "content-type": "application/json",
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(userData),
           })
@@ -122,19 +119,18 @@ const DetailsPage = ({ singleUser }: any) => {
             className="max-w-screen-md grid sm:grid-cols-2 gap-8 mx-auto"
           >
             <div>
-              <label htmlFor="firstName">First Name</label>
+              <label htmlFor="name">First Name</label>
               <input
-                {...register("firstName", {
-                  required: "First name is Required",
+                {...register("name", {
+                  required: "Name is Required",
                 })}
-                id="firstName"
-                name="firstName"
+                id="name"
+                name="name"
                 className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
-                placeholder="First Name"
               />
-              {errors.firstName && (
+              {errors.name && (
                 <p className="text-sm text-red-600 mt-2">
-                  {errors.firstName.message}
+                  {errors.name.message}
                 </p>
               )}
             </div>

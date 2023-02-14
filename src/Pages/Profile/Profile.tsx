@@ -7,12 +7,12 @@ import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider
 const Profile = () => {
   const { user }: any = useContext(AuthContext);
   const [userInfo, setData] = useState([]);
-  console.log(userInfo);
+  // console.log(userInfo);
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
+          `http://localhost:5000/user?email=${user?.email}`
         )
       ).json();
       setData(data);
@@ -20,12 +20,12 @@ const Profile = () => {
 
     dataFetch();
   }, [user?.email]);
-  // console.log(user);
+  console.log(userInfo);
   return (
     <>
       {userInfo?.map((usr: any) => {
         const {
-          firstName,
+          name,
           lastName,
           currentAddress,
           permanentAddress,
@@ -34,7 +34,7 @@ const Profile = () => {
           birthDate,
           image,
           profession,
-          about
+          about,
         } = usr;
         return (
           <div className="pl-0 md:pl-40 lg:pl-0">
@@ -60,7 +60,7 @@ const Profile = () => {
                       )}
                     </div>
                     <h1 className=" font-bold text-xl leading-8 my-1 text-center md:text-left">
-                      {firstName} {lastName}
+                      {name} {lastName}
                     </h1>
                     <h3 className=" font-lg text-semibold leading-6 text-bold text-center md:text-left">
                       {profession}
@@ -70,13 +70,13 @@ const Profile = () => {
                     </p>
 
                     <div className="flex justify-center">
-                    <Link
-                      className="btn btn-primary text-white font-thin gap-1"
-                      to="/dashboard/updateProfile"
-                    >
-                      <FaRegEdit className="h-6 w-6" />
-                      <span>Edit Profile</span>
-                    </Link>
+                      <Link
+                        className="btn btn-primary text-white font-thin gap-1"
+                        to="/dashboard/updateProfile"
+                      >
+                        <FaRegEdit className="h-6 w-6" />
+                        <span>Edit Profile</span>
+                      </Link>
                     </div>
                   </div>
                   <div className="my-4"></div>
@@ -109,7 +109,7 @@ const Profile = () => {
                           <div className="px-4 py-2 font-semibold">
                             First Name
                           </div>
-                          <div className="px-4 py-2">{firstName}</div>
+                          <div className="px-4 py-2">{name}</div>
                         </div>
                         <div className="grid grid-cols-2">
                           <div className="px-4 py-2 font-semibold">
@@ -190,7 +190,6 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         );
       })}

@@ -36,6 +36,7 @@ const CheckoutForm = ({ membership }: any) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ cost }),
     })

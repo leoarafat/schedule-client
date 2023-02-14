@@ -55,6 +55,7 @@ const EditSchedule = ({
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })
@@ -71,8 +72,8 @@ const EditSchedule = ({
   return (
     <>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+      <label htmlFor="my-modal-3" className="modal">
+        <label htmlFor="" className="modal-box w-11/12 max-w-5xl">
           <label
             htmlFor="my-modal-3"
             className="btn btn-md btn-circle absolute right-4 top-4"
@@ -259,8 +260,12 @@ const EditSchedule = ({
                 <option className="text-xl bg-transparent">Google Meet</option>
                 <option className="text-xl bg-transparent">Skype</option>
                 <option className="text-xl bg-transparent">Zoom</option>
-                <option className="text-xl bg-transparent">Microsoft Team</option>
-                <option className="text-xl bg-transparent">Google Hangouts</option>
+                <option className="text-xl bg-transparent">
+                  Microsoft Team
+                </option>
+                <option className="text-xl bg-transparent">
+                  Google Hangouts
+                </option>
                 <option className="text-xl bg-transparent">WhatsApp</option>
               </select>
               {errors.location && (
@@ -318,8 +323,8 @@ const EditSchedule = ({
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </label>
+      </label>
     </>
   );
 };

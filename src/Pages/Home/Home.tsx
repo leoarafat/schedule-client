@@ -9,7 +9,7 @@ import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {
   return (
-    <div className="max-w-[1400px] mx-auto">
+    <div className="max-w-[1400px] mx-auto overflow-hidden">
       <Header></Header>
       <Services></Services>
       <Details></Details>

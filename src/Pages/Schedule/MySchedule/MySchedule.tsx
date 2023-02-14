@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import {
@@ -18,19 +19,32 @@ import EditSchedule from "./EditSchedule";
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
 
+  // const {
+  //   data: mySchedule = [],
+  //   isLoading,
+  //   refetch,
+  // } = useQuery({
+
+  //   queryKey: ["mySchedule", user?.email],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+  //     );
+  //     const data = res.json();
+  //     return data;
+  //   },
+  // });
+
   const {
-    data: mySchedule = [],
+    data: mySchedule,
     isLoading,
     refetch,
-  } = useQuery({
-    queryKey: ["mySchedule", user?.email],
-    queryFn: async () => {
-      const res = await fetch(
+  } = useQuery(["mySchedule"], () => {
+    return axios
+      .get(
         `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
-      );
-      const data = res.json();
-      return data;
-    },
+      )
+      .then((res) => res.data);
   });
 
   if (isLoading) {
@@ -48,12 +62,13 @@ const MySchedule = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
-          {
-            method: "DELETE",
+        fetch(`http://localhost:5000/createSchedule/${e._id}`, {
+          method: "DELETE",
+          headers:{
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
           }
-        )
+        })
+
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -115,7 +130,7 @@ const MySchedule = () => {
                   <button className="flex items-center">
                     <label
                       htmlFor="my-modal-3"
-                      className="tooltip  hover:text-black cursor-pointer"
+                      className="tooltip hover:text-black cursor-pointer"
                       data-tip="Edit"
                     >
                       <AiOutlineEdit size={"2rem"} />
@@ -124,21 +139,15 @@ const MySchedule = () => {
 
                   <button
                     onClick={() => handleDelete(e)}
-                    className="tooltip  hover:text-black"
+                    className="tooltip hover:text-black"
                     data-tip="Delete"
                   >
                     <AiOutlineDelete size={"2rem"} />
                   </button>
-                  <button
-                    className="tooltip  hover:text-black"
-                    data-tip="Share"
-                  >
+                  <button className="tooltip hover:text-black" data-tip="Share">
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <button
-                    className="tooltip  hover:text-black"
-                    data-tip="Copy"
-                  >
+                  <button className="tooltip hover:text-black" data-tip="Copy">
                     <AiOutlineCopy size={"2rem"} />
                   </button>
                 </div>
@@ -146,9 +155,7 @@ const MySchedule = () => {
                   <h1 className="text-2xl">{title}</h1>
                   <div className="flex flex-col gap-2">
                     <p className="">Host name: {name}</p>
-                    <p className="">
-                      Organization: {organization}
-                    </p>
+                    <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
                     <p className="">Meeting time: {slot}</p>
                   </div>
@@ -158,6 +165,7 @@ const MySchedule = () => {
                     className="text-primary underline"
                     href={link}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     /Schedule Link
                   </a>

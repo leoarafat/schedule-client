@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../components/Contexts/AuthProvider/AuthProvider';
-import AddBlog from './AddBlog';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import AddBlog from "./AddBlog";
 
 const Getuserinfo = () => {
-    const { user }: any = useContext(AuthContext);
+  const { user }: any = useContext(AuthContext);
 
   const [userInfo, setData] = useState([]);
 
@@ -20,13 +20,13 @@ const Getuserinfo = () => {
 
     dataFetch();
   }, [user?.email]);
-    return (
-        <div>
-            {userInfo?.map((singleUser: any) => (
+  return (
+    <div>
+      {userInfo?.map((singleUser: any) => (
         <AddBlog key={singleUser?._id} singleUser={singleUser} />
       ))}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Getuserinfo;

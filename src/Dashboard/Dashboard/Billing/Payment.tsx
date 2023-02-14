@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const params = useParams();
   const id = params.id;
-  
+
   const { data: membership = [], refetch } = useQuery({
     queryKey: ["membership"],
     queryFn: async () => {
@@ -37,8 +37,7 @@ const Payment = () => {
 
       <div className="my-10">
         <Elements stripe={stripePromise}>
-          <CheckoutForm 
-          membership={membership}/>
+          <CheckoutForm membership={membership} />
         </Elements>
       </div>
     </div>
