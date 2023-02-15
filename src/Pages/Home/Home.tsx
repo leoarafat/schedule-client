@@ -5,6 +5,7 @@ import Header from "./Header/Header";
 import Membership from "./Membership/Membership";
 import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
+import Shortend from "./Shortend/Shortend";
 import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Services></Services>
       <Details></Details>
       <Membership></Membership>
+      <Shortend/>
       <Sponsorship></Sponsorship>
       <Reviews></Reviews>
       <Contact></Contact>

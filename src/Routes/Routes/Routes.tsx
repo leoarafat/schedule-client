@@ -29,6 +29,11 @@ import Getuserinfo from "../../Pages/Blog/Getuserinfo";
 import InputBox from "../../Pages/videoChat/InputBox";
 import Room from "../../Pages/videoChat/Room";
 import Availability from "../../Pages/Availability/Availability";
+import Resources from "../../Pages/Resources/Resources";
+import IntegrationDetails from "../../Pages/Resources/IntegrationDetails";
+import Zoom from "../../Pages/Resources/Zoom";
+import Meet from "../../Pages/Resources/Meet";
+import MsTeam from "../../Pages/Resources/MsTeam";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +61,26 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/resources",
+        element: <Resources/>
+      },
+      {
+        path: "/integrationDetails",
+        element: <IntegrationDetails/>
+      },
+      {
+        path: "/zoom",
+        element: <Zoom/>
+      },
+      {
+        path: "/meet",
+        element: <Meet/>
+      },
+      {
+        path: "/msTeam",
+        element: <MsTeam/>
       },
       {
         path: "blogs/blogPost/:id",
