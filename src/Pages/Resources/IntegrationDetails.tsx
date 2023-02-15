@@ -7,7 +7,13 @@ const IntegrationDetails = () => {
       <section className="overflow-hidden flex justify-between items-center">
         <div className="mx-auto max-w-xl text-center sm:text-left w-1/2">
           <h2 className="text-2xl font-bold  md:text-3xl">
-            Video conferencing, calendars, CRMs and more...
+            Video conferencing{" "}
+            <span className="text-base font-normal">
+              is a type of virtual, online meeting where two or more people talk
+              through a video and audio call in real-time. Video conferencing
+              has been around for years, but it skyrocketed in popularity as
+              school and work shifted into the home during the 2020 pandemic.
+            </span>
           </h2>
         </div>
 
@@ -21,7 +27,7 @@ const IntegrationDetails = () => {
       </section>
       <section>
         <div>
-          <h1>Native integrations</h1>
+          <h1 className="text-2xl">Native integrations</h1>
         </div>
         <h1 className="text-center text-4xl">Video conferencing</h1>
 
@@ -48,7 +54,7 @@ const IntegrationDetails = () => {
               </p>
 
               <Link
-                to={'/zoom'}
+                to={"/zoom"}
                 className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
               >
                 Find out more
@@ -83,7 +89,7 @@ const IntegrationDetails = () => {
               </p>
 
               <Link
-                to={'/meet'}
+                to={"/meet"}
                 className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
               >
                 Find out more
@@ -113,12 +119,12 @@ const IntegrationDetails = () => {
               </div>
 
               <p className="mt-2 text-sm leading-relaxed  line-clamp-3">
-                Automatically include secure Microsoft Team meeting links in your
-                scheduling activity.
+                Automatically include secure Microsoft Team meeting links in
+                your scheduling activity.
               </p>
 
               <Link
-                to={'/'}
+                to={"/msTeam"}
                 className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
               >
                 Find out more
@@ -133,6 +139,15 @@ const IntegrationDetails = () => {
           </div>
         </div>
       </section>
+      <div className="flex justify-center">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/XC_D4jBpdaY"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 };

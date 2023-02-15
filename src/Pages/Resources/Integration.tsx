@@ -154,7 +154,7 @@ const Integration = () => {
                 <img
                   src="https://i.ibb.co/GPR0PYQ/MJB-Automate-tasks.png"
                   className="relative w-full lg:pr-14"
-                  alt="wath illustration"
+                  alt=""
                   loading="lazy"
                   data-aos="flip-down"
                 />
@@ -163,6 +163,8 @@ const Integration = () => {
           </div>
         </div>
       </div>
+
+      
     </div>
   );
 };

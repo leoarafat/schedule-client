@@ -2,12 +2,12 @@ import React from "react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Meet = () => {
+const MsTeam = () => {
   return (
     <div>
       <div className="flex justify-center">
         <img
-          src="https://i.ibb.co/QrcWDhM/meet-Integration-Desktop.png"
+          src="https://i.ibb.co/SBxG8KX/ms-Integration-Desktop.png"
           alt=""
           width={"640px"}
         />
@@ -26,7 +26,7 @@ const Meet = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Connect securely to your Google Meet account</p>
+              <p>Connect securely to your Microsoft Team account</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -34,7 +34,7 @@ const Meet = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Automatically schedule private Google Meet sessions</p>
+              <p>Automatically schedule private Microsoft Team sessions</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -50,7 +50,7 @@ const Meet = () => {
               <BsFillCheckCircleFill />
             </div>{" "}
             <div>
-              <p>Configure your Google Meet settings from ScheduPlannr</p>
+              <p>Configure your Microsoft Team settings from ScheduPlannr</p>
             </div>
           </div>
           <div className="flex items-center gap-10 mt-5">
@@ -81,18 +81,18 @@ const Meet = () => {
             <div className="relative h-64 rounded-lg sm:h-80 lg:order-last lg:h-full flex justify-center">
               <img
                 alt="Party"
-                src="https://imgs.hipertextual.com/wp-content/uploads/2022/08/Google-Meet.jpg"
+                src="https://insights.perspicuity.co.uk/hubfs/Insights%20Assets/A_Blog%20Header%20Images/MSTeams-Meetings-Insight.jpg"
                 className="w-full rounded-2xl"
               />
             </div>
 
             <div className="lg:py-24">
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Create Google Meet video calls from smart forms
+                Create Microsoft Team video calls from smart forms
               </h2>
               <p className="mt-4">
                 Create a smart form that automates your lead qualification for
-                Google Meet meetings.
+                Microsoft Team meetings.
               </p>
               <p className="mt-4">
                 Use conditional routing to personalize the qualification
@@ -172,4 +172,4 @@ const Meet = () => {
   );
 };
 
-export default Meet;
+export default MsTeam;
