@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
-
 type UserSubmitForm = {
   name: string;
   email: string;
@@ -68,7 +67,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       })
       .catch((error) => console.error(error));
 
-    fetch("https://scheduplannr-server.vercel.app/scheduleCreate", {
+    fetch("http://localhost:5000/scheduleCreate", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,16 +78,11 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          console.log(data.acknowledged);
-          // toast.success("Schedule Created Successfully");
-          // navigate("/dashboard/mySchedule");
         } else {
-          // toast.error("Schedule Created Failed");
         }
       })
       .catch((error) => console.error(error));
   };
-
   return (
     <>
       <div className="py-12">
