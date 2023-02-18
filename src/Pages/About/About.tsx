@@ -116,6 +116,52 @@ const About = () => {
         </h1>
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-28 w-full lg:mx-12 mx-7">
+          {/* Yeasin Arafat */}
+          <div className="cardbox">
+            <div className="imgbox">
+              <img
+                src="https://i.ibb.co/rQHLSYX/d-removebg-previesw.png"
+                className="rounded-2xl"
+                alt=""
+              />
+            </div>
+            <div className="content">
+              <div className="details">
+                <h2 className="text-2xl font-semibold ">Yeasin Arafat</h2>
+                <h3 className="text-xl font-light">MERN stack Developer</h3>
+                <div className="flex my-5 justify-center">
+                  <a href="https://personal-portfolio-delta-rouge.vercel.app/">
+                    <button className="px-7 text-base btn btn-primary mx-1">
+                      Portfolio
+                    </button>
+                  </a>
+                  <a href="https://drive.google.com/file/d/1-ppm6Rgon4ByQ_7qhQ0WQmKzryLDTTos/view?usp=sharing">
+                    {" "}
+                    <button className="px-6 text-base btn btn-outline btn-primary mx-1">
+                      Resume
+                    </button>
+                  </a>
+                </div>
+                <div className="flex justify-center mt-2">
+                  <a href="https://www.linkedin.com/in/yeasin-arafat10/">
+                    <span className="drop w-12 h-12 rounded-full mx-2">
+                      <FaLinkedinIn className="text-primary" />
+                    </span>
+                  </a>
+
+                  <a href="https://www.facebook.com/profile.php?id=100048894844414">
+                    <span className="drop w-12 h-12 rounded-full mx-2">
+                      <FaFacebookF className="text-primary" />
+                    </span>
+                  </a>
+
+                  <span className="drop w-12 h-12 rounded-full mx-2">
+                    <MdEmail className="text-primary" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
           {/* Asif Ullah Sikder */}
           <div className="cardbox">
             <div className="imgbox">
@@ -329,48 +375,6 @@ const About = () => {
                   </a>
 
                   <a href="https://web.facebook.com/mdmuddasir.hossain.5">
-                    <span className="drop w-12 h-12 rounded-full mx-2">
-                      <FaFacebookF className="text-primary" />
-                    </span>
-                  </a>
-
-                  <span className="drop w-12 h-12 rounded-full mx-2">
-                    <MdEmail className="text-primary" />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Yeasin Arafat */}
-          <div className="cardbox">
-            <div className="imgbox">
-              <img
-                src="https://i.ibb.co/rQHLSYX/d-removebg-previesw.png"
-                className="rounded-2xl"
-                alt=""
-              />
-            </div>
-            <div className="content">
-              <div className="details">
-                <h2 className="text-2xl font-semibold ">Yeasin Arafat</h2>
-                <h3 className="text-xl font-light">Front-end Developer</h3>
-                <div className="flex my-5 justify-center">
-                  <button className="px-7 text-base btn btn-primary mx-1">
-                    Portfolio
-                  </button>
-                  <button className="px-6 text-base btn btn-outline btn-primary mx-1">
-                    Resume
-                  </button>
-                </div>
-                <div className="flex justify-center mt-2">
-                  <a href="https://www.linkedin.com/in/yeasin-arafat10/">
-                    <span className="drop w-12 h-12 rounded-full mx-2">
-                      <FaLinkedinIn className="text-primary" />
-                    </span>
-                  </a>
-
-                  <a href="https://www.facebook.com/profile.php?id=100065181076417">
                     <span className="drop w-12 h-12 rounded-full mx-2">
                       <FaFacebookF className="text-primary" />
                     </span>
