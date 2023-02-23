@@ -4,12 +4,6 @@ import { toast } from "react-hot-toast";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { useQuery } from "react-query";
 
-// interface DataRow {
-// name: string;
-// email: string;
-// role: string;
-// _id: string
-// }
 type DataRow = {
   name: string;
   email: string;

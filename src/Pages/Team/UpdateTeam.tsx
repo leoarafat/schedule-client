@@ -64,7 +64,7 @@ const UpdateTeam = ({
             description
         };
 
-        fetch(`http://localhost:5000/team/${_id}`, {
+        fetch(`https://scheduplannr-server.vercel.app/team/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

@@ -93,7 +93,7 @@ const userPayment = {
       setSuccess("Congrats! your payment completed");
       setTransactionId(paymentIntent.id);
       
-      fetch("http://localhost:5000/paymentMessage", {
+      fetch("https://scheduplannr-server.vercel.app/paymentMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
