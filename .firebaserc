@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "schedu-plannr",
-    "schedule-plannr": "schedule-plannr"
+    "schedule-plannr": "schedule-plannr",
+    "yes": "schedule-plannr"
   },
   "targets": {},
   "etags": {}
