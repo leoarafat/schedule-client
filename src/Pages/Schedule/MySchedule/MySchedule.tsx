@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import {
   AiOutlineCopy,
@@ -18,22 +18,7 @@ import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
-
-  // const {
-  //   data: mySchedule = [],
-  //   isLoading,
-  //   refetch,
-  // } = useQuery({
-
-  //   queryKey: ["mySchedule", user?.email],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
-  //     );
-  //     const data = res.json();
-  //     return data;
-  //   },
-  // });
+  const [isCopied, setIsCopied] = useState(false);
 
   const {
     data: mySchedule,
@@ -62,13 +47,15 @@ const MySchedule = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://scheduplannr-server.vercel.app/createSchedule/${e._id}`, {
-          method: "DELETE",
-          headers:{
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        fetch(
+          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
           }
-        })
-
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -80,7 +67,15 @@ const MySchedule = () => {
     });
   };
 
-  console.log(mySchedule);
+  // console.log(mySchedule);
+
+  const handleCopy = (e: any) => {
+    navigator.clipboard.writeText(e?.link);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 3000);
+  };
 
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
@@ -112,6 +107,7 @@ const MySchedule = () => {
             phone,
             email,
           } = e;
+
           return (
             <div key={_id}>
               <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 rounded-lg shadow-xl">
@@ -147,8 +143,11 @@ const MySchedule = () => {
                   <button className="tooltip hover:text-black" data-tip="Share">
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <button className="tooltip hover:text-black" data-tip="Copy">
+                  {/* <button className="tooltip hover:text-black" data-tip="Copy">
                     <AiOutlineCopy size={"2rem"} />
+                  </button> */}
+                  <button type="submit" onClick={() => handleCopy(e)}>
+                    {isCopied ? "Copied!" : <AiOutlineCopy size={"2rem"} />}
                   </button>
                 </div>
                 <div className="flex flex-col gap-4">
@@ -171,7 +170,10 @@ const MySchedule = () => {
                   </a>
                   <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
                     <FiCopy size={"1rem"} />
-                    <span>Copy Link</span>
+
+                    <button type="submit" onClick={() => handleCopy(e)}>
+                      {isCopied ? "Copied!" : "Copy"}
+                    </button>
                   </div>
                 </div>
               </div>
