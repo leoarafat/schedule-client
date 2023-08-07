@@ -1,47 +1,72 @@
-# Getting Started with Create React App
+## Live Url: https://schedule-plannr.web.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## SchedulePlannr - Efficient Meeting Scheduling and Collaboration Platform
+SchedulePlannr is an advanced meeting scheduling and collaboration platform designed to streamline the process of organizing and managing meetings with ease. With its user-friendly interface and a range of powerful features, SchedulePlannr empowers users to create and coordinate schedules effortlessly, ensuring efficient utilization of time and resources.
 
-In the project directory, you can run:
+## Features and Functionality:
+1. Intuitive Scheduling Interface:
 
-### `npm start`
+* The ScheduleMaster platform provides a seamless user experience, accessible through the Navbar.
+* Users can effortlessly create meeting schedules at specific times, choosing from three types of time slots: 15 minutes, 30 minutes, and 60 minutes.
+2. Customizable Meeting Details:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Users can input their name, organization name, schedule title, and meeting link when creating a schedule.
+* Personalized scheduling enhances clarity and professionalism in communication.
+3. Date and Time Selection:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Users can easily set the start date and time for their schedules, ensuring optimal planning and coordination for upcoming meetings.
+4. Email Confirmation Notifications:
 
-### `npm test`
+* After successful schedule creation, ScheduleMaster sends a confirmation notification to the user's email address.
+* All participants are promptly informed about the scheduled meeting.
+5. My Schedule Page:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Users are directed to the "My Schedule" page after receiving the confirmation notification.
+* This page provides a comprehensive overview of all scheduled meetings, allowing users to edit, delete, or copy schedules as needed.
+6. Team Collaboration:
 
-### `npm run build`
+* ScheduleMaster facilitates team collaboration through the "My Team" menu on the dashboard.
+* Users can create teams, enabling seamless coordination among team members for meetings and projects.
+7. Profile Management:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Users can view and manage their personal information through their profiles.
+* This feature ensures that user details remain up-to-date and accurate throughout the platform.
+8. Account Upgrades:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* ScheduleMaster offers users the ability to upgrade their accounts through the billing menu.
+* Upgraded accounts provide enhanced functionality and access to additional features tailored to specific user requirements.
+8. Blogging Capabilities:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Administrators can post new blogs on the ScheduleMaster webpage.
+* This feature allows for effective communication and information sharing with platform users.
+9. User Administration:
 
-### `npm run eject`
+* Administrators can assign admin privileges to other users, providing them with additional control and management capabilities.
+* An intuitive search functionality assists administrators in finding specific users quickly, with sorting and pagination features to enhance user management.
+10. Availability Overview:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* The Availability menu provides users with an at-a-glance view of the available time slots, facilitating efficient scheduling decisions.
+11. Chatbot Assistance:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* ScheduleMaster integrates a chatbot for emergency assistance, ensuring users can receive immediate support when required.
+12. Dark Mode:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* For user convenience and improved readability, ScheduleMaster implements a dark mode feature, reducing eye strain during prolonged usage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  
+## ScheduleMaster is the ideal solution for individuals and organizations seeking a reliable, user-friendly platform for meeting scheduling and collaboration. With its comprehensive range of features and seamless user experience, ScheduleMaster optimizes time management, enhances productivity, and simplifies the coordination of meetings and teams.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-"# ScheduPlannr" 
+## Technologies Used:
+* React
+* TypeScript
+* Tailwind CSS
+* Firebase
+* Node.js
+* Stripe JS
+* Framer Motion
+* Email JS
+* Nodemailer
+* Axios
+* React-data-table
+* MongoDB
